@@ -55,8 +55,6 @@ Visudo
 >testuser1 ALL=/usr/bin/apt-get 
 ```
 
-
-
 ## Share folders between users 
 ```sh
 # add a user to the group
@@ -67,7 +65,6 @@ sudo mkdir /shares
 sudo chgrp -R mygroup /shares 
 sudo chmod 2775 /shares  
 ```
-
 
 ## Resources
 

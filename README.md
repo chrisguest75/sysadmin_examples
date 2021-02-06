@@ -5,9 +5,7 @@ A repository for showing examples of sysadmin types tasks.
 1. Vagrant is a useful tool
 
 ## TODO
-* sambashares
 * wireguard
-* user creation and testing
 * mounts
 * rootless docker
 * lvm
@@ -17,5 +15,9 @@ A repository for showing examples of sysadmin types tasks.
 * pam
 
 ## Example 1 - Configure a simple sambashare
-Demonstrates how to create a simple sambashare
-Steps [README.md](./01_sambashare/README.md)  
+Demonstrates how to create a simple sambashare  
+Steps [README.md](./01_sambashare/README.md)    
+
+## Example 3 - User management 
+Demonstrates how to perform user management   
+Steps [README.md](./03_usermanagement/README.md)   

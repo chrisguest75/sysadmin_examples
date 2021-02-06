@@ -1,7 +1,35 @@
-kernel upgrades with ufe
+# README
+Demonstrates how to management various tasks with Apt
 
+NOTE: This is very ubuntu flavoured.   
 
-dist-upgrade
+TODO:
+* Pinning version 
+* Patching.  
 
+## Show out-of-date packages
+```sh
+sudo su
 
+apt update
+
+# show packages that can be upgraded
 apt list --upgradable
+```
+
+## Upgrade to next major release of the distro
+```sh
+dist-upgrade
+```
+
+## Switch the HWE Kernel
+Sometimes the version of the distro does not have the latest kernel features. This can be addressed by installing the HWE version. 
+
+```sh
+# kernel upgrades with hwe
+sudo apt-get install --install-recommends linux-generic-hwe-18.04 
+```
+
+
+
+

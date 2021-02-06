@@ -15,6 +15,11 @@ A repository for showing examples of sysadmin types tasks.
 * pam
 * screen
 * patching
+* swap
+* permissions 
+* update-grub
+* quotas /etc/security/limis.conf
+* lynis hardening
 
 ## Example 1 - Configure a simple sambashare
 Demonstrates how to create a simple sambashare  
@@ -28,3 +33,6 @@ Steps [README.md](./03_usermanagement/README.md)
 Demonstrates how to management various tasks with Apt
 Steps [README.md](./04_apt_management/README.md)  
 
+## Example 6 - Mounts
+Demonstrates how to mount filesystems  
+Steps [README.md](./06_mounts/README.md)   

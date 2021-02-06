@@ -12,6 +12,9 @@ A repository for showing examples of sysadmin types tasks.
 * rootless docker
 * lvm
 * iptables
+* certificate authority.
+* ssh
+* pam
 
 ## Example 1 - Configure a simple sambashare
 Demonstrates how to create a simple sambashare

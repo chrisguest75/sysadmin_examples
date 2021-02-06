@@ -70,9 +70,18 @@ Connect to the share from another computer
 Easiest is to use a GUI client and connect to 
 ```smb://[ip addr]/[name of share]```
 
+### Install
+```sh
+sudo apt install smbclient
+```
+
 ### Connect using shell
 ```sh
+# list the shares
+smbclient -L //[ip address] -U vagrant
 
+# connect to the sambashare
+smbclient //[ip address]/[sambashare] -U vagrant 
 ```
 
 ## Troubleshooting 

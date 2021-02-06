@@ -13,4 +13,6 @@ A repository for showing examples of sysadmin types tasks.
 * lvm
 * iptables
 
-
+## Example 1 - Configure a simple sambashare
+Demonstrates how to create a simple sambashare
+Steps [README.md](./01_sambashare/README.md)  

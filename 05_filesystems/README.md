@@ -1,29 +1,43 @@
 # README
+Demonstrates how to work with filesystems
 
+TODO:  
+* Read a file from disk using dd
+## Filesystems 
+```sh
+# man pages about filesystems 
+man -k filesystem
+```
 
-How do I find out the filesystems of my <mounted> drives? 
-
-Df -T 
-
-mount 
+Show the mounted filesystems
+```sh
+df -Th
+```
 
 Use blkid to show filesystem of unmounted drive. 
+```sh
+blkid
 
-?  Code blkid 
+# can use lsblk as well
+lsblk -f
+```
 
-Code where mkfs.fat
+## Supported fielsystems 
+
+```sh
+locate mkfs
+where mkfs
+```
 
 
+```sh
+# disk usage
+sudo du -csh /
+```
 
+## Fixing errors
+
+```sh
 sudo fsck --help 
+```
 
-
-du 
-
-
-dd read data
-
-fdisk 
-
-
-https://www.tecmint.com/create-virtual-harddisk-volume-in-linux/

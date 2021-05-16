@@ -2,7 +2,9 @@
 A repository for showing examples of sysadmin types tasks.
 
 ## Prequisites 
-1. Vagrant is a useful tool
+1. Vagrant is a useful tool  
+  
+My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.  
 
 ## TODO
 * wireguard
@@ -21,18 +23,22 @@ A repository for showing examples of sysadmin types tasks.
 * quotas /etc/security/limis.conf
 * lynis hardening
 
-## Example 1 - Configure a simple sambashare
+## Example 01 - Configure a simple sambashare
 Demonstrates how to create a simple sambashare  
 Steps [README.md](./01_sambashare/README.md)    
 
-## Example 3 - User management 
+## Example 03 - User management 
 Demonstrates how to perform user management   
 Steps [README.md](./03_usermanagement/README.md)  
 
-## Example 4 - Apt Management
+## Example 04 - Apt Management
 Demonstrates how to management various tasks with Apt
 Steps [README.md](./04_apt_management/README.md)  
 
-## Example 6 - Mounts
+## Example 05 - Filesyatems
+Demonstrates how to work with filesystems  
+Steps [README.md](./05_filesystems/README.md) 
+
+## Example 06 - Mounts
 Demonstrates how to mount filesystems  
 Steps [README.md](./06_mounts/README.md)   

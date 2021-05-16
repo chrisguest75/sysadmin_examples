@@ -98,5 +98,5 @@ smbpasswd --help
 ```
 
 ## Resources
-Ubuntu Sambashare [install-and-configure-samba](https://ubuntu.com/tutorials/install-and-configure-samba#1-overview)   
+* Ubuntu Sambashare [install-and-configure-samba](https://ubuntu.com/tutorials/install-and-configure-samba#1-overview)   
 

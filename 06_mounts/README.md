@@ -52,7 +52,7 @@ ls -la /mnt/vhd
 ```
 
 ## Resources
-[create-virtual-harddisk-volume-in-linux](https://www.tecmint.com/create-virtual-harddisk-volume-in-linux/)  
-[fstab](https://wiki.archlinux.org/index.php/Fstab)  
+* [create-virtual-harddisk-volume-in-linux](https://www.tecmint.com/create-virtual-harddisk-volume-in-linux/)  
+* [fstab](https://wiki.archlinux.org/index.php/Fstab)  
 
 

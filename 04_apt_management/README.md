@@ -9,10 +9,10 @@ TODO:
 
 ## Show out-of-date packages
 ```sh
+# root shell
 sudo su
-
+# update apt cache
 apt update
-
 # show packages that can be upgraded
 apt list --upgradable
 ```

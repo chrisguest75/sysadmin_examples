@@ -58,7 +58,7 @@ Visudo
 ## Share folders between users 
 ```sh
 # add a user to the group
-sudo usermod -aG mygroup your-user
+sudo usermod -aG mygroup $USER
 
 # create and share folder
 sudo mkdir /shares 

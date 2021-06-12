@@ -13,7 +13,6 @@ My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.
 * lvm
 * iptables
 * certificate authority.
-* ssh
 * pam
 * screen
 * patching
@@ -32,13 +31,18 @@ Demonstrates how to perform user management
 Steps [README.md](./03_usermanagement/README.md)  
 
 ## Example 04 - Apt Management
-Demonstrates how to management various tasks with Apt
+Demonstrates how to management various tasks with Apt  
 Steps [README.md](./04_apt_management/README.md)  
 
-## Example 05 - Filesyatems
+## Example 05 - Filesystems
 Demonstrates how to work with filesystems  
 Steps [README.md](./05_filesystems/README.md) 
 
 ## Example 06 - Mounts
 Demonstrates how to mount filesystems  
 Steps [README.md](./06_mounts/README.md)   
+
+## Example 07 - SSH
+Demonstrates how to configure and use ssh   
+Steps [README.md](./07_ssh/README.md)   
+

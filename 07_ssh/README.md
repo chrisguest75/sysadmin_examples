@@ -50,7 +50,9 @@ ssh-copy-id
 Copying local key to a vagrant box
 ```sh
 export VAGRANT_MACHINE=$(pwd)/.vagrant   
-echo $VAGRANT_MACHINE        
+echo export VAGRANT_MACHINE=$VAGRANT_MACHINE        
+
+VBoxManage guestproperty enumerate $(cat $VAGRANT_MACHINE/machines/default/virtualbox/id) | grep '\/1\/V4\/IP' | cut -f2 -d"," | cut -f2 -d ":"
 
 # 
 VBoxManage guestproperty enumerate $(cat $VAGRANT_MACHINE/machines/default/virtualbox/id) 

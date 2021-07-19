@@ -1,6 +1,13 @@
 # README
 Capture DNS requests in from pods to pods.
 
+TODO:
+* Install metrics endpoint
+* Add different rfc1035 records
+* Do a NS delegation
+* DNSSEC
+
+## CoreDNS Test
 ```sh
 # up and running
 docker compose --profile dns up -d --build   
@@ -27,14 +34,15 @@ docker compose logs client
 man tcpdump
 
 # start dump
-tcpdump -w /scratch/captures/dns.pcap &
+tcpdump -w /scratch/captures/dns.pcap not arp and not rarp &
 
 # perform queries
+dig @coredns -p 53 www.google.com
 dig @coredns -p 53 chrisguest.com 
 dig @coredns -p 53 host.chrisguest.com 
 dig @coredns -p 53 server.chrisguest.com 
 
-# brinig tcpdump back to foreground
+# bring tcpdump back to foreground
 fg
 ```
 
@@ -45,6 +53,7 @@ tcpdump -r ./captures/dns.pcap -XX
 tcpdump -r ./captures/dns.pcap -XX -S -e
 ```
 
+You can also drag and drop the pcap file into wireshark. 
 ## Cleanup
 ```sh
 # cleanup
@@ -55,3 +64,9 @@ docker compose --profile dns down
 * coredns docs [here](https://coredns.io/manual/toc/)  
 * running-coredns-as-a-dns-server-in-a-container-1d [here](https://dev.to/robbmanes/running-coredns-as-a-dns-server-in-a-container-1d0)  
 * corefile-explained [here](https://coredns.io/2017/07/23/corefile-explained/)  
+
+## RFC1035
+
+* File plugin docs [here](https://coredns.io/plugins/file/)  
+* RFC1035 [here](https://www.rfc-editor.org/rfc/rfc1035.txt)
+* Record formatting examples [here](https://www.cs.ait.ac.th/~on/O/oreilly/tcpip/dnsbind/appa_01.htm)  

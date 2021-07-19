@@ -2,9 +2,11 @@
 Capture DNS requests in from pods to pods.
 
 TODO:
-* Add different rfc1035 records
+* Add different rfc1035 records https://www.netmeister.org/blog/dns-rrs.html
 * Do a NS delegation
 * DNSSEC
+* Capture request from coredns to 1.1.1.1
+
 
 ## CoreDNS Test
 ```sh
@@ -20,9 +22,9 @@ dig @0.0.0.0 -p 8053 www.google.com
 curl 0.0.0.0:9153/metrics 
 curl 0.0.0.0:9253/metrics 
 
-
 # exec into client
 docker exec -it $(docker ps --filter name=07_coredns_tcpdump_client_1 -q) /bin/bash
+
 # inside client use resolver.
 dig coredns
 dig @coredns -p 53 host.chrisguest.com 
@@ -38,7 +40,7 @@ docker compose logs client
 # man pages
 man tcpdump
 
-# start dump
+# start dump capture
 tcpdump -w /scratch/captures/dns.pcap not arp and not rarp &
 
 # perform queries
@@ -59,16 +61,29 @@ tcpdump -r ./captures/dns.pcap -XX -S -e
 ```
 
 You can also drag and drop the pcap file into wireshark. 
+
+## Capture coredns forwarding
+Based on sidecar debugging example [here](https://github.com/chrisguest75/docker_build_examples)  
+```sh
+docker build -f ./client/Dockerfile.client -t client ./client
+docker run --privileged -it -v $(pwd)/captures:/scratch/captures --rm --pid=container:$(docker ps --filter name=07_coredns_tcpdump_coredns_1 -q) --name tcpdump_sidecar --entrypoint /bin/bash client
+# tcpdump from sidecar
+tcpdump -w /scratch/captures/coredns.pcap &
+docker stop $(docker ps --filter name=tcpdump_sidecar -q) 
+```
+
 ## Cleanup
 ```sh
 # cleanup
 docker compose --profile dns down
 ```
 # Resources
+* DNS RR [here](https://www.netmeister.org/blog/dns-rrs.html)  
 * dns-tcpdump [here](https://www.netmeister.org/blog/dns-tcpdump.html)  
 * coredns docs [here](https://coredns.io/manual/toc/)  
 * running-coredns-as-a-dns-server-in-a-container-1d [here](https://dev.to/robbmanes/running-coredns-as-a-dns-server-in-a-container-1d0)  
 * corefile-explained [here](https://coredns.io/2017/07/23/corefile-explained/)  
+* tcpdump cheatsheet [here](https://cdn.comparitech.com/wp-content/uploads/2019/06/tcpdump-cheat-sheet.jpg)  
 
 ## RFC1035
 

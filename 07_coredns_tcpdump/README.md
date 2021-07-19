@@ -2,7 +2,6 @@
 Capture DNS requests in from pods to pods.
 
 TODO:
-* Install metrics endpoint
 * Add different rfc1035 records
 * Do a NS delegation
 * DNSSEC
@@ -17,12 +16,18 @@ docker compose logs coredns
 dig @0.0.0.0 -p 8053 host.chrisguest.com 
 dig @0.0.0.0 -p 8053 www.google.com
 
+# check the metrics endpoints https://coredns.io/plugins/metrics/
+curl 0.0.0.0:9153/metrics 
+curl 0.0.0.0:9253/metrics 
+
+
 # exec into client
-docker exec -it $(docker ps --filter name=07_tcpdump_client_1 -q) /bin/bash
+docker exec -it $(docker ps --filter name=07_coredns_tcpdump_client_1 -q) /bin/bash
 # inside client use resolver.
 dig coredns
 dig @coredns -p 53 host.chrisguest.com 
 dig @coredns -p 53 server.chrisguest.com 
+dig @coredns -p 53 dns.chrisguest.com TXT
 
 # 
 docker compose logs client
@@ -41,7 +46,7 @@ dig @coredns -p 53 www.google.com
 dig @coredns -p 53 chrisguest.com 
 dig @coredns -p 53 host.chrisguest.com 
 dig @coredns -p 53 server.chrisguest.com 
-
+dig @coredns -p 53 dns.chrisguest.com TXT
 # bring tcpdump back to foreground
 fg
 ```

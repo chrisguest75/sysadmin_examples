@@ -4,7 +4,8 @@ services:
         command: -conf /root/Corefile
         ports:
             - 8053:53/udp
-            - 8080:80
+            - 9153:9153
+            - 9253:9253
         volumes:
             - ./Corefile:/root/Corefile
             - ./chrisguest.db:/root/chrisguest.db

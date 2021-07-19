@@ -5,7 +5,6 @@ TODO:
 * Add different rfc1035 records https://www.netmeister.org/blog/dns-rrs.html
 * Do a NS delegation
 * DNSSEC
-* Capture request from coredns to 1.1.1.1
 
 
 ## CoreDNS Test
@@ -65,10 +64,28 @@ You can also drag and drop the pcap file into wireshark.
 ## Capture coredns forwarding
 Based on sidecar debugging example [here](https://github.com/chrisguest75/docker_build_examples)  
 ```sh
+# build the tools container
 docker build -f ./client/Dockerfile.client -t client ./client
-docker run --privileged -it -v $(pwd)/captures:/scratch/captures --rm --pid=container:$(docker ps --filter name=07_coredns_tcpdump_coredns_1 -q) --name tcpdump_sidecar --entrypoint /bin/bash client
-# tcpdump from sidecar
-tcpdump -w /scratch/captures/coredns.pcap &
+
+# run the tools container (sharing pid and network namespaces)
+docker run --privileged -it -v $(pwd)/captures:/scratch/captures --rm --pid=container:$(docker ps --filter name=07_coredns_tcpdump_coredns_1 -q) --network=container:$(docker ps --filter name=07_coredns_tcpdump_coredns_1 -q) --name tcpdump_sidecar --entrypoint /bin/bash client
+
+# verify processes (in tcpdump_sidecar)
+ps -aux
+ip addr
+
+# should only see two containers (on host)
+docker network inspect 07_coredns_tcpdump_service_bridge
+
+# tcpdump from sidecar (on tcpdump_sidecar)
+tcpdump -w /scratch/captures/coredns.pcap not arp and not rarp &
+
+# make a dns request (on client)
+dig @coredns -p 53 www.google.com
+
+# analyse the dump
+tcpdump -r ./captures/coredns.pcap -XX -S -e
+
 docker stop $(docker ps --filter name=tcpdump_sidecar -q) 
 ```
 
@@ -90,3 +107,6 @@ docker compose --profile dns down
 * File plugin docs [here](https://coredns.io/plugins/file/)  
 * RFC1035 [here](https://www.rfc-editor.org/rfc/rfc1035.txt)
 * Record formatting examples [here](https://www.cs.ait.ac.th/~on/O/oreilly/tcpip/dnsbind/appa_01.htm)  
+
+## Network namespace
+* sharing-network-namespaces-in-docker [here](https://blog.mikesir87.io/2019/03/sharing-network-namespaces-in-docker/)  

@@ -19,24 +19,37 @@ dig @coredns -p 53 server.chrisguest.com
 
 # 
 docker compose logs client
-
-# cleanup
-docker compose --profile dns down
 ```
 
 ## Captures
 ```sh
+# man pages
+man tcpdump
+
+# start dump
 tcpdump -w /scratch/captures/dns.pcap &
-fg
+
+# perform queries
+dig @coredns -p 53 chrisguest.com 
 dig @coredns -p 53 host.chrisguest.com 
 dig @coredns -p 53 server.chrisguest.com 
 
-man tcpdump
+# brinig tcpdump back to foreground
+fg
+```
+
+Look at pcap file.
+```sh
 tcpdump -r ./captures/dns.pcap -vvv
 tcpdump -r ./captures/dns.pcap -XX
 tcpdump -r ./captures/dns.pcap -XX -S -e
 ```
 
+## Cleanup
+```sh
+# cleanup
+docker compose --profile dns down
+```
 # Resources
 * dns-tcpdump [here](https://www.netmeister.org/blog/dns-tcpdump.html)  
 * coredns docs [here](https://coredns.io/manual/toc/)  

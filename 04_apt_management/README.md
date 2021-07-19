@@ -1,6 +1,8 @@
 # README
 Demonstrates how to management various tasks with Apt
 
+More apt examples [35_apt_and_dpkg](https://github.com/chrisguest75/shell_examples/tree/58f1a38e1ef9d32574ec2ca587bef082c811b02e/35_apt_and_dpkg)  
+
 NOTE: This is very ubuntu flavoured.   
 
 TODO:

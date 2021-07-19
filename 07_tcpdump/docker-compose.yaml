@@ -1,0 +1,29 @@
+services:
+    coredns:
+        image: coredns/coredns
+        command: -conf /root/Corefile
+        ports:
+            - 8053:53/udp
+            - 8080:80
+        volumes:
+            - ./Corefile:/root/Corefile
+            - ./chrisguest.db:/root/chrisguest.db
+        networks:
+            - service_bridge    
+        profiles: [dns]
+
+    client:
+        build: 
+            context: ./client
+            dockerfile: Dockerfile.client
+        volumes:
+            - ./captures:/scratch/captures
+        networks:
+            - service_bridge
+        depends_on:
+            - coredns                                      
+        profiles: [dns]            
+
+networks:
+    service_bridge:
+        driver: bridge        

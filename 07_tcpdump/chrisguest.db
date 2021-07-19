@@ -1,0 +1,5 @@
+chrisguest.com.        IN  SOA dns.chrisguest.com. admin.chrisguest.com. 2015082541 7200 3600 1209600 3600
+
+dns.chrisguest.com.      IN  A   192.168.1.2
+host.chrisguest.com.    IN  A   192.168.1.10
+server.chrisguest.com.   IN  CNAME   host.chrisguest.com.  

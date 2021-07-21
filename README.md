@@ -42,7 +42,11 @@ Steps [README.md](./05_filesystems/README.md)
 Demonstrates how to mount filesystems  
 Steps [README.md](./06_mounts/README.md)   
 
-## Example 07 - SSH
+## Example 07 - Tcpdumping coredns
+Capture DNS requests in tcpdump from pods to pods.
+Steps [README.md](./07_coredns_tcpdump/README.md)   
+
+## Example 08 - SSH
 Demonstrates how to configure and use ssh   
-Steps [README.md](./07_ssh/README.md)   
+Steps [README.md](./08_ssh/README.md)   
 

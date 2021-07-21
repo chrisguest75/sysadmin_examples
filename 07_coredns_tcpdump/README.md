@@ -1,5 +1,5 @@
 # README
-Capture DNS requests in from pods to pods.
+Capture DNS requests in tcpdump from pods to pods.
 
 TODO:
 * Add different rfc1035 records https://www.netmeister.org/blog/dns-rrs.html

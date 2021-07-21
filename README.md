@@ -50,3 +50,6 @@ Steps [README.md](./07_coredns_tcpdump/README.md)
 Demonstrates how to configure and use ssh   
 Steps [README.md](./08_ssh/README.md)   
 
+## Example 10 - File permissions
+Demonstrates some examples of using file permissions  
+Steps [README.md](./10_file_permissions/README.md)   

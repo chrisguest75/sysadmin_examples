@@ -20,6 +20,7 @@ groupadd mygroup
 users  
 
 # list users  
+getent passwd
 cat /etc/passwd 
 
 # list groups user is in.  
@@ -28,9 +29,9 @@ groups
 # list groups user is in with id
 id 
 
-# list all of the groups.   
+# list all of the groups. Format "group_name:password:GID:user_list"
+getent group
 cat /etc/group  
-
 ```
 
 ## Switching users 
@@ -57,7 +58,7 @@ Visudo
 
 ## Share folders between users 
 ```sh
-# add a user to the group
+# add a user to the group generated above
 sudo usermod -aG mygroup $USER
 
 # create and share folder

@@ -14,7 +14,12 @@ mkdir -p ./out
 
 ```
 
+```sh
+# we can slurp all these back together
+./cve-summaries.sh --file=cves-critical.txt --action=cve | jq -s . 
+
+./cve-summaries.sh --file=cves-critical.txt --action=cve | jq -s . > ./out/critical.json 
+```
 
 ## Resources
-
-
+* CVSS calculator [here](https://www.first.org/cvss/calculator/3.0)

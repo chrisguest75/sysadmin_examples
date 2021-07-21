@@ -54,3 +54,6 @@ Steps [README.md](./08_ssh/README.md)
 Demonstrates a script that will take a list of CVE and get the descriptions  
 Steps [README.md](./09_cve_processing/README.md)   
 
+## Example 10 - File permissions
+Demonstrates some examples of using file permissions  
+Steps [README.md](./10_file_permissions/README.md)   

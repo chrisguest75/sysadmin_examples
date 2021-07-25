@@ -1,10 +1,10 @@
 # README
 Demonstrate using nmap to port scan services
 
-# Install the framework
+TODO:
+* Detect CVE on nginx - is it possible to exploit it? 
 
-
-### Sharing network namespace
+## Sharing network namespace
 ```sh
 docker compose config --profiles
 
@@ -35,9 +35,28 @@ curl 0.0.0.0:80
 ```sh
 nmap --version
 
+# show built in scripts
+ls -1 /usr/share/nmap/scripts
+
+# scan the services inside the current network namespace
 nmap -sV 0.0.0.0
 
+# scan the host (docker for mac)
+nmap -sV host.docker.internal
+
+# scan nginx port
 nmap -p 80 -sV -A 0.0.0.0
+
+# give a list back of the CVE 
+nmap -p 80 -sV -A 0.0.0.0 --script vulners 
+
+# script help
+nmap --script-help vulners
+
+# vulscan
+git clone https://github.com/scipag/vulscan scipag_vulscan
+ln -s `pwd`/scipag_vulscan /usr/share/nmap/scripts/vulscan    
+nmap -sV --script=vulscan/vulscan.nse 0.0.0.0 
 ```
 
 ### Cleanup nginx
@@ -45,14 +64,13 @@ nmap -p 80 -sV -A 0.0.0.0
 docker compose --profile nginx down    
 ```
 
-
-
 # Resources
+## Documentation
+* NMap site [here](https://nmap.org/)  
+* NMap Book [here](https://nmap.org/book/toc.html)  
+* Tutorial [here](https://hackertarget.com/nmap-tutorial/)
 
-https://nmap.org/
-https://nmap.org/book/toc.html
-https://hackertarget.com/nmap-tutorial/
-
-
-https://github.com/vulnersCom/nmap-vulners
-https://github.com/scipag/vulscan
+## Vulnerability Scanning
+* nmap-vulners [here](https://github.com/vulnersCom/nmap-vulners)
+* vulscan [here](https://github.com/scipag/vulscan)  
+* 12 useful scripts [here](https://research.securitum.com/nmap-and-12-useful-nse-scripts/)  

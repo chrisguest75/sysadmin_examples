@@ -57,3 +57,7 @@ Steps [README.md](./09_cve_processing/README.md)
 ## Example 10 - File permissions
 Demonstrates some examples of using file permissions  
 Steps [README.md](./10_file_permissions/README.md)   
+
+## Example 12 - NMap
+Demonstrate using nmap to port scan services  
+Steps [README.md](./12_nmap/README.md)   

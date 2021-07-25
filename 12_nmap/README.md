@@ -42,6 +42,7 @@ ls -1 /usr/share/nmap/scripts
 nmap -sV 0.0.0.0
 
 # scan the host (docker for mac)
+ping host.docker.internal
 nmap -sV host.docker.internal
 
 # scan nginx port

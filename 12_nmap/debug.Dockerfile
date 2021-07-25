@@ -8,7 +8,7 @@ RUN adduser --system --uid $USERID --gid $GROUPID nodeuser
 
 RUN apt-get update && apt-get install htop --no-install-recommends -y 
 RUN apt-get install curl lsof strace nano tcpdump iproute2 dnsutils -y
-RUN apt-get install git nmap -y
+RUN apt-get install git nmap iputils-ping -y
 RUN apt-get install apt-file --no-install-recommends -y
 RUN apt-file update
 

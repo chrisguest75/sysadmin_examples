@@ -1,0 +1,23 @@
+services:
+    nginx:
+        image: nginx:1.15.3
+        ports:
+            - 8080:80
+        networks:
+            - service_bridge    
+        profiles: [nginx]  
+
+    debug_nginx:
+        build: 
+            context: .
+            dockerfile: debug.Dockerfile
+        command: [ "/bin/sh", "-c", "sleep infinity" ]  
+        pid: "container:12_nmap_nginx_1" 
+        network_mode: service:nginx
+        depends_on:
+            - nginx    
+        profiles: [nginx]          
+
+networks:
+    service_bridge:
+        driver: bridge  

@@ -1,0 +1,12 @@
+services:
+    nginx:
+        image: nginx:1.15.3
+        ports:
+            - 8080:80
+        networks:
+            - service_bridge    
+        profiles: [nginx]  
+
+networks:
+    service_bridge:
+        driver: bridge  

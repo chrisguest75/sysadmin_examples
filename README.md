@@ -66,3 +66,6 @@ Steps [README.md](./12_nmap/README.md)
 Demonstrates how to get a VS Code Server running on machine so an IPad can connect to it.  
 Steps [README.md](./13_code_server/README.md)   
 
+## Example 14 - Interrogate Resources
+Demonstrate how to use various commands to verify resource usage in the OS.  
+Steps [README.md](./14_interrogate_resources/README.md)   

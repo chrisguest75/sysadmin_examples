@@ -11,7 +11,7 @@ nmap -sn 192.168.1.0/24
 ```
 
 ```sh
-# locate my local dhcp server
+# locate my local dhcp server (macosx)
 ipconfig getpacket en0
 ```
 

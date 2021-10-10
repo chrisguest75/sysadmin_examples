@@ -1,5 +1,5 @@
 # README
-Demonstrates how to get a VS Code Server running on machine so an iPad can connect to it. 
+Demonstrates how to get a VS Code Server running on machine so an iPad can connect to it.  
 
 NOTES:
 * It works best in `Safari` when you add the app to the `homescreen`
@@ -24,9 +24,9 @@ Safari:
 ## Setup
 The code server repo is available [here](https://github.com/cdr/code-server)  
 
-Some install and configuration instructions can also be found [here] (https://coder.com/docs/code-server/v3.12.0/install). 
+Some install and configuration instructions can also be found [here](https://coder.com/docs/code-server/v3.12.0/install).  
 
-Install and run this on a local linux server
+Install and run this on a local linux server.  I used `WebSSH` app to connect to perform the installation.   
 ```sh
 # dry run
 curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run
@@ -52,6 +52,7 @@ sudo systemctl enable —now code-server@$USER
 cat ~/.config/code-server/config.yaml                                               
 ```
 
+config.yaml   
 ```yaml 
 bind-addr: 192.168.1.xxx:12000
 auth: password

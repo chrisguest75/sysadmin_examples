@@ -4,7 +4,7 @@ Demonstrates how to get a VS Code Server running on machine so an iPad can conne
 NOTES:
 * It works best in `Safari` when you add the app to the `homescreen`
 * Set the text size on `Display & Brightness` to be smaller
-* Set the `settings.json` 
+* Set the `settings.json` in vscode
 
 
 TODO:
@@ -19,7 +19,7 @@ Chrome:
 
 Safari:
 * Lose some of bottom of screen to keyboard overlay
-
+* If you turn off the iPad you sometimes have to connect back to `192.168.1.xxx:12000` using `Chrome`
 
 ## Setup
 The code server repo is available [here](https://github.com/cdr/code-server)  

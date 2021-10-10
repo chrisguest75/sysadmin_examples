@@ -1,18 +1,32 @@
 # README
-Demonstrates how to get a VS Code Server running on machine so an IPad can connect to it. 
+Demonstrates how to get a VS Code Server running on machine so an iPad can connect to it. 
+
+NOTES:
+* It works best in `Safari` when you add the app to the `homescreen`
+* Set the text size on `Display & Brightness` to be smaller
+* Set the `settings.json` 
+
 
 TODO:
 * Had some issues with copy paste
-* Configuring extensions
+* Configuring extensions 
 * Get the dockerised version running.
+* Preview in markdown does not work.
+
+Chrome:
+* Zoom or fullscreen does not work in chrome
+* Lose some of bottom of screen to keyboard overlay
+
+Safari:
+* Lose some of bottom of screen to keyboard overlay
+
 
 ## Setup
 The code server repo is available [here](https://github.com/cdr/code-server)  
 
-https://coder.com/docs/code-server/v3.12.0/install
+Some install and configuration instructions can also be found [here] (https://coder.com/docs/code-server/v3.12.0/install). 
 
-
-Install and run this on a local server
+Install and run this on a local linux server
 ```sh
 # dry run
 curl -fsSL https://code-server.dev/install.sh | sh -s -- --dry-run

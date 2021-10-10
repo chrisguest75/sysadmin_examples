@@ -1,0 +1,11 @@
+# README
+Demonstrates some examples with `systemd`
+
+Creating a `systemd service` example [22_systemd_service](https://github.com/chrisguest75/shell_examples/tree/master/22_systemd_service/README.md).  
+Some `journalctl` examples [here](https://github.com/chrisguest75/shell_examples/blob/master/27_journalctl/README.md).  
+
+
+
+# Resources
+
+* `cheatsheet systemd`   

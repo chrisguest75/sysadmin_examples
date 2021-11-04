@@ -69,3 +69,7 @@ Steps [README.md](./13_code_server/README.md)
 ## Example 14 - Interrogate Resources
 Demonstrate how to use various commands to verify resource usage in the OS.  
 Steps [README.md](./14_interrogate_resources/README.md)   
+
+## Example 15 - GPG Signing
+Signing verified commits with gpg 
+Steps [README.md](./15_code_server/README.md)   

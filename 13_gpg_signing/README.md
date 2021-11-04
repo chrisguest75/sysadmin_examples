@@ -67,6 +67,9 @@ smimesign --list-keys
 
 
 # Resources 
+https://juliansimioni.com/blog/troubleshooting-gpg-git-commit-signing/
+
+https://thecesrom.dev/2021/01/27/troubleshooting-gpg-signed-commits-on-macos/
 
 
 https://www.gnupg.org/download/

@@ -6,7 +6,7 @@ TODO:
 * smimesign
 * Codespaces 
 * Web commits
-* multiple machines
+* Multiple machines
 * Has the key been published publically? 
 
 ## Install gpg
@@ -37,43 +37,26 @@ gpg --list-secret-keys --keyid-format=long
 gpg --armor --export XXXXXXXXXXXXXXXX
 ```
 
-Copy the key to GPG keys.  It seems you cannot name them in github.  
+Copy the key to GPG keys.  
+Unfortunately it seems you cannot name the keys in github.  
 
-
-## Configure git (smime)
-Unsure if smime is required. 
-https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key
-
+## Configure git 
 ```sh
-git --version 
+# copy signing key into config 
+gpg --list-secret-keys --keyid-format=long  
+git config --local user.signingkey XXXXXXXXXXXXXXXX 
 
-https://github.com/github/smimesign
+# apparently the tty has to be set (should be added to profile)
+export GPG_TTY=$(tty)        
 
-brew install smimesign   
-
-git config --local --list        
-
-git config --local gpg.x509.program smimesign  
-git config --local gpg.format x509             
-git config --local user.email chrisguest75@users.noreply.github.com  
-
-git config --get user.email    
-smimesign --list-keys   
+# Add files, commit and push.  
+git add .
+git commit -S -m "Add some files" 
+git push 
 ```
 
-
-
-
-
-
 # Resources 
-https://juliansimioni.com/blog/troubleshooting-gpg-git-commit-signing/
-
-https://thecesrom.dev/2021/01/27/troubleshooting-gpg-signed-commits-on-macos/
-
-
-https://www.gnupg.org/download/
-
-https://docs.github.com/en/github/authenticating-to-github/managing-commit-signature-verification
-
+* [troubleshooting-gpg-git-commit-signing](https://juliansimioni.com/blog/troubleshooting-gpg-git-commit-signing/)
+* [troubleshooting-gpg-signed-commits-on-macos](https://thecesrom.dev/2021/01/27/troubleshooting-gpg-signed-commits-on-macos/)
+* [sign-git-commits-on-github-with-gpg-in-macos](https://samuelsson.dev/sign-git-commits-on-github-with-gpg-in-macos/)
 

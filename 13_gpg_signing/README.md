@@ -43,7 +43,7 @@ Unfortunately it seems you cannot name the keys in github.
 ## Configure git 
 ```sh
 # set noreply email
-git config --local user.email=chrisguest75@users.noreply.github.com
+git config --local user.email chrisguest75@users.noreply.github.com
 
 # copy signing key into config 
 gpg --list-secret-keys --keyid-format=long  

@@ -1,11 +1,5 @@
 # README
-Signing commits with gpg
-
-STATUS:
-* Code/Scratch/sysadmin_examples is locally configured to use s/mime
-* Not sure if I need to do this.  
-* Need to reset local config `git config --local --list`  
-
+Signing verified commits with gpg
 
 TODO:
 * s/MIME
@@ -13,8 +7,10 @@ TODO:
 * Codespaces 
 * Web commits
 * multiple machines
+* Has the key been published publically? 
 
 ## Install gpg
+Instal gpg tooling
 ```sh
 brew install gpg            
 gpg --version       
@@ -23,34 +19,31 @@ gpg --version
 open https://www.gnupg.org/download/
 ```
 
-
 ## Create gpg key and set on github
+Create the gpg locally [here](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+
 ```sh
+# check if you have a key already
 gpg --list-secret-keys --keyid-format=long  
 
-Generating a key
-https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key
-
+# generate a key - use noreply chrisguest75@users.noreply.github.com
+# enter a passphrase
 gpg --default-new-key-algo rsa4096 --gen-key
 
-Use noreply
-chrisguest75@users.noreply.github.com
+# see generated keys
+gpg --list-secret-keys --keyid-format=long  
 
-Enter passphrase
-
-
+# export the key in armor format to be imported into github
 gpg --armor --export XXXXXXXXXXXXXXXX
 ```
 
 Copy the key to GPG keys.  It seems you cannot name them in github.  
 
-Has the key been published? 
 
-
+## Configure git (smime)
+Unsure if smime is required. 
 https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key
 
-## Configure git
-Unsure if smime is required. 
 ```sh
 git --version 
 

@@ -61,6 +61,8 @@ git push
 Automatic signing 
 ```sh
 git config --local commit.gpgsign true    
+
+git config --local --list
 ```
 
 

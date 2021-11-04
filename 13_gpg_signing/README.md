@@ -45,7 +45,7 @@ Unfortunately it seems you cannot name the keys in github.
 # copy signing key into config 
 gpg --list-secret-keys --keyid-format=long  
 git config --local user.signingkey XXXXXXXXXXXXXXXX 
-
+    
 # apparently the tty has to be set (should be added to profile)
 export GPG_TTY=$(tty)        
 
@@ -53,6 +53,11 @@ export GPG_TTY=$(tty)
 git add .
 git commit -S -m "Add some files" 
 git push 
+```
+
+Automatic signing 
+```sh
+git config --local commit.gpgsign true    
 ```
 
 # Resources 

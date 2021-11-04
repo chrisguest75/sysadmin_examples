@@ -60,6 +60,17 @@ Automatic signing
 git config --local commit.gpgsign true    
 ```
 
+
+## Configure vscode
+Follow the instructions [here](https://dev.to/devmount/signed-git-commits-in-vs-code-36do)
+
+In `settings.json`
+```json
+{
+    "git.enableCommitSigning": true
+}
+```
+
 # Resources 
 * [troubleshooting-gpg-git-commit-signing](https://juliansimioni.com/blog/troubleshooting-gpg-git-commit-signing/)
 * [troubleshooting-gpg-signed-commits-on-macos](https://thecesrom.dev/2021/01/27/troubleshooting-gpg-signed-commits-on-macos/)

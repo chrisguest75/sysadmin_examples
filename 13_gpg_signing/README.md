@@ -42,6 +42,9 @@ Unfortunately it seems you cannot name the keys in github.
 
 ## Configure git 
 ```sh
+# set noreply email
+git config --local user.email=chrisguest75@users.noreply.github.com
+
 # copy signing key into config 
 gpg --list-secret-keys --keyid-format=long  
 git config --local user.signingkey XXXXXXXXXXXXXXXX 
@@ -70,6 +73,14 @@ In `settings.json`
     "git.enableCommitSigning": true
 }
 ```
+
+## Git checking 
+```sh
+# show signatures on commits 
+git log --show-signature -n 10
+```
+
+
 
 # Resources 
 * [troubleshooting-gpg-git-commit-signing](https://juliansimioni.com/blog/troubleshooting-gpg-git-commit-signing/)

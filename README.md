@@ -24,6 +24,8 @@ My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.
 * update-grub
 * quotas /etc/security/limis.conf
 * lynis hardening
+* x11
+* qemu
 
 ## Example 01 - Configure a simple sambashare
 

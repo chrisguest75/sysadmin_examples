@@ -1,12 +1,26 @@
 # README
 
-# Install the framework
+Demonstrate how to use `metasploit` to scan for vulnerabilities
+
+## Install the framework
+
+To get the installer for the framework goto the nightly installers [here](https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers)
 
 ```sh
+# configure a new database
 msfconsole
+
+# update a previously installed msf
+msfupdate
+
+# view a list of tips
 tips
 
+# show a list of exploits
+show exploits
 ```
+
+## Host an exploitable container
 
 ```sh
 docker-compose --profile nginx up -d 
@@ -16,17 +30,45 @@ docker-compose --profile nginx up -d
 db_nmap -v -sV 0.0.0.0
 ```
 
-# Resources
+## Resources
 
-Metasploit - https://jonathansblog.co.uk/metasploit-tutorial-for-beginners 
+* Metasploit tutorial [here](https://jonathansblog.co.uk/metasploit-tutorial-for-beginners)
 
 https://jonathansblog.co.uk/how-to-use-metasploit-to-scan-for-vulnerabilities
 
 
 https://github.com/rapid7/metasploit-framework 
 
-https://github.com/rapid7/metasploit-framework/wiki/Nightly-Installers 
 
 https://www.rapid7.com/db/?
 
 https://stack.watch/product/nginx/nginx/
+
+
+https://null-byte.wonderhowto.com/how-to/use-metasploits-database-stay-organized-store-information-while-hacking-0192643/
+
+https://websploit.org/
+
+Metasploitable.
+
+Metasploit. 
+==============================
+
+Use an exploit - buffer overflow
+Payload - Gets you a shell or whatever you wish
+
+msfconsole
+show exploits
+info windows/dcerpc/ms03_026_dcom
+use <exploit>
+set RHOST <target host>
+show payloads
+set PAYLOAD 
+exploit
+
+This guy uses metasploit to do it.  
+http://www.darkoperator.com/blog/2009/12/11/enumeration-thru-dns-and-metasploit.html
+
+
+https://github.com/The-Art-of-Hacking/h4cker
+

@@ -75,6 +75,11 @@ Steps [README.md](./10_file_permissions/README.md)
 Demonstrate some network discovery examples  
 Steps [README.md](./11_nmap_scanning/README.md)  
 
+## Example 11 - Metasploit
+
+Demonstrate how to use `metasploit` to scan for vulnerabilities.  
+Steps [README.md](./11_metasploit/README.md)  
+
 ## Example 12 - NMap Vulnerability Scanning
 
 Demonstrate using nmap to port scan services  

@@ -20,7 +20,7 @@ My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.
 * screen
 * patching
 * swap
-* permissions 
+* permissions
 * update-grub
 * quotas /etc/security/limis.conf
 * lynis hardening
@@ -75,15 +75,11 @@ Steps [README.md](./10_file_permissions/README.md)
 Demonstrate some network discovery examples  
 Steps [README.md](./11_nmap_scanning/README.md)  
 
-## Example 11 - Metasploit
+## Example 12 - Endpoint Vulnerability Scanning
 
-Demonstrate how to use `metasploit` to scan for vulnerabilities.  
-Steps [README.md](./11_metasploit/README.md)  
-
-## Example 12 - NMap Vulnerability Scanning
-
-Demonstrate using nmap to port scan services  
-Steps [README.md](./12_nmap_vulnerability_scanning/README.md)  
+Demonstrate how to use `metasploit` and `nmap` to scan for vulnerabilities.  
+Steps [METASPLOIT.md](./12_endpoint_vulnerability_scanning/METASPLOIT.md)  
+Steps [NMAP.md](./12_endpoint_vulnerability_scanning/NMAP.md)  
 
 ## Example 13 - Code Server
 

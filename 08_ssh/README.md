@@ -1,8 +1,11 @@
 # README
-Demonstrates how to configure and use ssh 
 
-TODO: 
+Demonstrates how to configure and use ssh
+
+TODO:
+
 * Decoding the private and public keys
+
 ## Install
 
 ```sh
@@ -11,7 +14,8 @@ apt install openssh-client
 apt install openssh-server
 ```
 
-## Config 
+## Config
+
 ```sh
 # client config 
 cat /etc/ssh/ssh_config           
@@ -26,7 +30,20 @@ cat ~/.ssh/known_hosts
 cat ~/.ssh/authorized_keys
 ```
 
-## Generate keys 
+## SSH Config
+
+When using `VSCode` you may need to setup the SSH config file
+
+```ini
+Host bigmonga
+    HostName 192.168.1.222
+    StrictHostKeyChecking no
+    User chrisguest
+    ForwardAgent yes
+```
+
+## Generate keys
+
 ```sh
 # generate an ecc key
 ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519  
@@ -40,6 +57,7 @@ ssh-keygen -l -f ~/.ssh/id_ed25519
 ```
 
 ## Agent
+
 ```sh
 # add default key
 ssh-add
@@ -50,14 +68,15 @@ ssh-add -l
 ssh-agent
 ```
 
-
 ## Distribute public keys to VMs
+
 ```sh
 # copy using tool
 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@ip
 ```
 
 Copying local key to a vagrant box
+
 ```sh
 # Get the vagrant folder
 export VAGRANT_MACHINE=$(pwd)/.vagrant   
@@ -84,4 +103,7 @@ ssh -A vagrant@$VAGRANT_MACHINE_IP
 
 ## Resources
 
-
+* man ssh_config(5) [here](http://www.manpagez.com/man/5/ssh_config/)
+* Generating a new SSH key and adding it to the ssh-agent[here]](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* SSH CHEATSHEET [here](https://cheatsheet.dennyzhang.com/cheatsheet-ssh-a4)
+* `cheatsheet ssh`

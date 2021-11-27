@@ -4,6 +4,11 @@ Demonstrates how to create a simple samba file share
 
 NOTE: Easiest to use a Vagrant box.
 
+TODO:
+
+* Rotate password for share
+* Access logs
+
 ## Install and create samba share
 
 ```sh

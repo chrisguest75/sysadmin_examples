@@ -15,6 +15,21 @@ cat /etc/default/nfs-common
 apt-file list nfs-kernel-server
 ```
 
+```sh
+mkdir -p /srv/nfs4/nfs_videoshare
+sudo mount --bind /home/chrisguest/shares/videoshare /srv/nfs4/nfs_videoshare
+
+# 
+cat /etc/exports
+```
+
+```ini
+/srv/nfs4         192.168.1.0/24(rw,sync,no_subtree_check,crossmnt,fsid=0)
+/srv/nfs4/backups 192.168.1.0/24(ro,sync,no_subtree_check) 
+```
+
+sudo exportfs -ar
+sudo exportfs -v
 
 
 ## Resources

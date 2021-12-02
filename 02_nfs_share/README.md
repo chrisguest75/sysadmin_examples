@@ -4,6 +4,8 @@ Create a basic NFS share.
 
 ## Resources
 
+https://linuxize.com/post/how-to-install-and-configure-an-nfs-server-on-ubuntu-20-04/
+
 https://askubuntu.com/questions/7117/which-to-use-nfs-or-samba
 
 https://vitux.com/install-nfs-server-and-client-on-ubuntu/

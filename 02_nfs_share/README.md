@@ -61,8 +61,8 @@ sudo systemctl restart nfs-kernel-server
 ## Mount a folder into mounted folder
 
 ```sh
-# bind mount on the server
-sudo mount --bind /home/chrisguest/shares/videoshare /mnt/nfs_share
+# bind mount on the server 
+sudo mount --bind /home/chrisguest/shares/share1 /mnt/nfs_share
 ```
 
 ## Configure clients
@@ -136,6 +136,3 @@ sudo umount /mnt/nfs_share
 * General troubleshooting recommendations [here](http://wiki.linux-nfs.org/wiki/index.php/General_troubleshooting_recommendations)
 * NFS/Troubleshooting [here](https://wiki.archlinux.org/title/NFS/Troubleshooting)
 * Operation Not Permitted Mounting NFS Share on OS X Mountain Lion [here](https://thornelabs.net/posts/operation-not-permitted-mounting-nfs-share-on-os-x-mountain-lion.html)
-
-
-

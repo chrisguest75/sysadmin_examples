@@ -2,7 +2,24 @@
 
 Create a basic NFS share.
 
+```sh
+sudo apt update
+sudo apt install nfs-kernel-server
+```
+
+```sh
+sudo cat /proc/fs/nfsd/versions
+
+cat /etc/default/nfs-kernel-server
+cat /etc/default/nfs-common
+apt-file list nfs-kernel-server
+```
+
+
+
 ## Resources
+
+https://unix.stackexchange.com/questions/198590/what-is-a-bind-mount
 
 https://linuxize.com/post/how-to-install-and-configure-an-nfs-server-on-ubuntu-20-04/
 

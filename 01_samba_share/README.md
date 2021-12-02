@@ -116,6 +116,10 @@ Use +k in finder to open the share dialog - use ```smb://[ip addr]/[name of shar
 ls /Volumes/[name of share]   
 ```
 
+## Connect using IOS Files
+
+Use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.
+
 ## Troubleshooting
 
 ```sh

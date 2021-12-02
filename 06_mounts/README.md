@@ -1,5 +1,6 @@
 # README
-Demonstrates how to mount filesystems 
+
+Demonstrates how to mount filesystems
 
 ## Create a virtual hard drive
 
@@ -26,6 +27,7 @@ df -hT
 ```
 
 ## Permanent mount
+
 Permanent mounts are handled by fstab  
 
 ```NOTE:``` Skip to remove before trying this  
@@ -45,6 +47,7 @@ ls -la /mnt/vhd
 ```
 
 ## Remove mount
+
 ```sh
 sudo umount /mnt/vhd
 df -hT
@@ -52,7 +55,6 @@ ls -la /mnt/vhd
 ```
 
 ## Resources
-* [create-virtual-harddisk-volume-in-linux](https://www.tecmint.com/create-virtual-harddisk-volume-in-linux/)  
+
+* How to Create a Virtual HardDisk Volume Using a File in Linux [here](https://www.tecmint.com/create-virtual-harddisk-volume-in-linux/)  
 * [fstab](https://wiki.archlinux.org/index.php/Fstab)  
-
-

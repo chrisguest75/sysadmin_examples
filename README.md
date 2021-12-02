@@ -32,7 +32,12 @@ My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.
 Demonstrates how to create a simple sambashare  
 Steps [README.md](./01_sambashare/README.md)  
 
-## Example 03 - User management 
+## Example 02 - Configure a simple NFS share
+
+Create a basic NFS share and demonstrate client connectivity.  
+Steps [README.md](./02_nfs_share/README.md)  
+
+## Example 03 - User management
 
 Demonstrates how to perform user management  
 Steps [README.md](./03_usermanagement/README.md)  

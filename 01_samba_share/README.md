@@ -1,10 +1,23 @@
 # README
-Demonstrates how to create a simple sambashare
 
-NOTE: Easiest to use a Vagrant box. 
+Demonstrates how to create a simple samba file share
+
+NOTE: Easiest to use a Vagrant box.
+
+TODO:
+
+* Rotate password for share
+* Access logs
 
 ## Install and create samba share
+
 ```sh
+# check files it will install using apt-file
+apt-file list samba
+
+# is samba already installed 
+apt list --installed | grep samba
+
 sudo apt install samba
 ```
 
@@ -16,23 +29,29 @@ whereis samba
 cat /etc/samba/smb.conf   
 
 # create a folder to share
-mkdir -p /home/$(whoami)/sambashare
+mkdir -p /home/$(whoami)/shares/sambashare
 ```
 
-Add the following config to /etc/samba/smb.conf   
+Add the following config to /etc/samba/smb.conf.  Replace \[username\] with your username.  
+
+```sh
+# edit config file
+nano /etc/samba/smb.conf
+```
+
 ```ini
 [sambashare]
-	comment = Samba on ubuntu
-	path = /home/[username]/sambashare
-	read only = no
-	browsable = yes
+    comment = Samba on ubuntu
+    path = /home/[username]/shares/sambashare
+    read only = no
+    browsable = yes
 ```
 
 ```sh
 # reload the config
 sudo service smbd restart
 
-# list apss for the firewall
+# list apps for the firewall
 sudo ufw app list
 
 # should show something like
@@ -64,27 +83,44 @@ sudo smbpasswd -a [a share username]
 ip addr
 ```
 
-## Samba Client 
+## Samba Client (shell)
+
 Connect to the share from another computer
 
-Easiest is to use a GUI client and connect to 
+Easiest is to use a GUI client and connect to
 ```smb://[ip addr]/[name of share]```
 
 ### Install
+
 ```sh
+# debian
 sudo apt install smbclient
 ```
 
 ### Connect using shell
+
 ```sh
 # list the shares
 smbclient -L //[ip address] -U vagrant
 
-# connect to the sambashare
-smbclient //[ip address]/[sambashare] -U vagrant 
+# connect to the "sambashare"
+smbclient //[ip address]/sambashare -U vagrant 
 ```
 
-## Troubleshooting 
+## Connect using MacOSX Finder
+
+Use +k in finder to open the share dialog - use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.
+
+```sh
+# mounted under /Volumes
+ls /Volumes/[name of share]   
+```
+
+## Connect using IOS Files
+
+Use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.
+
+## Troubleshooting
 
 ```sh
 # list users
@@ -98,5 +134,5 @@ smbpasswd --help
 ```
 
 ## Resources
-* Ubuntu Sambashare [install-and-configure-samba](https://ubuntu.com/tutorials/install-and-configure-samba#1-overview)   
 
+* Ubuntu Sambashare [install-and-configure-samba](https://ubuntu.com/tutorials/install-and-configure-samba#1-overview)

@@ -47,6 +47,8 @@ dd if=/usr/share/qemu-efi-aarch64/QEMU_EFI.fd of=flash0.img conv=notrunc
 wget http://ports.ubuntu.com/ubuntu-ports/dists/bionic-updates/main/installer-arm64/current/images/netboot/mini.iso
 
 # prepare image
+mkdir -p aarch64image
+cd ./aarch64image
 qemu-img create ubuntu-image.img 20G
 
 # install (this takes a long time and requires input)
@@ -66,44 +68,18 @@ qemu-system-aarch64 -nographic -machine virt,gic-version=max -m 512M -cpu max -s
 -drive file=flash0.img,format=raw,if=pflash -drive file=flash1.img,format=raw,if=pflash 
 ```
 
-
-
-
-## Resources
-* https://www.qemu.org/docs/master/
-
-* [RASPBERRY PI ON QEMU](https://azeria-labs.com/emulate-raspberry-pi-with-qemu/)
-* [Docker over SSH & Qemu : Replacing Docker for Mac](https://dev.to/jillesvangurp/docker-over-qemu-on-a-mac-1ajp)
-* [How to launch ARM aarch64 VM with QEMU from scratch.](https://futurewei-cloud.github.io/ARM-Datacenter/qemu/how-to-launch-aarch64-vm/)
-https://libvirt.org/
-
-https://raspberrypi.stackexchange.com/questions/117234/how-to-emulate-raspberry-pi-in-qemu
-https://superuser.com/questions/1087859/how-to-quit-the-qemu-monitor-when-not-using-a-gui
-
-
+## Querying KVM
 
 ```sh
-mkdir ./qemu_vm
-cd ./qemu_vm
-
-curl -o 2021-10-30-raspios-bullseye-arm64.zip https://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2021-11-08/2021-10-30-raspios-bullseye-arm64.zip
-
-unzip ./2021-10-30-raspios-bullseye-arm64.zip
-
-fdisk -l ./2021-10-30-raspios-bullseye-arm64.img
-
-echo $((512 * 532480))
-
-sudo mkdir -p /mnt/raspbian
-
-sudo mount -v -o offset=272629760 -t ext4 ./2021-10-30-raspios-bullseye-arm64.img /mnt/raspbian
-
-
-# edits
-
-
-sudo umount /mnt/raspbian
-
-qemu-system-arm -kernel ~/qemu_vms/raspbian -cpu arm1176 -m 256 -M versatilepb -serial stdio -append "root=/dev/sda2 rootfstype=ext4 rw" -hda ./qemu_vms/2021-10-30-raspios-bullseye-arm64.img -redir tcp:5022::22 -no-reboot
-
+sudo apt install libvirt-clients 
 ```
+
+## Resources
+
+* Welcome to QEMU’s documentation! [here](https://www.qemu.org/docs/master/)
+* RASPBERRY PI ON QEMU [here](https://azeria-labs.com/emulate-raspberry-pi-with-qemu/)
+* Docker over SSH & Qemu : Replacing Docker for Mac [here](https://dev.to/jillesvangurp/docker-over-qemu-on-a-mac-1ajp)
+* How to launch ARM aarch64 VM with QEMU from scratch. [here](https://futurewei-cloud.github.io/ARM-Datacenter/qemu/how-to-launch-aarch64-vm/)
+* libvirt virtualisation API [here](https://libvirt.org/)
+* How to emulate Raspberry Pi in QEMU? [here](https://raspberrypi.stackexchange.com/questions/117234/how-to-emulate-raspberry-pi-in-qemu)
+* How to quit the QEMU monitor when not using a GUI? [here](https://superuser.com/questions/1087859/how-to-quit-the-qemu-monitor-when-not-using-a-gui)

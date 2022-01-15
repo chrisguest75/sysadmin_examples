@@ -51,12 +51,27 @@ open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 docker build -t juypter .
 
 # run
-docker run --rm -p 8888:8888 juypter   
+docker run --name juypter --rm -p 8888:8888 juypter   
 
 # open docker notebook
 open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 ```
 
+## Add a kernel
+
+```sh
+docker run --rm -d --name juypter --entrypoint "/bin/bash" --rm -p 8888:8888 ubuntu:20.04 -c 'sleep 10000'
+docker exec -u root -it juypter /bin/bash 
+
+docker run --rm -d --name juypter --rm -p 8888:8888 juypter     
+docker exec -u root -it juypter /bin/bash   
+docker stop juypter           
+
+apt-get update
+```
+
 ## Resources
 
 * Jupyter Notebook: An Introduction [here](https://realpython.com/jupyter-notebook-introduction/)
+
+https://blog.darrenjrobinson.com/getting-started-with-local-powershell-jupyter-notebook/

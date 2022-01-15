@@ -107,3 +107,8 @@ Steps [README.md](./15_code_server/README.md)
 
 Demonstrate how to get aarch64 machine running on qemu (ubuntu)
 Steps [README.md](./16_qemu/README.md)  
+
+## Example 17 - Juypter
+
+Demonstrate how to get a juypter server running  
+Steps [README.md](./17_juypter/README.md)  

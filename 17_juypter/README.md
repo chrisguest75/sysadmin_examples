@@ -1,5 +1,7 @@
 # README
 
+Demonstrate how to get a juypter server running  
+
 ## Setting up with pipenv and pyenv
 
 ```sh

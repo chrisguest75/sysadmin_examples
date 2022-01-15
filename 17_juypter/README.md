@@ -2,6 +2,11 @@
 
 Demonstrate how to get a juypter server running  
 
+TODO:  
+
+* ```jupyter nbconvert First\ Notebook.ipynb --to pdf```
+* ```jupyter nbextension install EXTENSION_NAME```
+
 ## Setting up with pipenv and pyenv
 
 ```sh
@@ -36,6 +41,19 @@ pipenv install jupyter
 jupyter notebook
 
 # open the notebook
+open http://localhost:8888/notebooks/First%20Notebook.ipynb#
+```
+
+## Build
+
+```sh
+# build
+docker build -t juypter .
+
+# run
+docker run --rm -p 8888:8888 juypter   
+
+# open docker notebook
 open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 ```
 

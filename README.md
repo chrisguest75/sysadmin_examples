@@ -112,3 +112,8 @@ Steps [README.md](./16_qemu/README.md)
 
 Demonstrate how to get a juypter server running  
 Steps [README.md](./17_juypter/README.md)  
+
+## Example 18 - SOPS
+
+Demonstrate how to use Mozilla SOPS.  
+Steps [README.md](./18_sops/README.md)  

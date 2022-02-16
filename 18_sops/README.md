@@ -51,14 +51,14 @@ gpg --default-new-key-algo rsa4096 --gen-key
 gpg --list-secret-keys --keyid-format=long  
 
 # export the key in armor format
-gpg --armor --export XXXXXXXXXXXXXXXX
+gpg --armor --export XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
 ## Encryption
 
 ```sh
 # set key thumbprint
-export SOPS_PGP_FP="CD0AF18667D4A60ABB01FF5E3464EF3CEA71933D" 
+export SOPS_PGP_FP="XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 # encrypt
 sops -e ./my_secrets.json  
@@ -75,6 +75,13 @@ export GPG_TTY
 
 # now decrypt
 sops -d ./my_secrets.enc.json  
+```
+
+## Clean keys
+
+```sh
+unset SOPS_PGP_FP 
+gpg --delete-secret-keys "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 ```
 
 ## Resources

@@ -1,16 +1,20 @@
 # README
+
 Signing verified commits with gpg
 
 TODO:
+
 * s/MIME
 * smimesign
-* Codespaces 
+* Codespaces
 * Web commits
 * Multiple machines
-* Has the key been published publically? 
+* Has the key been published publically?
 
 ## Install gpg
+
 Instal gpg tooling
+
 ```sh
 brew install gpg            
 gpg --version       
@@ -20,6 +24,7 @@ open https://www.gnupg.org/download/
 ```
 
 ## Create gpg key and set on github
+
 Create the gpg locally [here](https://docs.github.com/en/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
 
 ```sh
@@ -40,7 +45,8 @@ gpg --armor --export XXXXXXXXXXXXXXXX
 Copy the key to GPG keys.  
 Unfortunately it seems you cannot name the keys in github.  
 
-## Configure git 
+## Configure git
+
 ```sh
 # set noreply email
 git config --local user.email chrisguest75@users.noreply.github.com
@@ -58,34 +64,35 @@ git commit -S -m "Add some files"
 git push 
 ```
 
-Automatic signing 
+Automatic signing
+
 ```sh
 git config --local commit.gpgsign true    
 
 git config --local --list
 ```
 
-
 ## Configure vscode
+
 Follow the instructions [here](https://dev.to/devmount/signed-git-commits-in-vs-code-36do)
 
 In `settings.json`
+
 ```json
 {
     "git.enableCommitSigning": true
 }
 ```
 
-## Git checking 
+## Git checking
+
 ```sh
 # show signatures on commits 
 git log --show-signature -n 10
 ```
 
+## Resources
 
-
-# Resources 
 * [troubleshooting-gpg-git-commit-signing](https://juliansimioni.com/blog/troubleshooting-gpg-git-commit-signing/)
 * [troubleshooting-gpg-signed-commits-on-macos](https://thecesrom.dev/2021/01/27/troubleshooting-gpg-signed-commits-on-macos/)
 * [sign-git-commits-on-github-with-gpg-in-macos](https://samuelsson.dev/sign-git-commits-on-github-with-gpg-in-macos/)
-

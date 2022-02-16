@@ -2,6 +2,8 @@
 
 Demonstrate how to use Mozilla SOPS.  
 
+Refer to [terraform_examples/19_sops](https://github.com/chrisguest75/terraform_examples/blob/master/19_sops/README.md)  
+
 ## Install sops
 
 ```sh
@@ -75,6 +77,16 @@ export GPG_TTY
 
 # now decrypt
 sops -d ./my_secrets.enc.json  
+```
+
+## Import/Export keys
+
+```sh
+gpg --export-secret-keys "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" > XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pgp.key
+```
+
+```sh
+gpg --import XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.pgp.key
 ```
 
 ## Clean keys

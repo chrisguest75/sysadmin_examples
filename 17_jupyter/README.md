@@ -1,6 +1,6 @@
 # README
 
-Demonstrate how to get a juypter server running  
+Demonstrate how to get a `jupyter` server running  
 
 TODO:  
 
@@ -48,35 +48,51 @@ open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 
 ```sh
 # build
-docker build --no-cache -t juypter .
+docker build --no-cache -t jupyter .
 
 # run
-docker run -d --name juypter --rm -p 8888:8888 juypter   
+docker run -d --name jupyter --rm -p 8888:8888 jupyter   
 
 # get the token 
-docker logs juypter
+docker logs jupyter
 
 # open docker notebook
 open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 
+# stop 
+docker stop jupyter
+
 # debug
-docker run --rm -d --name juypter --entrypoint "/bin/bash" --rm -p 8888:8888 juypter -c 'sleep 10000'
-docker exec -u root -it juypter /bin/bash   
-docker stop juypter   
+docker run --rm -d --name jupyter --entrypoint "/bin/bash" --rm -p 8888:8888 jupyter -c 'sleep 10000'
+docker exec -u root -it jupyter /bin/bash   
+docker stop jupyter   
 ```
 
-## Add a kernel
+## Add a kernel (csharp)
+
+```sh
+# add csharp
+docker build --no-cache -t jupytercsharp -f Dockerfile.csharp .
+docker run --name jupytercsharp --rm -d -p 8888:8888 jupytercsharp  
+
+# get the token 
+docker logs jupytercsharp
+
+docker run --rm -it --name jupytercsharp --entrypoint "/bin/bash" -p 8888:8888 jupytercsharp
+```
+
+## Add a kernel (powershell)
 
 ```sh
 # add powershell
-docker build --no-cache -t juypterpowershell -f Dockerfile.powershell .
-docker run --name juypterpowershell --rm -p 8888:8888 juypterpowershell   
+docker build --no-cache -t jupyterpowershell -f Dockerfile.powershell .
+docker run --name jupyterpowershell --rm -p 8888:8888 jupyterpowershell   
 
 # debug
-docker run --rm -d --name juypterpowershell --entrypoint "/bin/bash" --rm -p 8888:8888 juypterpowershell -c 'sleep 10000'
-docker exec -u root -it juypterpowershell /bin/bash 
+docker run --rm -d --name jupyterpowershell --entrypoint "/bin/bash" --rm -p 8888:8888 jupyterpowershell -c 'sleep 10000'
+docker exec -u root -it jupyterpowershell /bin/bash 
 
-docker stop juypterpowershell  
+docker stop jupyterpowershell  
 ```
 
 ```sh
@@ -105,3 +121,4 @@ https://pkgs.dev.azure.com/dnceng/9ee6d478-d288-47f7-aacc-f6e6d082ae6d/_packagin
 https://github.com/darrenjrobinson/pwsh-jupyter-notebook/blob/master/Dockerfile
 
 
+https://github.com/dotnet/interactive/blob/main/docs/install-dotnet-interactive.md

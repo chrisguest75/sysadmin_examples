@@ -53,6 +53,9 @@ docker build --no-cache -t juypter .
 # run
 docker run -d --name juypter --rm -p 8888:8888 juypter   
 
+# get the token 
+docker logs juypter
+
 # open docker notebook
 open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 

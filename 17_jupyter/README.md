@@ -78,6 +78,9 @@ docker run --name jupytercsharp --rm -d -p 8888:8888 jupytercsharp
 # get the token 
 docker logs jupytercsharp
 
+# stop 
+docker stop jupytercsharp
+
 docker run --rm -it --name jupytercsharp --entrypoint "/bin/bash" -p 8888:8888 jupytercsharp
 ```
 
@@ -122,3 +125,5 @@ https://github.com/darrenjrobinson/pwsh-jupyter-notebook/blob/master/Dockerfile
 
 
 https://github.com/dotnet/interactive/blob/main/docs/install-dotnet-interactive.md
+
+https://github.com/dotnet/interactive/issues/832

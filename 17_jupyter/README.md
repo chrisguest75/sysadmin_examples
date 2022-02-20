@@ -48,7 +48,7 @@ open http://localhost:8888/notebooks/First%20Notebook.ipynb#
 
 ```sh
 # build
-docker build --no-cache -t jupyter .
+docker build --progress=plain --no-cache -t jupyter .
 
 # run
 docker run -d --name jupyter --rm -p 8888:8888 jupyter   
@@ -68,11 +68,13 @@ docker exec -u root -it jupyter /bin/bash
 docker stop jupyter   
 ```
 
-## Add a kernel (csharp)
+## Add a kernel (csharp & powershell)
 
 ```sh
 # add csharp
 docker build --no-cache -t jupytercsharp -f Dockerfile.csharp .
+docker build --progress=plain --no-cache -t jupytercsharp -f Dockerfile.csharp .
+
 docker run --name jupytercsharp --rm -d -p 8888:8888 jupytercsharp  
 
 # get the token 
@@ -84,46 +86,15 @@ docker stop jupytercsharp
 docker run --rm -it --name jupytercsharp --entrypoint "/bin/bash" -p 8888:8888 jupytercsharp
 ```
 
-## Add a kernel (powershell)
-
-```sh
-# add powershell
-docker build --no-cache -t jupyterpowershell -f Dockerfile.powershell .
-docker run --name jupyterpowershell --rm -p 8888:8888 jupyterpowershell   
-
-# debug
-docker run --rm -d --name jupyterpowershell --entrypoint "/bin/bash" --rm -p 8888:8888 jupyterpowershell -c 'sleep 10000'
-docker exec -u root -it jupyterpowershell /bin/bash 
-
-docker stop jupyterpowershell  
-```
-
-```sh
-# ubuntu
-docker run --rm -d --name ubuntu --entrypoint "/bin/bash" --rm -p 8888:8888 ubuntu:20.04 -c 'sleep 10000'
-docker exec -u root -it ubuntu /bin/bash 
-apt-get update
-```
-
 ## Resources
 
-https://jupyter-notebook.readthedocs.io/en/stable/notebook.html
-* Jupyter Notebook: An Introduction [here](https://realpython.com/jupyter-notebook-introduction/)
-
-https://blog.darrenjrobinson.com/docker-powershell-jupyter-notebook-environments/
-
-
-https://blog.darrenjrobinson.com/getting-started-with-local-powershell-jupyter-notebook/
-
-https://github.com/tlinnet/csharp-notebook/blob/master/travis-ci/Dockerfile_build
-
-
-https://pkgs.dev.azure.com/dnceng/9ee6d478-d288-47f7-aacc-f6e6d082ae6d/_packaging/d1622942-d16f-48e5-bc83-96f4539e7601/nuget/v3/flat2/microsoft.dotnet-interactive/index.json
-
-
-https://github.com/darrenjrobinson/pwsh-jupyter-notebook/blob/master/Dockerfile
-
-
-https://github.com/dotnet/interactive/blob/main/docs/install-dotnet-interactive.md
-
-https://github.com/dotnet/interactive/issues/832
+* The Jupyter Notebook [here](https://jupyter-notebook.readthedocs.io/en/stable/notebook.html)  
+* Jupyter Notebook: An Introduction [here](https://realpython.com/jupyter-notebook-introduction/)  
+* Docker PowerShell Jupyter Notebook Environments [here](https://blog.darrenjrobinson.com/docker-powershell-jupyter-notebook-environments/)
+* Getting started with Local PowerShell Jupyter Notebook [here](https://blog.darrenjrobinson.com/getting-started-with-local-powershell-jupyter-notebook/)
+* csharp-notebook/travis-ci/Dockerfile_build [here](https://github.com/tlinnet/csharp-notebook/blob/master/travis-ci/Dockerfile_build)
+* Dotnet Interactive versions [here](https://pkgs.dev.azure.com/dnceng/9ee6d478-d288-47f7-aacc-f6e6d082ae6d/_packaging/d1622942-d16f-48e5-bc83-96f4539e7601/nuget/v3/flat2/microsoft.dotnet-interactive/index.json)
+* pwsh-jupyter-notebook/Dockerfile [here](https://github.com/darrenjrobinson/pwsh-jupyter-notebook/blob/master/Dockerfile)
+* Installing .NET Interactive [here](https://github.com/dotnet/interactive/blob/main/docs/install-dotnet-interactive.md)
+* Can't install dotnet interactive on WSL (Ubuntu 20.04) [here](https://github.com/dotnet/interactive/issues/832)
+* install --path is ignored [here](https://github.com/dotnet/interactive/issues/366)

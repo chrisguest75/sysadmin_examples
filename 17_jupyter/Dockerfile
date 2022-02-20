@@ -15,8 +15,7 @@ COPY ./Pipfile.lock /workbench/Pipfile.lock
 
 #RUN set -ex && pipenv install --deploy --system
 RUN pipenv install --deploy --system --dev
-
-COPY ["./First Notebook.ipynb", "./First Notebook.ipynb"]
+COPY ./books /workbench/books
 
 USER appuser
 EXPOSE 8888

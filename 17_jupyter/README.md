@@ -76,6 +76,7 @@ docker build --no-cache -t jupytercsharp -f Dockerfile.csharp .
 docker build --progress=plain --no-cache -t jupytercsharp -f Dockerfile.csharp .
 
 docker run --name jupytercsharp --rm -d -p 8888:8888 jupytercsharp  
+docker run -v $(pwd)/books:/workbench/books --name jupytercsharp --rm -d -p 8888:8888 jupytercsharp  
 
 # get the token 
 docker logs jupytercsharp

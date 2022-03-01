@@ -5,6 +5,7 @@ Demonstrate how to use `yubikey` on linux.
 TODO:
 
 * titan keys?
+https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
 * https://github.com/ixydo/gpg-smartcard-automation
 
 
@@ -21,3 +22,4 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 ## Resources
 
 * https://developers.yubico.com/
+* https://fidoalliance.org/fido2/

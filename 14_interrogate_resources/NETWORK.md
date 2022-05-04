@@ -1,5 +1,12 @@
 # Network 
 
+## IP
+
+```sh
+# get ip sitting on a subnet.
+ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | grep --color=never 192.168
+```
+
 ## Sockets
 ```sh
 # summary of all the sockets

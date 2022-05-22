@@ -32,6 +32,9 @@ npm --global list
 
 wscat -c ws://0.0.0.0:9001/ws/echo
 
+# connect to proxy
+wscat -c ws://0.0.0.0:8080/ws/echo    
+wscat -c ws://0.0.0.0:8080/ws/echo -x hello
 ```
 
 ## Resources

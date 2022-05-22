@@ -1,0 +1,46 @@
+services:
+    nginx:
+        image: "nginx:1.21.6"
+        volumes:
+            - type: bind
+              source: ./nginx_proxy/default.conf
+              target: /etc/nginx/templates/default.conf.template
+            - type: bind
+              source: ./nginx_proxy/nginx.conf
+              target: /etc/nginx/nginx.conf          
+        environment:
+            - VERSION=nginx:1.21.6
+        ports:
+            - "8080:80"
+        networks:
+            - service_bridge
+        depends_on:
+            - info_a    
+            - info_b                 
+
+    info_a:
+        image: "stefanprodan/podinfo:6.1.4"
+        environment:
+            - VERSION=0.0.1   
+            - PODNAME=info_a                    
+        ports:
+            - "9001:9898"
+        command: [ "./podinfo", "--level=debug" ]            
+        networks:
+            - service_bridge
+
+    info_b:
+        image: "stefanprodan/podinfo:6.1.4"
+        environment:
+            - VERSION=0.0.2   
+            - PODNAME=info_b                 
+        ports:
+            - "9002:9898"
+        command: [ "./podinfo", "--level=debug" ]            
+        networks:
+            - service_bridge
+
+networks:
+    service_bridge:
+        driver: bridge
+

@@ -1,0 +1,28 @@
+
+@host = 0.0.0.0
+@port = 9001
+#@port = 9002
+
+GET http://{{host}}:{{port}} HTTP/1.1
+
+###
+
+GET http://{{host}}:{{port}}/version HTTP/1.1
+
+###
+
+GET http://{{host}}:{{port}}/metrics HTTP/1.1
+
+###
+
+GET http://{{host}}:{{port}}/status/503 HTTP/1.1
+
+###
+
+GET http://{{host}}:{{port}}/panic HTTP/1.1
+
+###
+
+GET http://{{host}}:{{port}}/env HTTP/1.1
+
+

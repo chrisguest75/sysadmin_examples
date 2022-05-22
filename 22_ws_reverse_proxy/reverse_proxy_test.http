@@ -1,0 +1,24 @@
+
+@host = 0.0.0.0
+@port = 8080
+
+###
+
+GET http://{{host}}:{{port}}/a/ HTTP/1.1
+
+### 
+
+GET http://{{host}}:{{port}}/b/ HTTP/1.1
+
+### 
+
+GET http://{{host}}:{{port}}/a/env HTTP/1.1
+
+### 
+
+GET http://{{host}}:{{port}}/b/env HTTP/1.1
+
+### 
+
+
+

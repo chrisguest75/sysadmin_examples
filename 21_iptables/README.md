@@ -2,6 +2,12 @@
 
 Demonstrate linux networking commands.  
 
+TODO:
+
+* 
+https://www.nginx.com/blog/websocket-nginx/
+
+
 * iptables
     * use iptables to test sockets.  
 * What network interfaces exist?

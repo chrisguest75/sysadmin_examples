@@ -23,8 +23,8 @@ services:
         environment:
             - VERSION=0.0.1   
             - PODNAME=info_a                    
-        ports:
-            - "9001:9898"
+        #ports:
+        #    - "9001:9898"
         command: [ "./podinfo", "--level=debug" ]            
         networks:
             - service_bridge
@@ -34,8 +34,8 @@ services:
         environment:
             - VERSION=0.0.2   
             - PODNAME=info_b                 
-        ports:
-            - "9002:9898"
+        #ports:
+        #    - "9002:9898"
         command: [ "./podinfo", "--level=debug" ]            
         networks:
             - service_bridge

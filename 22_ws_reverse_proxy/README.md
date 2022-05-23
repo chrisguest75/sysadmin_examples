@@ -1,16 +1,28 @@
 # README
 
-Demonstate and test websockets reverse proxy  
+Demonstrate and test websockets reverse proxy  
 
 44_reverse_proxy example [here](https://github.com/chrisguest75/docker_build_examples/tree/master/44_reverse_proxy)  
+
+## Architecture
+
+```mermaid
+graph LR
+    subgraph host
+        A(client)
+    end
+    subgraph docker
+        A(client) -->|curl| B(8080:nginx:80)
+        B -->|proxy| C(info_a:9898)
+        B -->|proxy| D(info_b:9898)
+    end
+```
 
 ## Start
 
 ```sh
 # start 
 docker compose up -d
-
-docker compose down
 
 # logs
 docker compose logs podinfo_a 
@@ -30,11 +42,25 @@ nvm use v16.13.2
 npm install -g wscat  
 npm --global list    
 
-wscat -c ws://0.0.0.0:9001/ws/echo
-
-# connect to proxy
+# connect to proxy and relay websockets
 wscat -c ws://0.0.0.0:8080/ws/echo    
 wscat -c ws://0.0.0.0:8080/ws/echo -x hello
+
+# direct connection (works if port is open in docker-compose.yaml)
+wscat -c ws://0.0.0.0:9001/ws/echo
+
+wscat -c ws://0.0.0.0:8080/ws/echo -x "/ping" --slash
+
+wscat -c ws://0.0.0.0:8080/ws/echo --slash
+# /ping
+# /pong 
+# /close
+```
+
+## Cleanup
+
+```sh
+docker compose down
 ```
 
 ## Resources

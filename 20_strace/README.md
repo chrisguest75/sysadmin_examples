@@ -7,6 +7,14 @@ Demonstrate some `strace` basics
 ```sh
 # trace a program example
 strace -f git-crypt init
+
+
+strace -f bash
+```
+
+```sh
+# library trace
+ltrace -f bash
 ```
 
 ## 👀 Resources

@@ -5,11 +5,16 @@ Demonstrate some `strace` basics
 ## Examples
 
 ```sh
-# trace a program example
-strace -f git-crypt init
+strace -f ./programs/sleeping.sh  
 
+strace -e trace=network curl -s www.google.com > /dev/null
 
-strace -f bash
+strace -f ./programs/waiting.sh  
+
+./programs/waiting.sh  
+
+# in another window
+sudo strace -p 100501 
 ```
 
 ```sh

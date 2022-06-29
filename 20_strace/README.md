@@ -2,22 +2,43 @@
 
 Demonstrate some `strace` basics  
 
-## Examples
+## System Trace
 
 ```sh
-strace -f ./programs/sleeping.sh  
+# count syscalls whilst running in bash
+strace -c -f ./programs/sleeping.sh  
 
+# count network syscalls for ping 
+strace -c -e trace=network -f ./programs/ping.sh  > /dev/null
+strace -c -e trace=process,network -f ./programs/ping.sh  > /dev/null
+
+# count for curl
 strace -e trace=network curl -s www.google.com > /dev/null
 
-strace -f ./programs/waiting.sh  
+# count syscalls whilst running in bash
+strace -c -f ./programs/waiting.sh  
 
-./programs/waiting.sh  
+# file syscalls
+strace -c -e trace=file -f ./programs/listing.sh  
+
+# create a file and copy tracing
+strace -c -e trace=file -f ./programs/create_and_copy.sh  
+
 
 # in another window
-sudo strace -p 100501 
+./programs/waiting.sh > /dev/null &
+sudo strace -c -p [PID]
 ```
 
+## Library Trace
+
 ```sh
+# install ltrace
+apt install ltrace  
+
+# manpages
+man ltrace 
+
 # library trace
 ltrace -f bash
 ```

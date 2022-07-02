@@ -9,7 +9,7 @@ services:
             - "9001:9898"
         command: [ "./podinfo", "--level=debug" ]            
         networks:
-            - service_bridge
+            - service_bridge       
 
 networks:
     service_bridge:

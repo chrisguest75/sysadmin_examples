@@ -77,6 +77,44 @@ websocat --text ws://0.0.0.0:9001/ws/echo -n --socks5 0.0.0.0:40000
 docker compose logs podinfo 
 ```
 
+## Intercepting Proxy (docker compose)
+
+Use with normal client proxy configuration.  
+
+```sh
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmproxy.yaml up -d --build --force-recreate
+
+docker compose logs mitmproxy 
+
+open http://0.0.0.0:8081    
+
+curl -vvv --proxy 0.0.0.0:8080 -i http://podinfo:9898
+
+# cleanup
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmproxy.yaml down    
+```
+
+## Intercepting Reverse Proxy (docker compose)
+
+Use with reverse proxy configuration.  
+
+```sh
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml up -d --build --force-recreate
+
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml logs mitmproxy 
+
+open http://0.0.0.0:8081    
+
+# this will intercept and call
+curl -vvv -i http://0.0.0.0:8080
+
+# websockets work as well
+websocat --text ws://0.0.0.0:8080/ws/echo -n 
+
+# cleanup
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml down  
+```
+
 ## 🧼 Clean up
 
 ```sh
@@ -89,3 +127,4 @@ docker compose down
 * stefanprodan/podinfo tag [here](https://hub.docker.com/r/stefanprodan/podinfo/tags)
 * stefanprodan/podinfo repo [here](https://github.com/stefanprodan/podinfo)  
 * websocat repo [here](https://github.com/vi/websocat/blob/master/doc.md)  
+* mitmproxy Modes of Operation [here](https://docs.mitmproxy.org/stable/concepts-modes/)  

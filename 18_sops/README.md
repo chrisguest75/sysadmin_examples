@@ -103,4 +103,4 @@ gpg --delete-secret-keys "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 * gpg.mozilla.org service has ended [here](https://gpg.mozilla.org/)
 * GPG 4.3 Configuration files [here](https://www.gnupg.org/documentation/manuals/gnupg/GPG-Configuration.html)
 * Public keyserver keys.openpgp.org [here](https://keys.openpgp.org/)
-* Cannot decrypt with GPG 2.2.5 and SOPS 3.0.0 [here](https://github.com/mozilla/sops/issues/304) 
+* Cannot decrypt with GPG 2.2.5 and SOPS 3.0.0 [here](https://github.com/mozilla/sops/issues/304)

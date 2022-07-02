@@ -1,13 +1,16 @@
 # README
-Demonstrates some examples of using permissions 
 
-Follow  [03_usermanagement/README.md](../03_usermanagement/README.md). 
+Demonstrates some examples of using permissions  
+
+Follow  [03_usermanagement/README.md](../03_usermanagement/README.md)  
 
 TODO:
-* gid 
-* owners 
+
+* gid
+* owners
 
 ## Commands 
+
 | Commmand              | Description |
 | -                     | - |
 | umask                 | Default file permissions mask for new files       |
@@ -16,10 +19,9 @@ TODO:
 | chgrp                 | change group   |
 | ls                    |   list directory contents |
 | stat                  | stat -- display file status   |
-  
-  
 
-## Setup users and groups 
+## Setup users and groups
+
 ```sh
 sudo adduser testuser 
 sudo groupadd mygroup
@@ -31,6 +33,7 @@ sudo usermod -aG mygroup $USER
 ## Examine permissions
 
 ### Block device
+
 ```sh
 # show block device B with user RW and group RW.
 ls -l /dev/sda
@@ -42,6 +45,7 @@ stat /dev/sda
 ```
 
 ### Character device
+
 ```sh
 # show character device C with user RW, group RW and other RW.
 ls -l /dev/tty
@@ -53,6 +57,7 @@ stat /dev/tty
 ```
 
 ### Link
+
 ```sh
 # show soft link L with user RW, group RW and other RW.
 ls -l /dev/stdin
@@ -64,6 +69,7 @@ stat /dev/stdin
 ```
 
 ## Set groups of permissions
+
 ```sh
 # show permissions on files and directories 
 find . -type f -exec ls -ld {} \;
@@ -76,7 +82,6 @@ find . -type f -exec chmod 0644 {} \;
 ```
 
 ## Resources
+
 * Really good breakdown of meaning of permissions [here](https://mason.gmu.edu/~montecin/UNIXpermiss.htm)  
 * Permission calculator [here](http://permissions-calculator.org/)  
-
-

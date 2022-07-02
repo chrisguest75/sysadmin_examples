@@ -1,5 +1,6 @@
 # README
-Demonstrates a script that will take a list of CVE and get the descriptions 
+
+Demonstrates a script that will take a list of CVE and get the descriptions  
 
 ## Execute
 
@@ -22,4 +23,5 @@ mkdir -p ./out
 ```
 
 ## Resources
+
 * CVSS calculator [here](https://www.first.org/cvss/calculator/3.0)

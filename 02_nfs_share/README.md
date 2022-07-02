@@ -131,7 +131,7 @@ sudo umount /mnt/nfs_share
 )
 * What is a bind mount? [here](https://unix.stackexchange.com/questions/198590/what-is-a-bind-mount)
 
-### Troubleshooting
+### Troubleshooting Resources
 
 * General troubleshooting recommendations [here](http://wiki.linux-nfs.org/wiki/index.php/General_troubleshooting_recommendations)
 * NFS/Troubleshooting [here](https://wiki.archlinux.org/title/NFS/Troubleshooting)

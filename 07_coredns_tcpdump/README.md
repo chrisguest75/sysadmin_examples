@@ -1,13 +1,15 @@
 # README
+
 Capture DNS requests in tcpdump from pods to pods.
 
 TODO:
+
 * Add different rfc1035 records https://www.netmeister.org/blog/dns-rrs.html
 * Do a NS delegation
 * DNSSEC
 
-
 ## CoreDNS Test
+
 ```sh
 # up and running
 docker compose --profile dns up -d --build   
@@ -35,6 +37,7 @@ docker compose logs client
 ```
 
 ## Captures
+
 ```sh
 # man pages
 man tcpdump
@@ -52,17 +55,20 @@ dig @coredns -p 53 dns.chrisguest.com TXT
 fg
 ```
 
-Look at pcap file.
+Look at pcap file.  
+
 ```sh
 tcpdump -r ./captures/dns.pcap -vvv
 tcpdump -r ./captures/dns.pcap -XX
 tcpdump -r ./captures/dns.pcap -XX -S -e
 ```
 
-You can also drag and drop the pcap file into wireshark. 
+You can also drag and drop the pcap file into wireshark.  
 
 ## Capture coredns forwarding
+
 Based on sidecar debugging example [here](https://github.com/chrisguest75/docker_build_examples)  
+
 ```sh
 # build the tools container
 docker build -f ./client/Dockerfile.client -t client ./client
@@ -90,11 +96,14 @@ docker stop $(docker ps --filter name=tcpdump_sidecar -q)
 ```
 
 ## Cleanup
+
 ```sh
 # cleanup
 docker compose --profile dns down
 ```
-# Resources
+
+## Resources
+
 * DNS RR [here](https://www.netmeister.org/blog/dns-rrs.html)  
 * dns-tcpdump [here](https://www.netmeister.org/blog/dns-tcpdump.html)  
 * coredns docs [here](https://coredns.io/manual/toc/)  
@@ -109,4 +118,6 @@ docker compose --profile dns down
 * Record formatting examples [here](https://www.cs.ait.ac.th/~on/O/oreilly/tcpip/dnsbind/appa_01.htm)  
 
 ## Network namespace
+
 * sharing-network-namespaces-in-docker [here](https://blog.mikesir87.io/2019/03/sharing-network-namespaces-in-docker/)  
+

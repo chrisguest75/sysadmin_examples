@@ -1,20 +1,26 @@
 # README
-Demonstrates how to perform user management 
+
+Demonstrates how to perform user management  
 
 ## useradd and adduser  
+
 ```sh
+# install adduser cmd
 sudo apt install adduser  
 
+# add a testuser
 sudo adduser testuser 
 ```
 
 ## groupadd
 
 ```sh
+# add a group
 groupadd mygroup
 ```
 
 ## Helpful commands
+
 ```sh
 # lists logged in users 
 users  
@@ -34,7 +40,8 @@ getent group
 cat /etc/group  
 ```
 
-## Switching users 
+## Switching users
+
 ```sh
 # switch user
 su -l testuser1   
@@ -44,6 +51,7 @@ sudo -I
 ```
 
 ## Altering permissions  
+
 ```sh
 cat /etc/sudoers 
 
@@ -56,7 +64,8 @@ Visudo
 >testuser1 ALL=/usr/bin/apt-get 
 ```
 
-## Share folders between users 
+## Share folders between users
+
 ```sh
 # add a user to the group generated above
 sudo usermod -aG mygroup $USER
@@ -69,6 +78,4 @@ sudo chmod 2775 /shares
 
 ## Resources
 
-
-
-
+* cheatsheet adduser

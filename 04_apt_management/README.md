@@ -1,13 +1,14 @@
 # README
+
 Demonstrates how to management various tasks with Apt
 
 More apt examples [35_apt_and_dpkg](https://github.com/chrisguest75/shell_examples/tree/58f1a38e1ef9d32574ec2ca587bef082c811b02e/35_apt_and_dpkg)  
 
-NOTE: This is very ubuntu flavoured.   
+NOTE: This is very ubuntu flavoured.  
 
 TODO:
 
-* Pinning version 
+* Pinning version
 * Patching.  
 
 ## Show out-of-date packages
@@ -15,8 +16,10 @@ TODO:
 ```sh
 # root shell
 sudo su
+
 # update apt cache
 apt update
+
 # show packages that can be upgraded
 apt list --upgradable
 ```
@@ -54,5 +57,3 @@ rm /var/lib/apt/lists/*
 ls -l /var/apt/sources
 ls -l /var/apt/sources.list.d
 ```
-
-

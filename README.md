@@ -126,6 +126,11 @@ Steps [README.md](./19_letsencrypt/README.md)
 Demonstrate some `strace` basics  
 Steps [README.md](./20_strace/README.md)  
 
+## 22 - websockets reverse proxy
+
+Demonstrate and test websockets reverse proxy  
+Steps [README.md](./22_websockets_reverse_proxy/README.md)  
+
 ## 23 - mitmproxy
 
 Demonstrate how to use `mitmproxy`  

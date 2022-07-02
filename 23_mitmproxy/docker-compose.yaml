@@ -1,0 +1,17 @@
+services:
+    podinfo:
+        image: "stefanprodan/podinfo:6.1.6"
+        restart: on-failure
+        environment:
+            - VERSION=6.1.6   
+            - PODNAME=podinfo
+        ports:
+            - "9001:9898"
+        command: [ "./podinfo", "--level=debug" ]            
+        networks:
+            - service_bridge
+
+networks:
+    service_bridge:
+        driver: bridge
+

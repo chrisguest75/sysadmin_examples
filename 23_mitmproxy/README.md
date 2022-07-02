@@ -5,7 +5,6 @@ Demonstrate how to use `mitmproxy`
 TODO:
 
 * mitmproxy Commands
-* websocket proxy
 * transparent and tls proxy
 
 ## 📋 Install
@@ -67,7 +66,13 @@ Set the intercept and repeat request.  It's possible to modify the payload like 
 ```sh
 brew install websocat
 
-echo "Look at testing websockets" | websocat --text ws://0.0.0.0:9001/ws/echo -n   
+mitmweb --listen-host 0.0.0.0 --listen-port 40000 --mode socks5
+
+# send one message
+echo "Look at testing websockets" | websocat --text ws://0.0.0.0:9001/ws/echo -n --socks5 0.0.0.0:40000  
+
+# you can type and send info over websockets
+websocat --text ws://0.0.0.0:9001/ws/echo -n --socks5 0.0.0.0:40000  
 
 docker compose logs podinfo 
 ```
@@ -83,3 +88,4 @@ docker compose down
 * mitmproxy is a free and open source interactive HTTPS proxy. [here](https://mitmproxy.org/)
 * stefanprodan/podinfo tag [here](https://hub.docker.com/r/stefanprodan/podinfo/tags)
 * stefanprodan/podinfo repo [here](https://github.com/stefanprodan/podinfo)  
+* websocat repo [here](https://github.com/vi/websocat/blob/master/doc.md)  

@@ -103,7 +103,6 @@ docker compose down
 * dockerhub nginx image [here](https://hub.docker.com/_/nginx?tab=tags)  
 * REST Client extension [here](https://marketplace.visualstudio.com/items?itemName=humao.rest-client)  
 * stefanprodan/podinfo repo [here](https://github.com/stefanprodan/podinfo)  
-https://github.com/websockets/wscat
-https://www.npmjs.com/package/wscat
-
-
+* websockets/wscat repo [here](https://github.com/websockets/wscat)  
+* wscat npm package [here](https://www.npmjs.com/package/wscat)
+* websocat repo [here](https://github.com/vi/websocat/blob/master/doc.md)  

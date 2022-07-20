@@ -1,10 +1,12 @@
 services:
     mitmproxy:
         image: mitmproxy/mitmproxy:8.1.1
+        volumes:
+            - ./scripts:/scripts
         ports:
             - "8080:8080"
             - "8081:8081"
-        command: [ "mitmweb", "--web-host", "0.0.0.0", "--mode", "reverse:http://podinfo:9898" ]                
+        command: [ "mitmweb", "--verbose", "-s", "/scripts/flow-counter.py", "--web-host", "0.0.0.0", "--mode", "reverse:http://podinfo:9898" ]                
         networks:
             - service_bridge
         depends_on:

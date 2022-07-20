@@ -6,6 +6,7 @@ TODO:
 
 * mitmproxy Commands
 * transparent and tls proxy
+* How to intercept a websocket and close it
 
 ## 📋 Install
 
@@ -20,7 +21,7 @@ ls ~/.mitmproxy
 
 ```sh
 # terminal
-mitmproxy
+mitmproxy 
 
 # in another shell
 curl --proxy localhost:8080 http://mitm.it
@@ -115,6 +116,27 @@ websocat --text ws://0.0.0.0:8080/ws/echo -n
 docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml down  
 ```
 
+## Scripts
+
+```sh
+# terminal
+mitmweb -s ./scripts/flow-counter.py
+
+# in another shell
+open http://127.0.0.1:8081/
+curl --proxy localhost:8080 http://mitm.it
+
+# just podinfo
+docker compose -f ./docker-compose.yaml up -d --build --force-recreate 
+# start docker container
+docker run -it --rm -v $(pwd)/scripts:/scripts -it -p 8080:8080 -p 8081:8081 mitmproxy/mitmproxy:8.1.1 mitmweb --verbose -s /scripts/websocket-simple.py  -s /scripts/flow-counter.py -s /scripts/random-outage.py --web-host 0.0.0.0 --mode reverse:http://host.docker.internal:9001
+# start mitmweb in console
+mitmweb --verbose -s ./scripts/websocket-simple.py  -s ./scripts/flow-counter.py -s ./scripts/random-outage.py --web-host 0.0.0.0 --mode reverse:http://0.0.0.0:9001
+# send requests
+curl -vvv -i http://0.0.0.0:8080
+websocat --text ws://0.0.0.0:8080/ws/echo -n 
+```
+
 ## 🧼 Clean up
 
 ```sh
@@ -128,3 +150,17 @@ docker compose down
 * stefanprodan/podinfo repo [here](https://github.com/stefanprodan/podinfo)  
 * websocat repo [here](https://github.com/vi/websocat/blob/master/doc.md)  
 * mitmproxy Modes of Operation [here](https://docs.mitmproxy.org/stable/concepts-modes/)  
+
+### Example Scripts
+
+* KevCui/mitm-scripts repo [here](https://github.com/KevCui/mitm-scripts)
+* lucaslegname/mitmproxy-helpers repo [here](https://github.com/lucaslegname/mitmproxy-helpers)  
+* Dedicated Example Addons [here](https://docs.mitmproxy.org/stable/addons-examples/)  
+* mitmproxy/mitmproxy examples [here](https://github.com/mitmproxy/mitmproxy/tree/main/examples/contrib)  
+* KOLANICH-tools/wsreplay.py [here](https://github.com/KOLANICH-tools/wsreplay.py)  
+
+### Script Blogs
+
+* mitmproxy scripts [here](https://howdoitestthat.com/mitmproxy-scripts)
+* Creating scripts for mitmproxy [here](https://lucaslegname.github.io/mitmproxy/2020/11/04/mitmproxy-scripts.html)  
+* Ability to close websocket connection from script? [here](https://github.com/mitmproxy/mitmproxy/issues/4240)  

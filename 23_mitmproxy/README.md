@@ -135,6 +135,8 @@ mitmweb --verbose -s ./scripts/websocket-simple.py  -s ./scripts/flow-counter.py
 # send requests
 curl -vvv -i http://0.0.0.0:8080
 websocat --text ws://0.0.0.0:8080/ws/echo -n 
+# cleanup
+docker compose -f ./docker-compose.yaml
 ```
 
 ## 🧼 Clean up

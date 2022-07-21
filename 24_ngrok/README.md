@@ -7,25 +7,34 @@ brew install ngrok/ngrok/ngrok
 ```
 
 ```sh
+# go and get auth token
+open https://ngrok.com/
+
 ngrok config add-authtoken xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 cat  "/Users/$(whoami)/Library/Application Support/ngrok/ngrok.yml"
 ```
 
 ## Example
 
-TODO: Use podinfo  
-
 ```sh
 # just podinfo
-docker run -it --rm -p 8080:8080 
+docker run -it --rm --name podinfo -p 9898:9898 "stefanprodan/podinfo:6.1.6"
 
 # start mitmweb in console
-mitmweb --verbose -s ./scripts/websocket-simple.py  -s ./scripts/flow-counter.py -s ./scripts/random-outage.py --web-host 0.0.0.0 --mode reverse:http://0.0.0.0:9001
+mitmweb --verbose --listen-port 8080 --web-host 0.0.0.0 --mode reverse:http://0.0.0.0:9898
+
+# open console
+open http://0.0.0.0:8081
+
 # send requests
 curl -vvv -i http://0.0.0.0:8080
 websocat --text ws://0.0.0.0:8080/ws/echo -n 
+
+# start ngrok 
+ngrok http 8080           
+
 # cleanup
-docker compose -f ./docker-compose.yaml
+docker stop podinfo
 ```
 
 ## Resources

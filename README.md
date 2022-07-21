@@ -135,3 +135,8 @@ Steps [README.md](./22_websockets_reverse_proxy/README.md)
 
 Demonstrate how to use `mitmproxy`  
 Steps [README.md](./23_mitmproxy/README.md)  
+
+## 24 - ngrok
+
+Demonstrate how to use `ngrok` to host a service and make it publically available.  
+Steps [README.md](./24_ngrok/README.md)  

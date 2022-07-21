@@ -2,6 +2,12 @@
 
 Demonstrate how to use `ngrok` to host a service and make it publically available.  
 
+TODO:  
+
+* Add some tests for websockets
+
+## Prereqs
+
 ```sh
 brew install ngrok/ngrok/ngrok
 ```

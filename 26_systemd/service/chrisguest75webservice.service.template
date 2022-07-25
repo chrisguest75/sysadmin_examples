@@ -1,0 +1,14 @@
+[Unit]
+Description=An example webservice running in systemd
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=${USER}
+ExecStart=/usr/bin/env bash -c "${PWD}/webservice.sh 8081 'Hello from systemd'"
+
+[Install]
+WantedBy=multi-user.target

@@ -103,7 +103,7 @@ Steps [README.md](./15_code_server/README.md)
 
 ## 16 - QEMU
 
-Demonstrate how to get aarch64 machine running on qemu (ubuntu)
+Demonstrate how to get aarch64 machine running on qemu (ubuntu)  
 Steps [README.md](./16_qemu/README.md)  
 
 ## 17 - Juypter
@@ -140,3 +140,8 @@ Steps [README.md](./23_mitmproxy/README.md)
 
 Demonstrate how to use `ngrok` to host a service and make it publically available.  
 Steps [README.md](./24_ngrok/README.md)  
+
+## 26 - systemd
+
+Demonstrates some examples with `systemd`  
+Steps [README.md](./26_systemd/README.md)  

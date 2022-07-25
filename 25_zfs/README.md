@@ -1,6 +1,8 @@
 # README
 
+Demonstrate some `zfs` examples   
 
+docker rm $(docker ps -aq)
 
 Error response from daemon: container 5276643f00a6f3e40736641f65085ad08a1276c3fd03e39e475db541fba4a35b: driver "zfs" failed to remove root filesystem: exit status 1: "/usr/sbin/zfs fs destroy -r rpool/ROOT/ubuntu_xd5gng/var/lib/e71e20a1763cc64e58f0ed38c60333fbd9342e390a3fb0946b696e3ef7416662" => cannot open 'rpool/ROOT/ubuntu_xd5gng/var/lib/e71e20a1763cc64e58f0ed38c60333fbd9342e390a3fb0946b696e3ef7416662': dataset does not exist
 

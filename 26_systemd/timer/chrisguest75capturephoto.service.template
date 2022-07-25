@@ -1,0 +1,13 @@
+[Unit]
+Description=An example service that will capture an image from the webcam
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=oneshot
+User=${USER}
+Environment="CAPTURE_PATH=${PWD}/captures"
+ExecStart=/usr/bin/env bash -c "${PWD}/capture-photo.sh"
+
+[Install]
+WantedBy=multi-user.target

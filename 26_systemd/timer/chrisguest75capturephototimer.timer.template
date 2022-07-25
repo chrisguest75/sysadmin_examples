@@ -1,0 +1,10 @@
+[Unit]
+Description=Capture a photo from webcam on a timer
+
+[Timer]
+OnCalendar=*-*-* *:*:00
+Unit= chrisguest75capturephoto.service 
+Persistent=true
+
+[Install]
+WantedBy=timers.target

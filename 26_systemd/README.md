@@ -87,6 +87,9 @@ systemd-run --user --on-calendar '*:0/1' ./script.sh --arg1
 ## Troubleshooting
 
 ```sh
+# if a timer is failing to be removed "not-found"
+systemctl reset-failed      
+
 # what has failed?
 systemctl --failed
 

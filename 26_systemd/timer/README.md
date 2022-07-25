@@ -34,11 +34,14 @@ cat ./chrisguest75capturephototimer.timer.template | envsubst > ./chrisguest75ca
 sudo ln -s $(pwd)/chrisguest75capturephototimer.timer /etc/systemd/system/chrisguest75capturephototimer.timer
 
 # Start the timer
+sudo systemctl start chrisguest75capturephototimer
 sudo systemctl enable chrisguest75capturephototimer.timer
+# if it doesn't work use enable --now 
+sudo systemctl enable --now chrisguest75capturephototimer.timer 
 
 systemctl status chrisguest75capturephototimer 
 
-systemctl cat chrisguest75capturephototimer.service  
+systemctl cat chrisguest75capturephototimer.timer  
 ```
 
 ## Troubleshooting
@@ -54,15 +57,21 @@ journalctl -b -u chrisguest75capturephototimer.timer --no-pager
 
 ```sh
 # stop the service
-systemctl stop chrisguest75webservice 
+systemctl stop chrisguest75capturephoto 
+systemctl disable chrisguest75capturephototimer.timer 
+systemctl --user stop chrisguest75capturephototimer.timer    
+
+# if a timer is failing to be removed "not-found"
+systemctl reset-failed   
 ```
 
 ```sh
 # remove the service
-sudo rm /etc/systemd/system/chrisguest75webservice.service  
+sudo rm /etc/systemd/system/chrisguest75capturephoto.service  
 ```
 
 ## Resources
 
 * Run script every 30 min with systemd [here](https://unix.stackexchange.com/questions/198444/run-script-every-30-min-with-systemd)
 * How to set environment variable in systemd service? [here](https://serverfault.com/questions/413397/how-to-set-environment-variable-in-systemd-service)
+* Systemd timers onCalendar (cron) format explained [here](https://silentlad.com/systemd-timers-oncalendar-(cron)-format-explained)  

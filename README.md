@@ -141,6 +141,11 @@ Steps [README.md](./23_mitmproxy/README.md)
 Demonstrate how to use `ngrok` to host a service and make it publically available.  
 Steps [README.md](./24_ngrok/README.md)  
 
+## 25 - zfs
+
+Demonstrate some `zfs` examples  
+Steps [README.md](./25_zfs/README.md)  
+
 ## 26 - systemd
 
 Demonstrates some examples with `systemd`  

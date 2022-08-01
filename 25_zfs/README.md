@@ -1,6 +1,6 @@
 # README
 
-Demonstrate some `zfs` examples   
+Demonstrate some `zfs` examples  
 
 ## Example
 

@@ -38,6 +38,16 @@ sudo dhclient -d -nw wlx1cbfcec13467
 dig @192.168.1.254 bigmonga
 ```
 
+## Process NMAP
+
+```sh
+# scan network (save xml file)
+nmap -p 22 -oX ./net.xml -vvv 192.168.1.0/24   
+
+# show hosts that are up
+xmllint --xpath '//host/status[@state="up"]/../address/@addr' ./net.xml
+```
+
 ## Resources
 
 * https://nmap.org/

@@ -6,6 +6,15 @@ TODO:
 
 * Debugging home networking.
 
+## Find local neighbours
+
+```sh
+# show ip addresses on local network
+ip neighbor
+# NOTE: doesn't seem to show ipv6 neighbours
+ip -6 neighbor
+```
+
 ## Scan local network
 
 ```sh
@@ -15,10 +24,11 @@ nmap -sn -vvv 192.168.1.0/24
 # this does not always do reverse lookup
 nmap -p 22 -sV -A -vvv 192.168.1.0/24
 
+# -sV: Probe open ports to determine service/version info
 nmap -sV -A -vvv 192.168.1.0/24
 
 # NOTE: this does not show a reverse lookup
-nmap -sn 192.168.1.0/24 -vvv --dns-servers 192.168.1.254
+nmap -sV 192.168.1.0/24 -vvv -A --dns-servers 192.168.1.254
 ```
 
 ## Locate DHCP servers
@@ -48,6 +58,19 @@ nmap -p 22 -oX ./net.xml -vvv 192.168.1.0/24
 xmllint --xpath '//host/status[@state="up"]/../address/@addr' ./net.xml
 ```
 
+## IPv6
+
+Scan a single IPv6 address.  
+
+```sh
+# take the global scope
+ip -6 addr  
+# 
+GLOBAL_IPV6=2a00:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx:xxxx
+nmap -6 -sV ${GLOBAL_IPV6}
+```
+
 ## Resources
 
-* https://nmap.org/
+* nmap.org [here](https://nmap.org/)  
+* Scanning IPv6 Networks [here](https://www.dionach.com/blog/scanning-ipv6-networks/)  

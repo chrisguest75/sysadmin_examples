@@ -7,6 +7,12 @@ TODO:
 * ndisc6
 * ndp
 
+## Documentation
+
+```sh
+apropos ipv6
+```
+
 ## Config
 
 ```sh
@@ -22,6 +28,9 @@ IPv6 uses NDP (Neightbour Discovery Protocol) over ARP.
 ```sh
 # show ARP and NDP addresses on local network
 ip neighbor
+
+# on macosx
+ndp -a 
 ```
 
 

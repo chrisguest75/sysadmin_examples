@@ -14,6 +14,8 @@ ip l
 
 ## Sockets
 
+### ss
+
 ss - another utility to investigate sockets  
 
 ```sh
@@ -31,6 +33,13 @@ ss -ti
 
 # tcp/udp, state, stats and addresses.
 ss -plantu
+```
+
+### netstat
+
+```sh
+# list open sockets
+netstat
 ```
 
 ## LSOF

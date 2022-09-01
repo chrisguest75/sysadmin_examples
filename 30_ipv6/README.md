@@ -7,6 +7,14 @@ TODO:
 * ndisc6
 * ndp
 
+## Config
+
+```sh
+ip link show 
+ip addr show wlp3s0 
+ls /proc/sys/net/ipv6/conf/all 
+```
+
 ## Find local neighbours
 
 IPv6 uses NDP (Neightbour Discovery Protocol) over ARP.  
@@ -20,7 +28,12 @@ ip neighbor
 
 * How do I dig a ipv6 address?
 
+```sh
+open https://ipv6.google.com/
+
+dig ipv6.google.com
 dig www.google.com AAAA
+```
 
 * Scanning networks
 

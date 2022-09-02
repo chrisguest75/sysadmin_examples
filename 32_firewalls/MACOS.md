@@ -38,10 +38,10 @@ cat /etc/pf.os
 Stealh mode cannot be disabled under MDM management.  But disabling PF allows ICMP pings through.  
 
 ```sh
-# disable 
+# disable (a reboot will reenable)
 sudo pfctl -d
 
-# check disabled
+# check disabled 
 sudo pfctl -s info | grep Status
 
 # try a ping now

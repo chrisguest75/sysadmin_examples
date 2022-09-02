@@ -6,6 +6,8 @@ TODO:
 
 * ndisc6
 * ndp
+* Create a tcpdump of a ping
+* Scopes
 
 ## Documentation
 
@@ -13,12 +15,30 @@ TODO:
 apropos ipv6
 ```
 
+
+
 ## Config
 
 ```sh
 ip link show 
 ip addr show wlp3s0 
 ls /proc/sys/net/ipv6/conf/all 
+```
+
+## Addresses
+
+```sh
+# hosts file has ipv4 and ipv6
+cat /etc/hosts              
+
+# loopback 
+ping6 "::1"
+http://[::1]:80/
+
+ping6 "::ffff:127.0.0.1"  
+
+# ping all nodes 
+ping6 ff02::1%<interface>
 ```
 
 ## Find local neighbours
@@ -33,16 +53,18 @@ ip neighbor
 ndp -a 
 ```
 
-
-
-* How do I dig a ipv6 address?
+## DNS (AAAA)
 
 ```sh
+# google has an ipv6 endpoint
 open https://ipv6.google.com/
 
+# look for AAAA records
 dig ipv6.google.com
 dig www.google.com AAAA
 ```
+
+
 
 * Scanning networks
 
@@ -68,8 +90,6 @@ https://www.showmyip.com/
  
 
 Ipv6 reasons  
-
-AAAA record for ipv6 
 
 https://jvns.ca/blog/2022/01/29/reasons-for-servers-to-support-ipv6/ 
 
@@ -127,3 +147,15 @@ https://blog.apify.com/ipv4-mapped-ipv6-in-nodejs/
 ## Resources
 
 https://github.com/fgont/ipv6toolkit
+https://en.wikipedia.org/wiki/IPv6_address
+
+* A tiny javascript library to encode IPv6 and IPv4 addresses as haiku. [here](https://github.com/gabemart/hipku)
+* Format for Literal IPv6 Addresses in URL's [here](https://www.rfc-editor.org/rfc/rfc2732)
+* IP Version 6 Addressing Architecture [here](https://www.rfc-editor.org/rfc/rfc4291)
+
+
+https://docs.microsoft.com/en-us/previous-versions/aa917150(v=msdn.10)?redirectedfrom=MSDN#reachability-scopes
+
+
+* Why is there a percent sign '%' in the IPv6 address? [here](https://superuser.com/questions/99746/why-is-there-a-percent-sign-in-the-ipv6-address)
+

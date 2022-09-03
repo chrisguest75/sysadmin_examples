@@ -81,6 +81,102 @@
                     }
                 ],
                 "suspend": false
+            },
+            {
+                "filters": {},
+                "link_id": "66b2940f-b96c-414f-badf-32d1165aed60",
+                "link_style": {},
+                "nodes": [
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "e3",
+                            "x": 13,
+                            "y": 49
+                        },
+                        "node_id": "84884989-3394-4cf6-aad1-75264b360fb6",
+                        "port_number": 3
+                    },
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "eth0",
+                            "x": 54,
+                            "y": -4
+                        },
+                        "node_id": "6d209734-79bf-4514-861a-5530e778f2dd",
+                        "port_number": 0
+                    }
+                ],
+                "suspend": false
+            },
+            {
+                "filters": {},
+                "link_id": "af536a16-eaf3-48a2-842a-d746ec68fdea",
+                "link_style": {},
+                "nodes": [
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "e2",
+                            "x": 52,
+                            "y": 52
+                        },
+                        "node_id": "84884989-3394-4cf6-aad1-75264b360fb6",
+                        "port_number": 2
+                    },
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "eth0",
+                            "x": 15,
+                            "y": -6
+                        },
+                        "node_id": "8e5e273f-48ad-414e-9cc8-b31d3cc6079e",
+                        "port_number": 0
+                    }
+                ],
+                "suspend": false
+            },
+            {
+                "filters": {},
+                "link_id": "7bd6f744-fd91-4618-a6ac-e4bce0970a7d",
+                "link_style": {},
+                "nodes": [
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "e4",
+                            "x": 68,
+                            "y": 37
+                        },
+                        "node_id": "84884989-3394-4cf6-aad1-75264b360fb6",
+                        "port_number": 4
+                    },
+                    {
+                        "adapter_number": 0,
+                        "label": {
+                            "rotation": 0,
+                            "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                            "text": "eth0",
+                            "x": 0,
+                            "y": 7
+                        },
+                        "node_id": "a338b780-722f-4965-a13c-e50a5c1b7f5c",
+                        "port_number": 0
+                    }
+                ],
+                "suspend": false
             }
         ],
         "nodes": [
@@ -160,8 +256,8 @@
                 "symbol": ":/symbols/ethernet_switch.svg",
                 "template_id": "1966b864-93e7-32d5-965f-001384eec461",
                 "width": 72,
-                "x": 31,
-                "y": -25,
+                "x": 34,
+                "y": -51,
                 "z": 1
             },
             {
@@ -189,8 +285,8 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -147,
-                "y": -101,
+                "x": -228,
+                "y": -109,
                 "z": 1
             },
             {
@@ -218,8 +314,134 @@
                 "symbol": ":/symbols/vpcs_guest.svg",
                 "template_id": "19021f99-e36f-394d-b4a1-8aaa902ab9cc",
                 "width": 65,
-                "x": -151,
-                "y": 21,
+                "x": -225,
+                "y": 12,
+                "z": 1
+            },
+            {
+                "compute_id": "vm",
+                "console": 5007,
+                "console_auto_start": false,
+                "console_type": "telnet",
+                "custom_adapters": [],
+                "first_port_name": null,
+                "height": 59,
+                "label": {
+                    "rotation": 0,
+                    "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                    "text": "ubuntu-1",
+                    "x": -4,
+                    "y": -25
+                },
+                "locked": false,
+                "name": "ubuntu-1",
+                "node_id": "6d209734-79bf-4514-861a-5530e778f2dd",
+                "node_type": "docker",
+                "port_name_format": "Ethernet{0}",
+                "port_segment_size": 0,
+                "properties": {
+                    "adapters": 1,
+                    "aux": 5008,
+                    "console_http_path": "/",
+                    "console_http_port": 80,
+                    "console_resolution": "1024x768",
+                    "container_id": "b632c70f18f6ee1ba0e97af90a05ce9b8a73a80e34b95c2431c92d759e48ecf6",
+                    "environment": null,
+                    "extra_hosts": null,
+                    "extra_volumes": [],
+                    "image": "ubuntu:22.04",
+                    "start_command": "/bin/bash",
+                    "usage": ""
+                },
+                "symbol": ":/symbols/docker_guest.svg",
+                "template_id": "330bd6f6-463d-433e-88c8-540973456f51",
+                "width": 65,
+                "x": -227,
+                "y": 120,
+                "z": 1
+            },
+            {
+                "compute_id": "vm",
+                "console": 5005,
+                "console_auto_start": false,
+                "console_type": "telnet",
+                "custom_adapters": [],
+                "first_port_name": null,
+                "height": 59,
+                "label": {
+                    "rotation": 0,
+                    "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                    "text": "kalilinux-kali-last-release-1",
+                    "x": -71,
+                    "y": -25
+                },
+                "locked": false,
+                "name": "kalilinux-kali-last-release-1",
+                "node_id": "8e5e273f-48ad-414e-9cc8-b31d3cc6079e",
+                "node_type": "docker",
+                "port_name_format": "Ethernet{0}",
+                "port_segment_size": 0,
+                "properties": {
+                    "adapters": 1,
+                    "aux": 5006,
+                    "console_http_path": "/",
+                    "console_http_port": 80,
+                    "console_resolution": "1024x768",
+                    "container_id": "07a1ff8447f1af15a42ba3bfcb6e8bda4541ec17226fff0c4e4d730d1f3653c3",
+                    "environment": null,
+                    "extra_hosts": null,
+                    "extra_volumes": [],
+                    "image": "kalilinux/kali-last-release:latest",
+                    "start_command": "/usr/bin/bash -c \"sleep infinity\"",
+                    "usage": ""
+                },
+                "symbol": ":/symbols/docker_guest.svg",
+                "template_id": "07d14a79-a75c-4332-8928-f82d1ac8213e",
+                "width": 65,
+                "x": 13,
+                "y": 102,
+                "z": 1
+            },
+            {
+                "compute_id": "vm",
+                "console": 5009,
+                "console_auto_start": false,
+                "console_type": "telnet",
+                "custom_adapters": [],
+                "first_port_name": null,
+                "height": 59,
+                "label": {
+                    "rotation": 0,
+                    "style": "font-family: TypeWriter;font-size: 10.0;font-weight: bold;fill: #000000;fill-opacity: 1.0;",
+                    "text": "someguy123-net-tools-1",
+                    "x": -60,
+                    "y": -25
+                },
+                "locked": false,
+                "name": "someguy123-net-tools-1",
+                "node_id": "a338b780-722f-4965-a13c-e50a5c1b7f5c",
+                "node_type": "docker",
+                "port_name_format": "Ethernet{0}",
+                "port_segment_size": 0,
+                "properties": {
+                    "adapters": 1,
+                    "aux": 5010,
+                    "console_http_path": "/",
+                    "console_http_port": 80,
+                    "console_resolution": "1024x768",
+                    "container_id": "6c70ea849f6d543da45715cdaf35e02388ed36edbfc76f5d1f1edb628e780d6e",
+                    "environment": "",
+                    "extra_hosts": "",
+                    "extra_volumes": [],
+                    "image": "someguy123/net-tools:latest",
+                    "start_command": "/bin/bash -c \"sleep 100000\"",
+                    "usage": ""
+                },
+                "symbol": ":/symbols/docker_guest.svg",
+                "template_id": "c7f3238f-6358-4b0a-931c-dccd80dc2055",
+                "width": 65,
+                "x": 155,
+                "y": 13,
                 "z": 1
             }
         ]

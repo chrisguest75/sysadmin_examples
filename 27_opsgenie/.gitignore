@@ -1,3 +1,5 @@
+node_modules
 .env
 opsgenie-lamp_3.1.4_darwin_amd64
 opsgenie-lamp_3.1.4_darwin_amd64.zip
+rates.json

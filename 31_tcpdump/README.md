@@ -71,3 +71,7 @@ https://www.comparitech.com/net-admin/decrypt-ssl-with-wireshark/
 https://www.netmeister.org/blog/tcpdump-ssl-and-tls.html
 
 https://www.netnea.com/cms/2022/01/20/decrypt-tls-encrypted-http-traffic-for-debugging/
+
+
+tshark or tcpdump?
+https://www.reddit.com/r/linuxadmin/comments/b0u4k8/tshark_or_tcpdump/

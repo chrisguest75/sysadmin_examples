@@ -12,6 +12,7 @@
   "dependencies": {
     "@ngneat/falso": "^6.1.0",
     "@types/lodash": "^4.14.184",
+    "dotenv-quokka-plugin": "^1.0.0",
     "lodash": "^4.17.21"
   }
 }

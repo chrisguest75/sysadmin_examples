@@ -101,6 +101,13 @@ ssh -i $VAGRANT_MACHINE/machines/default/virtualbox/private_key -l vagrant -o St
 ssh -A vagrant@$VAGRANT_MACHINE_IP
 ```
 
+## Copying files
+
+```sh
+# copying files from vagrant machines.
+scp -i ./.vagrant/machines/default/virtualbox/private_key -o StrictHostKeyChecking=no -P 2200 -r vagrant@127.0.0.1:/home/vagrant/google.pcap ./
+```
+
 ## Resources
 
 * man ssh_config(5) [here](http://www.manpagez.com/man/5/ssh_config/)

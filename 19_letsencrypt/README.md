@@ -24,7 +24,7 @@ brew install certbot
 ## Create certificate for letsencrypt.local.guestcode.uk
 
 ```sh
-# configure to get a secret
+# configure to get a secret (run to renew)
 certbot certonly --config-dir ./certbot/config --logs-dir ./certbot/logs --work-dir ./certbot/work --manual --preferred-challenges dns --register-unsafely-without-email -d letsencrypt.local.guestcode.uk
 
 # add the value to your personal DNS
@@ -50,7 +50,7 @@ Build the example and host on localhost
 
 ```sh
 # docker build 
-docker build -t nginx_ssl -f Dockerfile.nginx_ssl .             
+docker build --no-cache -t nginx_ssl -f Dockerfile.nginx_ssl .             
 docker run -it --rm -d -p 8080:443 --name web nginx_ssl
 
 # debian
@@ -77,7 +77,7 @@ sslscan --tls13 --no-ciphersuites --no-cipher-details --no-compression --no-fall
 openssl s_client -connect letsencrypt.local.guestcode.uk:8080 < /dev/null | openssl x509 -noout -text
 
 # requires java
-keytool -printcert -file /certbot/config/live/letsencrypt.local.guestcode.uk/fullchain.pem
+keytool -printcert -file ./certbot/config/live/letsencrypt.local.guestcode.uk-0001/fullchain.pem
 
 # print chain
 openssl s_client -connect letsencrypt.local.guestcode.uk:8080 -prexit -showcerts -state -status -tlsextdebug -verify 10

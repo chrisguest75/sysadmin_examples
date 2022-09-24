@@ -1,24 +1,27 @@
-# Checking Resources 
+# Checking Resources
+
 Demonstrate how to use various commands to verify resource usage in the OS.
 
 More examples [here](https://github.com/chrisguest75/ebpf-examples)
 
 TODO:
+
 * cgroups
 * File handles
 * Look at the brenden gregg resources http://www.brendangregg.com/linuxperf.html
 * Filesystem
 * Procfs
-* debugfs 
+* debugfs
 
 ## Areas
+
 [Disk](./DISK.md)  
 [Memory](./MEMORY.md)  
 [Network](./NETWORK.md)  
 [Processes](./PROCESSES.md)  
 
-
 ## Boot Image
+
 ```sh
 # BOOT_IMAGE options that we booted with
 cat /proc/cmdline 
@@ -31,6 +34,7 @@ systemctl show
 ```
 
 ## Check limits
+
 ```sh
 # limits inside a container
 docker run -it ubuntu:20.04 /bin/bash -c "ulimit -a" 
@@ -46,6 +50,7 @@ systemctl show
 ```
 
 ## IO
+
 [sysstat](https://www.linux.com/training-tutorials/sysstat-howto-deployment-and-configuration-guide-linux-servers/)  
 
 ```sh
@@ -56,5 +61,6 @@ sudo apt install sysstat
 mpstat -A
 ```
 
-# Resources
+## Resources
 
+* Troubleshooting RHEL - summary by topics [here](http://lofic.github.io/tips/troubleshooting-by-topics.html)  

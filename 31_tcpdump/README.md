@@ -19,8 +19,11 @@ tcpdump -D
 
 # ipv4
 arp -a 
+ip -4 neighbor show  
+
 # ipv6
 ndp -a 
+ip -6 neighbor show  
 ```
 
 ## IPv6
@@ -50,6 +53,26 @@ curl https://ipv6.google.com
 wireshark -r ./captures/tcp6.pcap        
 ```
 
+### Decrypting TLS
+
+```sh
+export SSLKEYLOGFILE=$(pwd)/captures/.ssl-key.log
+echo $SSLKEYLOGFILE
+
+sudo tcpdump -vvv -i any port 443 -w ./captures/google.pcap
+
+curl https://www.google.com      
+curl https://www.bing.com       
+cat $SSLKEYLOGFILE
+
+wireshark -r ./captures/google.pcap
+
+rm $SSLKEYLOGFILE
+rm ./captures/google.pcap
+
+
+```
+
 ## Resources
 
 * tcpdump fu [here](https://www.linuxjournal.com/content/tcpdump-fu)
@@ -61,7 +84,9 @@ wireshark -r ./captures/tcp6.pcap
 
 
 
-### Decrypting TLS 
+
+
+
 
 https://unit42.paloaltonetworks.com/wireshark-tutorial-decrypting-https-traffic/
 
@@ -75,3 +100,17 @@ https://www.netnea.com/cms/2022/01/20/decrypt-tls-encrypted-http-traffic-for-deb
 
 tshark or tcpdump?
 https://www.reddit.com/r/linuxadmin/comments/b0u4k8/tshark_or_tcpdump/
+
+
+https://linuxhint.com/decrypt-ssl-tls-wireshark/
+
+
+tcpdump -ttt -i eth0 udp port 2049
+tcpdump -vvv -i any port 80 # Flags [S] = syn, [S.] = syn-ack, [.] = ack, [R] = rst, [F]=fin(ish), etc.
+# Connection establishment : syn, syn-ack, ack
+tcpdump -vvv -i any -c 100 -A 'port 80 and host 192.168.0.16'
+tcpdump -i eth0 host 10.151.2.201 and 10.151.2.202
+tcpdump -i eth0 not port 22
+
+https://everything.curl.dev/usingcurl/tls/sslkeylogfile
+

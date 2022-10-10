@@ -150,3 +150,13 @@ Steps [README.md](./25_zfs/README.md)
 
 Demonstrates some examples with `systemd`  
 Steps [README.md](./26_systemd/README.md)  
+
+## 27 - opsgenie
+
+Demonstrate `opsgenie` cli management commands.  
+Steps [README.md](./27_opsgenie/README.md)  
+
+## 28 - shodan
+
+Demonstrate a basic example of using `shodan`  
+Steps [README.md](./28_shodan/README.md)  

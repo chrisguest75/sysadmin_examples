@@ -4,15 +4,15 @@ Demonstrate how to use `yubikey`.
 
 ## Reason
 
-Hardware tokens 
-
+Yubikey offers a lot of support for different auth protocols and certificates.  
 
 TERMINOLOGY:
 
 - FIDO2 - Fast Identity Online (FIDO) [fidoalliance.org](https://fidoalliance.org/fido2/)
 - OTP - [One-time password](https://en.wikipedia.org/wiki/One-time_password)
-- PIV - (Personal Identity Verification)
+- PIV - Personal Identity Verification
 - WebAuthn - [WebAuthn Introduction](https://developers.yubico.com/WebAuthn)
+- PKCS - Public Key Cryptography Standards
 
 TODO:
 
@@ -29,12 +29,14 @@ https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
 brew info ykman 
 
 brew install ykman
+brew install yubico-piv-tool
 
 ykman list   
 
 ykman info  
 
-
+ykman --version
+yubico-piv-tool --version
 ```
 
 Go get the GUI manager from [website](https://www.yubico.com/support/download/yubikey-manager/)  
@@ -59,6 +61,7 @@ https://www.securew2.com/blog/yubikey-certificate-attestation/
 
 https://smallstep.com/blog/use-ssh-certificates/
 
+https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
 
 ## SSH
 

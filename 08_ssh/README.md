@@ -1,6 +1,6 @@
 # README
 
-Demonstrates how to configure and use ssh
+Demonstrates how to configure and use ssh with keys.  
 
 ## Table of contents
 
@@ -21,11 +21,11 @@ TODO:
 * Decoding the private and public keys  
 * [Keys versus certificates.](https://www.youtube.com/watch?v=P-Yq_6Da1b8) SSH can have a validity period but you have to be using SSH certificates not keys.  https://smallstep.com/blog/use-ssh-certificates/
 
+Ref: [chrisguest75/docker_examples/39_ssh/README.md](https://github.com/chrisguest75/docker_examples/tree/master/39_ssh/README.md)  
+
 ## Windows
 
 Goto [WINDOWS.md](./WINDOWS.md)  
-
-Ref: [39_ssh/README.md](https://github.com/chrisguest75/docker_examples/tree/master/39_ssh/README.md)  
 
 ## Install
 
@@ -86,6 +86,7 @@ ssh-add
 # list loaded keys
 ssh-add -l
 
+# list details on ssh-agent
 ssh-agent
 
 # remove all the keys (when rotating)
@@ -135,6 +136,6 @@ scp -i ./.vagrant/machines/default/virtualbox/private_key -o StrictHostKeyChecki
 ## Resources
 
 * man ssh_config(5) [here](http://www.manpagez.com/man/5/ssh_config/)
-* Generating a new SSH key and adding it to the ssh-agent[here]](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* Generating a new SSH key and adding it to the ssh-agent[here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * SSH CHEATSHEET [here](https://cheatsheet.dennyzhang.com/cheatsheet-ssh-a4)
 * `cheatsheet ssh`

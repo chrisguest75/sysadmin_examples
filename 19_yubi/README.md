@@ -25,31 +25,61 @@ https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
 
 ## Tools
 
+Details about the tools [here](https://developers.yubico.com/PIV/Tools.html)  
+
 ```sh
 brew info ykman 
 
+# install them
 brew install ykman
 brew install yubico-piv-tool
 
+# time of writing - YubiKey Manager (ykman) version: 5.0.0
+ykman --version
+# time of writing - yubico-piv-tool 2.3.0
+yubico-piv-tool --version
+
+# list devices
 ykman list   
 
-ykman info  
+# list details
+ykman info
 
-ykman --version
-yubico-piv-tool --version
+# gpg can show details on the card
+gpg --card-status
 ```
 
 Go get the GUI manager from [website](https://www.yubico.com/support/download/yubikey-manager/)  
 
-## Reseting PIN
+## Resetting PIN
 
-The default PIN code is 123456. The default PUK code is 12345678.
+The default PIN code is `123456`. The default PUK code is `12345678`.
 
-The default 3DES management key (9B) is 010203040506070801020304050607080102030405060708.
+The default 3DES management key (9B) is `010203040506070801020304050607080102030405060708`.
 
-https://developers.yubico.com/PIV/Introduction/YubiKey_and_PIV.html
+Technical details about the YubiKey PIV implementation can be found [here](https://developers.yubico.com/PIV/Introduction/YubiKey_and_PIV.html)  
 
 Change the pins PIN and PUK
+
+## Generate keys
+
+NOTE: An occupied slot on the Yubikey PIV interface usually contains a private key, a public key and an X509 certificate. The key pair generate, the certificate generation and the certificate import are done using different actions in the right order. REF: [Key Generation](https://developers.yubico.com/yubico-piv-tool/Actions/key_generation.html)
+
+```sh
+ykman piv --help
+
+yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o public.pem
+```
+
+Getting Started: SSH Authentication with a YubiKey as a Smart Card
+ [here](https://developers.yubico.com/PIV/Guides/PIV_Walk-Through.html)
+
+https://eta.st/2021/03/06/yubikey-5-piv.html
+
+yubikey agent https://github.com/FiloSottile/yubikey-agent
+
+RSA 4096 bit keys on yubikey
+https://dev.to/paulmicheli/using-your-yubikey-to-store-your-ssh-key-rsa-4096-3pfl
 
 https://github.com/OpenSC/OpenSC/wiki
 https://developers.yubico.com/yubico-piv-tool/
@@ -62,6 +92,8 @@ https://www.securew2.com/blog/yubikey-certificate-attestation/
 https://smallstep.com/blog/use-ssh-certificates/
 
 https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
+
+
 
 ## SSH
 

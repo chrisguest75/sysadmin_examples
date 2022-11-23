@@ -22,6 +22,10 @@ TODO:
 - titan keys?
 https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
 - https://github.com/ixydo/gpg-smartcard-automation
+https://github.com/ixydo/gpg-smartcard-automation
+Yubikey provisioning
+https://github.com/santiago-mooser/yubikey-provisioning-scripts
+
 
 ## Tools
 

@@ -1,6 +1,28 @@
 # README
 
-Demonstrates how to perform user management  
+Demonstrates how to perform some user management tasks.  
+
+## Reason
+
+Even if we're using a single user enviroment we need to understand how to investigate users and groups.  
+
+## Docker Playground
+
+Use docker so we can play with users and groups.  
+Ref: [docker_examples/05_root_user](https://github.com/chrisguest75/docker_examples/tree/master/05_root_user)  
+
+```sh
+# build myuser
+docker build -t usertest -f user.Dockerfile .
+
+# usertest
+docker run -it --rm --entrypoint "/bin/bash" --user myuser --name usertest usertest
+id myuser
+
+# root
+docker run -it --rm --entrypoint "/bin/bash" --user root --name usertest usertest
+id root
+```
 
 ## useradd and adduser  
 
@@ -78,4 +100,4 @@ sudo chmod 2775 /shares
 
 ## Resources
 
-* cheatsheet adduser
+* `cheatsheet adduser`

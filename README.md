@@ -37,7 +37,7 @@ Steps [README.md](./02_nfs_share/README.md)
 
 ## 03 - User management
 
-Demonstrates how to perform user management  
+Demonstrates how to perform some user management tasks.  
 Steps [README.md](./03_usermanagement/README.md)  
 
 ## 04 - Apt Management

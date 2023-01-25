@@ -22,8 +22,9 @@ strace -c -f ./programs/waiting.sh
 strace -c -e trace=file -f ./programs/listing.sh  
 
 # create a file and copy tracing
-strace -c -e trace=file -f ./programs/create_and_copy.sh  
-
+strace -c -e trace=file -f ./programs/create_and_copy.sh
+# trace files a tool is loading
+strace -f -e trace=file aws 
 
 # in another window
 ./programs/waiting.sh > /dev/null &

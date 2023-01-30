@@ -15,10 +15,11 @@ TODO:
 
 ## Areas
 
-[Disk](./DISK.md)  
-[Memory](./MEMORY.md)  
-[Network](./NETWORK.md)  
-[Processes](./PROCESSES.md)  
+* [cgroups](./CGROUPS.md)  
+* [Disk](./DISK.md)  
+* [Memory](./MEMORY.md)  
+* [Network](./NETWORK.md)  
+* [Processes](./PROCESSES.md)  
 
 ## Boot Image
 

@@ -97,6 +97,12 @@ wscat -c ws://0.0.0.0:8080/ws/echo --slash
 docker compose down
 ```
 
+## Troubleshooting
+
+```sh
+docker compose exec --entrypoint /bin/sh nginx
+```
+
 ## Resources
 
 * NGINX as a WebSocket Proxy [here](https://www.nginx.com/blog/websocket-nginx/)  

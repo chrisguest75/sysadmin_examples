@@ -41,7 +41,7 @@ wsl --list --all
 
 # show envvars 
 set
-# the vhdx for distro
+# the vhdx for distro (new distros are installed in packages folder)
 dir "%LocalAppData%\packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\localstate"
 
 
@@ -76,6 +76,15 @@ wsl --install ubuntu-22.04
 
 # step into non default wsl
 wsl -d ubuntu-22.04
+```
+
+## Remove
+
+```sh
+wsl --unregister ubuntu-22.04
+
+# show folders (it removes vhdx but not folder)
+dir "%LocalAppData%\packages\"
 ```
 
 ## Resources

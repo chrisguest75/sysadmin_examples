@@ -79,6 +79,12 @@ wsl --unregister ubuntu-22.04
 dir "%LocalAppData%\packages\"
 ```
 
+## Shutting down
+
+```sh
+wsl --shutdown
+```
+
 ## Tips and Tricks
 
 ### SSH Agent
@@ -106,14 +112,22 @@ dir \\wsl.localhost\ubuntu\etc
 ```
 
 ```sh
+nano /etc/wsl.conf
 
-# mount
+[automount]
+enabled=true
+options=metadata,uid=1000,gid=1000,umask=022
+
+# shutdown 
+wsl --shutdown
+
+# check mount
+
+# mount (default)
 drvfs on /mnt/c type 9p (rw,noatime,dirsync,aname=drvfs;path=C:\;uid=1000;gid=1000;symlinkroot=/mnt/,mmap,access=client,msize=262144,trans=virtio)
 
-
+# 2nd distro install
 drvfs on /mnt/c type 9p (rw,noatime,dirsync,aname=drvfs;path=C:\;uid=0;gid=0;symlinkroot=/mnt/,mmap,access=client,msize=262144,trans=virtio)
-
-
 ```
 
 ### Git
@@ -121,6 +135,7 @@ drvfs on /mnt/c type 9p (rw,noatime,dirsync,aname=drvfs;path=C:\;uid=0;gid=0;sym
 When sharing clones between Windows and multiple WSL distros it seems ownership is checked.  
 
 ```sh
+# if you don't update wsl.conf you can mark safe.  
 git config --global --add safe.directory '/mnt/c/Users/myuser/source/repos/myrepo'
 ```
 

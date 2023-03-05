@@ -24,6 +24,8 @@ TODO:
 ## Installing 
 
 ```sh
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux 
+
 # list available 
 wsl --list --online
 
@@ -152,3 +154,6 @@ git config --global --add safe.directory '/mnt/c/Users/myuser/source/repos/myrep
 * Automatically Configuring WSL [here](https://devblogs.microsoft.com/commandline/automatically-configuring-wsl/)  
 * WSL drvfs mount issues — user mapping not recognised? [here](https://superuser.com/questions/1439265/wsl-drvfs-mount-issues-user-mapping-not-recognised)
 * Advanced settings configuration in WSL [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf)
+* Installing WSL (windows subsystem for linux) Gist [here](https://gist.github.com/ecarlson94/283102ffd2f2473d41e7c9965be8fdd4)
+* WSL2, Ubuntu-22.04 and the correct /etc/wsl.conf configuration [here](https://basila.medium.com/wsl2-ubuntu-22-04-and-the-correct-etc-wsl-conf-configuration-d332af95d770)  
+* The Ultimate Guide to Windows Subsystem for Linux (Windows WSL) [here](https://adamtheautomator.com/windows-subsystem-for-linux/)  

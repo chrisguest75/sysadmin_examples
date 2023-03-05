@@ -6,7 +6,8 @@ NOTES:
 
 * It doesn't need HyperV, just Virtual machine platform required for WSL.  
 * It runs one kernel for all WSL distros.  
-* For speed your code should be copied into the vhdx.  
+* For speed your code should be copied into the vhdx. 
+* WSLG is for graphics - it's possible to run GFX apps from linux in windows.   
 
 TODO:
 
@@ -19,16 +20,6 @@ TODO:
 * Wslconfig to configure wsl memory 
 * Podman desktop?
 * Multipass?
-
-## Starting
-
-```sh
-# step into wsl (use windows cmd prompt)
-wsl
-
-uname -a 
-lsb_release -a 
-```
 
 ## Installing 
 
@@ -44,8 +35,23 @@ set
 # the vhdx for distro (new distros are installed in packages folder)
 dir "%LocalAppData%\packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\localstate"
 
-
 wslconfig /list
+```
+
+## Starting 
+
+```sh
+# step into wsl (use windows cmd prompt)
+wsl
+
+uname -a 
+lsb_release -a 
+
+# print versions
+cat /mnt/wslg/versions.txt
+
+# show memory
+ls /proc/meminfo
 ```
 
 ## HyperV
@@ -90,6 +96,26 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 .\collect-wsl-logs.ps1
 ```
 
+### Mounts
+
+drvfs 
+
+```cmd
+# it's possible to list directory contents from windows through \\wsl.localhost
+dir \\wsl.localhost\ubuntu\etc
+```
+
+```sh
+
+# mount
+drvfs on /mnt/c type 9p (rw,noatime,dirsync,aname=drvfs;path=C:\;uid=1000;gid=1000;symlinkroot=/mnt/,mmap,access=client,msize=262144,trans=virtio)
+
+
+drvfs on /mnt/c type 9p (rw,noatime,dirsync,aname=drvfs;path=C:\;uid=0;gid=0;symlinkroot=/mnt/,mmap,access=client,msize=262144,trans=virtio)
+
+
+```
+
 ### Git
 
 When sharing clones between Windows and multiple WSL distros it seems ownership is checked.  
@@ -101,8 +127,13 @@ git config --global --add safe.directory '/mnt/c/Users/myuser/source/repos/myrep
 ## Resources
 
 * microsoft/WSL [here](https://github.com/microsoft/WSL)
+* microsoft/WSLG [here](https://github.com/microsoft/wslg)
 * diagnostics script [here](https://github.com/Microsoft/WSL/blob/master/diagnostics/collect-wsl-logs.ps1)
 * Use an ssh-agent in WSL with your ssh setup from windows 10 [here](https://pscheit.medium.com/use-an-ssh-agent-in-wsl-with-your-ssh-setup-in-windows-10-41756755993e)
 * How to install multiple instances of Ubuntu in WSL2 [here](https://cloudbytes.dev/snippets/how-to-install-multiple-instances-of-ubuntu-in-wsl2)
 * Finding or Recovering your WSL Data [here](https://christopherkibble.com/posts/wsl-vhdx-recovery/)
 * How to correct `git` reporting `detected dubious ownership in repository` without adding `safe.directory` when using WSL? [here](https://stackoverflow.com/questions/73485958/how-to-correct-git-reporting-detected-dubious-ownership-in-repository-withou)
+* Chmod/Chown WSL Improvements [here](https://devblogs.microsoft.com/commandline/chmod-chown-wsl-improvements/)  
+* Automatically Configuring WSL [here](https://devblogs.microsoft.com/commandline/automatically-configuring-wsl/)  
+* WSL drvfs mount issues — user mapping not recognised? [here](https://superuser.com/questions/1439265/wsl-drvfs-mount-issues-user-mapping-not-recognised)
+* Advanced settings configuration in WSL [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-per-distro-launch-settings-with-wslconf)

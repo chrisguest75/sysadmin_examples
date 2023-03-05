@@ -57,3 +57,22 @@ rm /var/lib/apt/lists/*
 ls -l /var/apt/sources
 ls -l /var/apt/sources.list.d
 ```
+
+## Building from Source
+
+```sh
+# add src sources
+sudo cp /etc/apt/sources.list /etc/apt/sources.list~
+sudo sed -Ei 's/^# deb-src /deb-src /' /etc/apt/sources.list
+sudo apt update
+
+# make and install
+apt-get source git
+./configure --prefix=$HOME/myapps
+make
+make install
+```
+
+## Resources
+
+* How to install program locally without sudo privileges? [here](https://unix.stackexchange.com/questions/42567/how-to-install-program-locally-without-sudo-privileges)

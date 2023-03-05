@@ -54,21 +54,6 @@ wslconfig /list
 hcsdiag list
 ```
 
-## SSH Agent
-
-```sh
-eval $(ssh-agent -s)
-ssh-add /home/${USER}/.ssh/id_ed25519
-```
-
-## Collecting Logs
-
-```ps1
-Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/WSL/master/diagnostics/collect-wsl-logs.ps1" -OutFile collect-wsl-logs.ps1
-Set-ExecutionPolicy Bypass -Scope Process -Force
-.\collect-wsl-logs.ps1
-```
-
 ## Second distro
 
 ```sh
@@ -78,13 +63,39 @@ wsl --install ubuntu-22.04
 wsl -d ubuntu-22.04
 ```
 
-## Remove
+## Remove distro
 
 ```sh
+# DANGER: asks for no confirmation and is terminal 
 wsl --unregister ubuntu-22.04
 
 # show folders (it removes vhdx but not folder)
 dir "%LocalAppData%\packages\"
+```
+
+## Tips and Tricks
+
+### SSH Agent
+
+```sh
+eval $(ssh-agent -s)
+ssh-add /home/${USER}/.ssh/id_ed25519
+```
+
+### Collecting Logs
+
+```ps1
+Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/WSL/master/diagnostics/collect-wsl-logs.ps1" -OutFile collect-wsl-logs.ps1
+Set-ExecutionPolicy Bypass -Scope Process -Force
+.\collect-wsl-logs.ps1
+```
+
+### Git
+
+When sharing clones between Windows and multiple WSL distros it seems ownership is checked.  
+
+```sh
+git config --global --add safe.directory '/mnt/c/Users/myuser/source/repos/myrepo'
 ```
 
 ## Resources
@@ -94,3 +105,4 @@ dir "%LocalAppData%\packages\"
 * Use an ssh-agent in WSL with your ssh setup from windows 10 [here](https://pscheit.medium.com/use-an-ssh-agent-in-wsl-with-your-ssh-setup-in-windows-10-41756755993e)
 * How to install multiple instances of Ubuntu in WSL2 [here](https://cloudbytes.dev/snippets/how-to-install-multiple-instances-of-ubuntu-in-wsl2)
 * Finding or Recovering your WSL Data [here](https://christopherkibble.com/posts/wsl-vhdx-recovery/)
+* How to correct `git` reporting `detected dubious ownership in repository` without adding `safe.directory` when using WSL? [here](https://stackoverflow.com/questions/73485958/how-to-correct-git-reporting-detected-dubious-ownership-in-repository-withou)

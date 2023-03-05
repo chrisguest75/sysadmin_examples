@@ -69,6 +69,15 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 .\collect-wsl-logs.ps1
 ```
 
+## Second distro
+
+```sh
+wsl --install ubuntu-22.04
+
+# step into non default wsl
+wsl -d ubuntu-22.04
+```
+
 ## Resources
 
 * microsoft/WSL [here](https://github.com/microsoft/WSL)

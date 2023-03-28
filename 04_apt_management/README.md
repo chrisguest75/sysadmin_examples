@@ -50,10 +50,16 @@ sudo apt update
 # show lists
 ls -l /var/lib/apt/lists
 
-# remove lists
+# you can remove the lists but they will be recreated if you still have sources
 rm /var/lib/apt/lists/*
 
 # remove repositories list (target the removal to packages that are failing)
-ls -l /var/apt/sources
-ls -l /var/apt/sources.list.d
+ls -l /etc/apt/sources.list
+ls -l /etc/apt/sources.list.d
+
+# removes line from sources
+sudo add-apt-repository -r "line entry in sources.list"
+
+# stop trusting keys
+sudo apt-key del <keyid>
 ```

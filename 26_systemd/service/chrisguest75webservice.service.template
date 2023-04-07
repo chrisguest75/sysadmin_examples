@@ -4,6 +4,7 @@ After=network.target
 StartLimitIntervalSec=0
 
 [Service]
+Environment="MY_VAR=env_hello"
 Type=simple
 Restart=always
 RestartSec=1

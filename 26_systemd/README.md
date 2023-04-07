@@ -106,6 +106,9 @@ systemd-analyze blame
 systemd-analyze plot --help    
 systemd-analyze plot > ./graph1.svg  
 xdg-open ./graph1.svg 
+
+# reload systemd
+systemctl daemon-reload
 ```
 
 ## Controlling Server

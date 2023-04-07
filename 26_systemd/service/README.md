@@ -22,6 +22,9 @@ sudo ln -s $(pwd)/chrisguest75webservice.service /etc/systemd/system/chrisguest7
 # Start the service
 sudo systemctl start chrisguest75webservice 
 
+# show environment
+sudo systemctl show --property=Environment chrisguest75webservice
+
 systemctl status chrisguest75webservice 
 ```
 

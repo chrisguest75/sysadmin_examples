@@ -1,10 +1,13 @@
 # README
 
-Demonstrates how to configure and use ssh
+Demonstrates how to configure and use ssh with keys.  
 
 TODO:
 
 * Decoding the private and public keys
+* Use certificate rather than key.  
+
+Ref: [39_ssh/README.md](https://github.com/chrisguest75/docker_examples/tree/master/39_ssh/README.md)  
 
 ## Install
 
@@ -53,7 +56,6 @@ cat ~/.ssh/id_ed25519.pub
 
 # key details
 ssh-keygen -l -f ~/.ssh/id_ed25519   
-
 ```
 
 ## Agent
@@ -65,6 +67,7 @@ ssh-add
 # list loaded keys
 ssh-add -l
 
+# list details on ssh-agent
 ssh-agent
 ```
 
@@ -111,6 +114,6 @@ scp -i ./.vagrant/machines/default/virtualbox/private_key -o StrictHostKeyChecki
 ## Resources
 
 * man ssh_config(5) [here](http://www.manpagez.com/man/5/ssh_config/)
-* Generating a new SSH key and adding it to the ssh-agent[here]](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+* Generating a new SSH key and adding it to the ssh-agent[here](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * SSH CHEATSHEET [here](https://cheatsheet.dennyzhang.com/cheatsheet-ssh-a4)
 * `cheatsheet ssh`

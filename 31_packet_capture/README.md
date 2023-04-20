@@ -1,6 +1,6 @@
 # README
 
-Demonstrate some examples of using tcpdump.  
+Demonstrate how to perform packet capture using `tcpdump`, `tshark` and `wireshark`.  
 
 REF: [07_coredns_tcpdump/README.md](../07_coredns_tcpdump/README.md)  
 
@@ -17,7 +17,7 @@ NOTE: You can match the MAC addresses between IPv6 and IPv4 to determine the mac
 # list interfaces
 tcpdump -D 
 
-# ipv4
+# ipv4 (linux)
 arp -a 
 ip -4 neighbor show  
 
@@ -82,28 +82,21 @@ rm ./captures/google.pcap
 * IANA Protocol Numbers [here](https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml)
 * Internet Protocol Version 6 (IPv6) Parameters [here](https://www.iana.org/assignments/ipv6-parameters/ipv6-parameters.xhtml)
 
+* Wireshark Tutorial: Decrypting HTTPS Traffic [here](https://unit42.paloaltonetworks.com/wireshark-tutorial-decrypting-https-traffic/)
 
+* How to Decrypt SSL with Wireshark – HTTPS Decryption Guide [here](https://www.comparitech.com/net-admin/decrypt-ssl-with-wireshark/)
 
+* Capturing specific SSL and TLS version packets using tcpdump(8) [here](https://www.netmeister.org/blog/tcpdump-ssl-and-tls.html)
 
+* Decrypt TLS encrypted HTTP traffic for debugging [here](https://www.netnea.com/cms/2022/01/20/decrypt-tls-encrypted-http-traffic-for-debugging/)
 
-
-
-https://unit42.paloaltonetworks.com/wireshark-tutorial-decrypting-https-traffic/
-
-https://www.comparitech.com/net-admin/decrypt-ssl-with-wireshark/
-
-
-https://www.netmeister.org/blog/tcpdump-ssl-and-tls.html
-
-https://www.netnea.com/cms/2022/01/20/decrypt-tls-encrypted-http-traffic-for-debugging/
-
+* Decrypting SSL/TLS Traffic with Wireshark [here](https://linuxhint.com/decrypt-ssl-tls-wireshark/)
 
 tshark or tcpdump?
 https://www.reddit.com/r/linuxadmin/comments/b0u4k8/tshark_or_tcpdump/
 
-
-https://linuxhint.com/decrypt-ssl-tls-wireshark/
-
+Option 2 (recommended): Via mitmproxy:
+https://gist.github.com/felixhammerl/61e096924af34e91b43a930f36d3e1f9
 
 tcpdump -ttt -i eth0 udp port 2049
 tcpdump -vvv -i any port 80 # Flags [S] = syn, [S.] = syn-ack, [.] = ack, [R] = rst, [F]=fin(ish), etc.
@@ -111,6 +104,7 @@ tcpdump -vvv -i any port 80 # Flags [S] = syn, [S.] = syn-ack, [.] = ack, [R] = 
 tcpdump -vvv -i any -c 100 -A 'port 80 and host 192.168.0.16'
 tcpdump -i eth0 host 10.151.2.201 and 10.151.2.202
 tcpdump -i eth0 not port 22
+
 
 https://everything.curl.dev/usingcurl/tls/sslkeylogfile
 

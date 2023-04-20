@@ -55,22 +55,45 @@ wireshark -r ./captures/tcp6.pcap
 
 ### Decrypting TLS
 
+Capturing using `tcpdump`  
+
 ```sh
 export SSLKEYLOGFILE=$(pwd)/captures/.ssl-key.log
 echo $SSLKEYLOGFILE
 
+# open termminal and run 
 sudo tcpdump -vvv -i any port 443 -w ./captures/google.pcap
+```
 
+Invoke a few websites.  
+
+```sh
+# in seperate terminal - ensure SSLKEYLOGFILE is set.
+export SSLKEYLOGFILE=$(pwd)/captures/.ssl-key.log
+echo $SSLKEYLOGFILE
 curl https://www.google.com      
 curl https://www.bing.com       
 cat $SSLKEYLOGFILE
+```
 
+Configure Wireshark to decrypt using the SSLKEYLOGFILE:  
+
+```sh
 wireshark -r ./captures/google.pcap
+```
 
+a. Go to Wireshark > Preferences (or press ⌘,).  
+b. In the left pane, select Protocols, and then find and select TLS in the list.  
+c. In the Pre-Shared Key log filename field, enter the path to the SSL key log file you created earlier (e.g., $HOME/ssl_keylog.log).  
+d. Click OK to save the settings.  
+
+Filter and decrypt TLS traffic:
+a. In Wireshark's filter bar, enter tls and press Enter to filter the captured traffic for TLS packets.  
+b. Wireshark will now use the keys from the SSLKEYLOGFILE to decrypt the TLS traffic. You can view the decrypted packets by expanding the "Transport Layer Security" and "Secure Sockets Layer" sections in the packet details pane.  
+
+```sh
 rm $SSLKEYLOGFILE
 rm ./captures/google.pcap
-
-
 ```
 
 ## Resources

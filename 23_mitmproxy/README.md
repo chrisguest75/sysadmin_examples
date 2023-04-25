@@ -1,12 +1,17 @@
 # README
 
-Demonstrate how to use `mitmproxy`  
+Demonstrate how to use `mitmproxy` as an intercepting proxy  
+
+## REASON
+
+If you need to write webservices or use webservices having an intercepting proxy allows you to monitor how you code is working during development.  
 
 TODO:
 
 * mitmproxy Commands
-* transparent and tls proxy
+* transparent and tls proxy https://earthly.dev/blog/mitmproxy/
 * How to intercept a websocket and close it
+* How do I get logs for the scripts?  
 
 ## 📋 Install
 
@@ -18,6 +23,8 @@ ls ~/.mitmproxy
 ```
 
 ## 🧪 Quick test
+
+Running `mitmproxy` locally  
 
 ```sh
 # terminal
@@ -100,10 +107,13 @@ docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmproxy.yaml down
 Use with reverse proxy configuration.  
 
 ```sh
+# start proxy
 docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml up -d --build --force-recreate
 
+# mitm logs
 docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml logs mitmproxy 
 
+# open mitm console
 open http://0.0.0.0:8081    
 
 # this will intercept and call
@@ -118,6 +128,8 @@ docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yam
 
 ## Scripts
 
+MITMProxy has the ability to execute scripts on network events.  
+
 ```sh
 # terminal
 mitmweb -s ./scripts/flow-counter.py
@@ -128,13 +140,17 @@ curl --proxy localhost:8080 http://mitm.it
 
 # just podinfo
 docker compose -f ./docker-compose.yaml up -d --build --force-recreate 
+
 # start docker container
 docker run -it --rm -v $(pwd)/scripts:/scripts -it -p 8080:8080 -p 8081:8081 mitmproxy/mitmproxy:8.1.1 mitmweb --verbose -s /scripts/websocket-simple.py  -s /scripts/flow-counter.py -s /scripts/random-outage.py --web-host 0.0.0.0 --mode reverse:http://host.docker.internal:9001
+
 # start mitmweb in console
 mitmweb --verbose -s ./scripts/websocket-simple.py  -s ./scripts/flow-counter.py -s ./scripts/random-outage.py --web-host 0.0.0.0 --mode reverse:http://0.0.0.0:9001
+
 # send requests
 curl -vvv -i http://0.0.0.0:8080
 websocat --text ws://0.0.0.0:8080/ws/echo -n 
+
 # cleanup
 docker compose -f ./docker-compose.yaml
 ```

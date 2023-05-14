@@ -1,10 +1,10 @@
 # README
 
-Demonstrate how to use `mitmproxy` as an intercepting proxy  
+Demonstrate how to use `mitmproxy` as an intercepting proxy.  
 
 ## REASON
 
-If you need to write webservices or use webservices having an intercepting proxy allows you to monitor how you code is working during development.  
+If you need to write webservices or use webservices having an intercepting proxy allows you to monitor the network traffic during development.  
 
 TODO:
 
@@ -15,7 +15,11 @@ TODO:
 
 ## 📋 Install
 
+It can be installed from package managers.  
+
 ```sh
+brew info mitmproxy
+
 brew install mitmproxy
 
 # config directory
@@ -34,6 +38,8 @@ mitmproxy
 curl --proxy localhost:8080 http://mitm.it
 ```
 
+There is a web management console.  
+
 ```sh
 # terminal
 mitmweb
@@ -45,8 +51,10 @@ curl --proxy localhost:8080 http://mitm.it
 
 ## 🏠 Start
 
+Setup a test environment.  
+
 ```sh
-# start 
+# start podinfo
 docker compose up -d
 
 mitmweb --listen-host 0.0.0.0 --listen-port 40000
@@ -54,9 +62,9 @@ mitmweb --listen-host 0.0.0.0 --listen-port 40000
 # open web portal
 open http://127.0.0.1:8081/
 
+# check podinfo endpoints
 curl -vvv --proxy localhost:40000 -i http://0.0.0.0:9001  
 curl -vvv --proxy localhost:40000 -i http://0.0.0.0:9001/metrics  
-
 curl -vvv --proxy localhost:40000 -i http://0.0.0.0:9001/panic
 
 # post data
@@ -70,6 +78,8 @@ Set the intercept and repeat request.  It's possible to modify the payload like 
 ```
 
 ## Websockets
+
+It can also be used to monitor websockets.  
 
 ```sh
 brew install websocat
@@ -126,6 +136,46 @@ websocat --text ws://0.0.0.0:8080/ws/echo -n
 docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmreverseproxy.yaml down  
 ```
 
+## HTTPS
+
+We can also use MITMProxy to intercept requests to TLS protected endpoints.  
+Some help about `certificates` can be found [here](https://docs.mitmproxy.org/stable/concepts-certificates/)  
+
+### Local
+
+```sh
+# local certificates
+ls  ~/.mitmproxy/
+
+# start proxy
+mitmproxy 
+
+# make request
+curl -vvv --proxy 0.0.0.0:8080 --cacert ~/.mitmproxy/mitmproxy-ca-cert.pem -i https://www.google.com
+```
+
+### Docker
+
+```sh
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmproxy.yaml up -d --build --force-recreate
+
+# open mitm console
+open http://0.0.0.0:8081
+
+# copy certs from inside container
+docker compose cp mitmproxy:/home/mitmproxy/.mitmproxy ./certs  
+
+# make request
+curl -vvv --proxy 0.0.0.0:8080 --cacert ./certs/.mitmproxy/mitmproxy-ca-cert.pem -i https://www.google.com
+
+# enter container
+docker compose exec -it mitmproxy /bin/bash      
+ls -la /home/mitmproxy/.mitmproxy/
+
+# cleanup
+docker compose -f ./docker-compose.yaml -f ./docker-compose.mitmproxy.yaml down
+```
+
 ## Scripts
 
 MITMProxy has the ability to execute scripts on network events.  
@@ -157,6 +207,8 @@ docker compose -f ./docker-compose.yaml
 
 ## 🧼 Clean up
 
+Shutdown the test environment  
+
 ```sh
 docker compose down
 ```
@@ -168,6 +220,8 @@ docker compose down
 * stefanprodan/podinfo repo [here](https://github.com/stefanprodan/podinfo)  
 * websocat repo [here](https://github.com/vi/websocat/blob/master/doc.md)  
 * mitmproxy Modes of Operation [here](https://docs.mitmproxy.org/stable/concepts-modes/)  
+* mitmproxy 9.0.0 [here](https://mitmproxy.org/posts/releases/mitmproxy9/)  
+* mitmproxy dockerhub [here](https://hub.docker.com/r/mitmproxy/mitmproxy/tags)  
 
 ### Example Scripts
 

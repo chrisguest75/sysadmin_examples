@@ -1,0 +1,45 @@
+{
+  "$schema": "https://lnav.org/schemas/format-v1.schema.json",
+  "nginx_jsonl": {
+    "title": "nginx_jsonl",
+    "description": "nginx_jsonl",
+    "timestamp-field": "log_time",
+    "json": true,
+    "hide-extra": true,
+    "line-format": [
+      { "field": "source" },
+      { "field": "log_time" },
+      { "field": "resp_body_size" },
+      { "field": "host" },
+      { "field": "address" },
+      { "field": "request_length" },
+      { "field": "method" },
+      { "field": "uri" },
+      { "field": "status" },
+      { "field": "user_agent" },
+      { "field": "resp_time" },
+      { "field": "upstream_addr" }
+    ],
+    "level-field": "status",
+    "level": {
+      "error": "err",
+      "debug": "debug",
+      "warning": "warn",
+      "info": "info"
+    },
+    "value": {
+      "source": { "kind": "string" },
+      "log_time": { "kind": "string" },
+      "resp_body_size": { "kind": "string" },
+      "host": { "kind": "string" },
+      "address": { "kind": "string" },
+      "request_length": { "kind": "string" },
+      "method": { "kind": "string" },
+      "uri": { "kind": "string" },
+      "status": { "kind": "string" },
+      "user_agent": { "kind": "string" },
+      "resp_time": { "kind": "string" },
+      "upstream_addr": { "kind": "string" }
+    }
+  }
+}

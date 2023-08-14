@@ -13,6 +13,7 @@ COPY <<EOF /usr/share/nginx/html/index.html
 </html>
 EOF
 
+
 COPY <<EOF /etc/nginx/nginx.conf
 user  nginx;
 worker_processes  auto;
@@ -30,11 +31,9 @@ http {
     include       /etc/nginx/mime.types;
     default_type  application/octet-stream;
 
-    log_format  main  '\$remote_addr - \$remote_user [\$time_local] "\$request" '
-                      '\$status $body_bytes_sent "\$http_referer" '
-                      '"\$http_user_agent" "\$http_x_forwarded_for"';
+    log_format logger-json escape=json '{"source": "nginx", "time": \$msec, "resp_body_size": \$body_bytes_sent, "host": "\$http_host", "address": "\$remote_addr", "request_length": \$request_length, "method": "\$request_method", "uri": "\$request_uri", "status": \$status,  "user_agent": "\$http_user_agent", "resp_time": \$request_time, "upstream_addr": "\$upstream_addr"}';
 
-    access_log  /var/log/nginx/access.log  main;
+    access_log  /var/log/nginx/access.log  logger-json;
 
     sendfile        on;
     #tcp_nopush     on;
@@ -46,4 +45,3 @@ http {
     include /etc/nginx/conf.d/*.conf;
 }
 EOF
-

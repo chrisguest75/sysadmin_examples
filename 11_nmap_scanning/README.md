@@ -6,11 +6,26 @@ TODO:
 
 * Debugging home networking.
 
+## Install
+
+NOTE: To run in `ish` you need to run as a non-root user. Details [here](https://github.com/ish-app/ish/wiki/Running-nmap)  
+
+```sh
+# install nmap
+brew install nmap
+apt install nmap
+
+# ish on ipad (nmap scripts for lua)
+apk add nmap
+apk add nmap-scripts
+```
+
 ## Find local neighbours
 
 ```sh
 # show ip addresses on local network
 ip neighbor
+
 # NOTE: doesn't seem to show ipv6 neighbours
 ip -6 neighbor
 ```

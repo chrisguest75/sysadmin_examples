@@ -185,3 +185,8 @@ Steps [README.md](./33_fuse/README.md)
 
 Demonstrate WSL features and how to work with it.  
 Steps [README.md](./34_WSL/README.md)  
+
+## 35 - processing logs
+
+Demonstrate how to use tooling to better work with logs.  
+Steps [README.md](./35_processing_logs/README.md)  

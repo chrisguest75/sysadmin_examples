@@ -4,8 +4,10 @@ Demonstrate how to use tooling to better work with logs.
 
 TODO:
 
+* Get nginx errors logs in json as well.  
 * Logs in javascript object format not JSON...
 * Switch format make it detect different logs
+* Setup an nginx example with lots of requests and aggregate them.  
 
 ## Prereqs and Locations
 
@@ -66,6 +68,7 @@ docker stop nginxlogs
 
 NOTE: THIS IS NOT WORKING - IT FAILS TO PARSE JSONLINES....  
 IT MIGHT BE BECAUSE SOME OF THE FIELDS ARE INTEGERS.  
+"scan with format (nginx_jsonl) does not match -- file is not JSON-lines"
 
 ```sh
 ### DEBUG WITH TEST LOGS ###
@@ -114,3 +117,10 @@ docker stop nginxlogs
 * Github Issues Automatic format for json log files [#634](https://github.com/tstack/lnav/issues/634)  
 * Ability to force log format? [#454](https://github.com/tstack/lnav/issues/454)
 * Custom JSON log parsing error [#975](https://github.com/tstack/lnav/issues/975)
+
+
+
+
+https://jsonlines.org/?ref=dbconvert.com
+https://docs.lnav.org/en/latest/formats.html#format-file-reference
+

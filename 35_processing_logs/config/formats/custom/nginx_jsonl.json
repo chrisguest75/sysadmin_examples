@@ -20,25 +20,18 @@
       { "field": "resp_time" },
       { "field": "upstream_addr" }
     ],
-    "level-field": "status",
-    "level": {
-      "error": "err",
-      "debug": "debug",
-      "warning": "warn",
-      "info": "info"
-    },
     "value": {
       "source": { "kind": "string" },
-      "log_time": { "kind": "string" },
-      "resp_body_size": { "kind": "string" },
+      "log_time": { "kind": "float", "identifier": true },
+      "resp_body_size": { "kind": "integer" },
       "host": { "kind": "string" },
       "address": { "kind": "string" },
-      "request_length": { "kind": "string" },
+      "request_length": { "kind": "integer" },
       "method": { "kind": "string" },
       "uri": { "kind": "string" },
-      "status": { "kind": "string" },
+      "status": { "kind": "integer" },
       "user_agent": { "kind": "string" },
-      "resp_time": { "kind": "string" },
+      "resp_time": { "kind": "integer" },
       "upstream_addr": { "kind": "string" }
     }
   }

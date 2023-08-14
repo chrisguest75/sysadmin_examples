@@ -6,22 +6,22 @@ NOTES:
 
 * It doesn't need HyperV, just Virtual machine platform required for WSL.  
 * It runs one kernel for all WSL distros.  
-* For speed your code should be copied into the vhdx. 
-* WSLG is for graphics - it's possible to run GFX apps from linux in windows.   
+* For speed your code should be copied into the vhdx.  
+* WSLG is for graphics - it's possible to run GFX apps from linux in windows.  
 
 TODO:
 
-* Import the distro as a vhdx. 
-* Wsl --export --vhd filename. 
+* Import the distro as a vhdx.  
+* Wsl --export --vhd filename.  
 * Windows containers --isolation=process rather than hyper vm isolation for containers.
 * Running gnome terminal
 * Raft wsl - save vhdx - each distro has a vhdx file.
 * Wsl unregister name
-* Wslconfig to configure wsl memory 
+* Wslconfig to configure wsl memory  
 * Podman desktop?
 * Multipass?
 
-## Installing 
+## Installing
 
 ```sh
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux 

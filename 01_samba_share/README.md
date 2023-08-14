@@ -1,13 +1,24 @@
 # README
 
-Demonstrates how to create a simple samba file share
+Demonstrates how to create a simple samba file share.  
 
-NOTE: Easiest to use a Vagrant box.
+Samba is a file sharing service that provides seamless file and print services to SMB/CIFS clients, allowing interoperability between Unix/Linux systems and Windows clients.  
+
+Many of the above weaknesses of SMBv1 are addressed in the latest versions of SMB (e.g., SMB 3.x), which include improvements in security, performance, and functionality. Modern SMB versions support strong encryption, secure authentication, and integrity checking.  
+
+## Reason
+
+This is an easy way to share files to/from a Vagrant box or around a home network.  
 
 TODO:
 
 * Rotate password for share
 * Access logs
+
+## Glossary
+
+* Server Message Block (SMB)
+* Common Internet File System (CIFS)
 
 ## Install and create samba share
 
@@ -85,10 +96,10 @@ ip addr
 
 ## Samba Client (shell)
 
-Connect to the share from another computer
+Connect to the share from another computer  
 
 Easiest is to use a GUI client and connect to
-```smb://[ip addr]/[name of share]```
+```smb://[ip addr]/[name of share]```  
 
 ### Install
 
@@ -109,7 +120,7 @@ smbclient //[ip address]/sambashare -U vagrant
 
 ## Connect using MacOSX Finder
 
-Use +k in finder to open the share dialog - use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.
+Use `⌘+k` in finder to open the share dialog - use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.  
 
 ```sh
 # mounted under /Volumes
@@ -118,7 +129,7 @@ ls /Volumes/[name of share]
 
 ## Connect using IOS Files
 
-Use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.
+Use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.  
 
 ## Troubleshooting
 

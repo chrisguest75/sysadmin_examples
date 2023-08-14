@@ -4,7 +4,7 @@ Demonstrate a basic example of using `shodan`
 
 TODO:  
 
-* Add a dockerfile to run showdan in.  
+* Add a dockerfile to run shodan in.  
 
 ## Install
 

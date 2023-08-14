@@ -28,7 +28,7 @@ My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.
 ## 01 - Configure a simple sambashare
 
 Demonstrates how to create a simple sambashare  
-Steps [README.md](./01_sambashare/README.md)  
+Steps [README.md](./01_samba_share/README.md)  
 
 ## 02 - Configure a simple NFS share
 
@@ -160,3 +160,28 @@ Steps [README.md](./27_opsgenie/README.md)
 
 Demonstrate a basic example of using `shodan`  
 Steps [README.md](./28_shodan/README.md)  
+
+## 29 - ipv6
+
+Some notes on working with IPv6.  
+Steps [README.md](./29_ipv6/README.md)  
+
+## 31 - packet capture
+
+Demonstrate how to perform packet capture using `tcpdump`, `tshark` and `wireshark`.  
+Steps [README.md](./31_packet_capture/README.md)  
+
+## 32 - firewalls
+
+Firewall examples for different platforms.  
+Steps [README.md](./32_firewalls/README.md)  
+
+## 33 - fuse
+
+Demonstrate some examples of using FUSE.  
+Steps [README.md](./33_fuse/README.md)  
+
+## 34 - WSL
+
+Demonstrate WSL features and how to work with it.  
+Steps [README.md](./34_WSL/README.md)  

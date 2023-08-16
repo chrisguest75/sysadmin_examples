@@ -4,7 +4,8 @@ Demonstrates how to configure and use ssh
 
 TODO:
 
-* Decoding the private and public keys
+* Decoding the private and public keys  
+* [Keys versus certificates.](https://www.youtube.com/watch?v=P-Yq_6Da1b8) SSH can have a validity period but you have to be using SSH certificates not keys.  https://smallstep.com/blog/use-ssh-certificates/
 
 ## Install
 
@@ -48,12 +49,12 @@ Host bigmonga
 # generate an ecc key
 ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519  
 
+# only ever share the pub
 cat ~/.ssh/id_ed25519 
 cat ~/.ssh/id_ed25519.pub 
 
 # key details
 ssh-keygen -l -f ~/.ssh/id_ed25519   
-
 ```
 
 ## Agent
@@ -66,6 +67,9 @@ ssh-add
 ssh-add -l
 
 ssh-agent
+
+# remove all the keys (when rotating)
+ssh-add -D
 ```
 
 ## Distribute public keys to VMs

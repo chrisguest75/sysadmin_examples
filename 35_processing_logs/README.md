@@ -76,6 +76,9 @@ cat ./in/test.log | jq  .
 
 rm ./out/debug.log
 cat ./in/test.log | lnav -W -d ./out/debug.log -I $(pwd)/config
+
+rm ./out/debug.log
+lnav -W -d ./out/debug.log -I $(pwd)/config ./in/test.jsonl
 ```
 
 * Press `ENTER` and select "SCHEMA"
@@ -117,10 +120,5 @@ docker stop nginxlogs
 * Github Issues Automatic format for json log files [#634](https://github.com/tstack/lnav/issues/634)  
 * Ability to force log format? [#454](https://github.com/tstack/lnav/issues/454)
 * Custom JSON log parsing error [#975](https://github.com/tstack/lnav/issues/975)
-
-
-
-
-https://jsonlines.org/?ref=dbconvert.com
-https://docs.lnav.org/en/latest/formats.html#format-file-reference
-
+* Documentation for the JSON Lines text file format [here](https://jsonlines.org)
+* lnav Format File Reference [here](https://docs.lnav.org/en/latest/formats.html#format-file-reference)

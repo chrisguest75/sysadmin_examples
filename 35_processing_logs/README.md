@@ -8,6 +8,7 @@ TODO:
 * Logs in javascript object format not JSON...
 * Switch format make it detect different logs
 * Setup an nginx example with lots of requests and aggregate them.  
+* How do I filter logs more easily?
 
 ## Prereqs and Locations
 
@@ -32,15 +33,30 @@ lnav --help
 
 ## Keys
 
+Hotkeys list [here](https://docs.lnav.org/en/latest/hotkeys.html)
+
 * `ENTER` for selecting from breadcrumb menu
 * `g` and `G` for top and bottom of files
 * `:` enter config
 * `;` query logs (sqlite)
+* `Shift+P` to pretty print or not
 
 ## Theme
 
 ```sh
 :config /ui/theme solarized-dark
+```
+
+## Captures
+
+Captures are saved.  
+
+```sh
+# find the captures and sort them 
+exa -la --sort time  ~/.config/lnav/stdin-captures
+
+# load a capture in lnav
+lnav  ~/.config/lnav/stdin-captures/stdin.82MbNe
 ```
 
 ## NGINX Example

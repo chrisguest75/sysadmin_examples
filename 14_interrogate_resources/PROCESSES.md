@@ -1,5 +1,9 @@
 # Processes
 
+TODO:
+
+* tree view on bsd/mac
+
 ```sh
 pidof zsh    
 pgrep zsh        
@@ -11,7 +15,7 @@ fuser /bin/zsh
 ```
 
 ```sh
-# process tress
+# process trees (gnu only)
 ps -u --forest
 ```
 

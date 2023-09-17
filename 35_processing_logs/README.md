@@ -52,11 +52,16 @@ Hotkeys list [here](https://docs.lnav.org/en/latest/hotkeys.html)
 Captures are saved.  
 
 ```sh
-# find the captures and sort them 
+# find the default captures and sort them 
 exa -la --sort time  ~/.config/lnav/stdin-captures
 
 # load a capture in lnav
 lnav  ~/.config/lnav/stdin-captures/stdin.82MbNe
+
+
+mkdir -p ./lnav-captures
+
+lnav -t -w ./lnav-captures/my-service-logs.log
 ```
 
 ## NGINX Example

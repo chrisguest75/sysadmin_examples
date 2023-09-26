@@ -190,3 +190,8 @@ Steps [README.md](./34_WSL/README.md)
 
 Demonstrate how to use tooling to better work with logs.  
 Steps [README.md](./35_processing_logs/README.md)  
+
+## 37 - wifi
+
+Demonstrate how to get USB wifi driver on Ubuntu 22.04.3 LTS.  
+Steps [README.md](./37_wifi/README.md)  

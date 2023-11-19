@@ -4,26 +4,9 @@ A repository for showing examples of sysadmin types tasks.
 
 ## Prequisites
 
-1. Vagrant is a useful tool  
+* Vagrant is a useful tool  
   
 My [vagrant_machines](https://github.com/chrisguest75/vagrant_machines) repo.  
-
-## TODO
-
-* wireguard
-* rootless docker
-* lvm
-* iptables
-* certificate authority.
-* pam
-* screen
-* patching
-* swap
-* permissions
-* update-grub
-* quotas /etc/security/limis.conf
-* lynis hardening
-* x11
 
 ## 01 - Configure a simple sambashare
 

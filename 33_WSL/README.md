@@ -141,6 +141,17 @@ When sharing clones between Windows and multiple WSL distros it seems ownership 
 git config --global --add safe.directory '/mnt/c/Users/myuser/source/repos/myrepo'
 ```
 
+### Troubleshooting 
+
+When running WSL you might see some errors that need to be repaired. If you do then use `wsl –update` to fix it.  
+
+```sh
+wsl 
+
+Error: 0x80040326 
+Error code: Wsl/Service/0x80040326 
+```
+
 ## Resources
 
 * microsoft/WSL [here](https://github.com/microsoft/WSL)

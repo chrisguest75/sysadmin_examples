@@ -13,6 +13,7 @@ TODO:
 
 * Import the distro as a vhdx.  
 * Wsl --export --vhd filename.  
+* https://fourco.nl/blogs/access-to-wsl-filesystem-in-explorer/
 * Windows containers --isolation=process rather than hyper vm isolation for containers.
 * Running gnome terminal
 * Raft wsl - save vhdx - each distro has a vhdx file.

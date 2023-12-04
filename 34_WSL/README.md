@@ -142,6 +142,18 @@ When sharing clones between Windows and multiple WSL distros it seems ownership 
 git config --global --add safe.directory '/mnt/c/Users/myuser/source/repos/myrepo'
 ```
 
+### Time sync
+
+It seems that clocks from windows and WSL can drift.  This can lead to some API requests failing if they're signed (i.e. AWS CLI).
+
+```sh
+# sync clock
+sudo hwclock -s
+
+# check new time
+date
+```
+
 ## Resources
 
 * microsoft/WSL [here](https://github.com/microsoft/WSL)

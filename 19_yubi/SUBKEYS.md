@@ -94,20 +94,16 @@ addkey
 ## Resources
 
 
-https://blog.programster.org/gpg-subkeys
-
-
-https://blog.programster.org/generating-gpg-master-and-subkeys
-
-https://www.reddit.com/r/yubikey/comments/f77731/storing_gpg_master_key_on_a_separate_yubikey/
-
-https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP#Generating_Keys_externally_from_the_YubiKey_(Recommended)ui6vup
+* GPG - Subkeys [here](https://blog.programster.org/gpg-subkeys)
+* Generate GPG Master and Subkeys [here](https://blog.programster.org/generating-gpg-master-and-subkeys)
+* Storing gpg master key on a separate yubikey [here](https://www.reddit.com/r/yubikey/comments/f77731/storing_gpg_master_key_on_a_separate_yubikey/)
+* Using Your YubiKey with OpenPGP [here](https://support.yubico.com/hc/en-us/articles/360013790259-Using-Your-YubiKey-with-OpenPGP#Generating_Keys_externally_from_the_YubiKey_(Recommended)ui6vup)
 
 
 
-https://wiki.debian.org/Subkeys
+* Using OpenPGP subkeys in Debian development [here](https://wiki.debian.org/Subkeys)
 
-https://www.esev.com/blog/post/2015-01-pgp-ssh-key-on-yubikey-neo/
+PGP and SSH keys on a Yubikey NEO [here](https://www.esev.com/blog/post/2015-01-pgp-ssh-key-on-yubikey-neo/)
 
 - Edwards-Curve Digital Signature Algorithm (EdDSA) [here](https://datatracker.ietf.org/doc/html/rfc8032)  
 - Elliptic curve P-384 [here](https://www.johndcook.com/blog/2019/05/11/elliptic-curve-p-384/)

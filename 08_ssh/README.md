@@ -2,10 +2,28 @@
 
 Demonstrates how to configure and use ssh
 
+## Table of contents
+
+- [README](#readme)
+  - [Table of contents](#table-of-contents)
+  - [Windows](#windows)
+  - [Install](#install)
+  - [Config](#config)
+  - [SSH Config](#ssh-config)
+  - [Generate keys](#generate-keys)
+  - [Agent](#agent)
+  - [Distribute public keys to VMs](#distribute-public-keys-to-vms)
+  - [Copying files](#copying-files)
+  - [Resources](#resources)
+
 TODO:
 
 * Decoding the private and public keys  
 * [Keys versus certificates.](https://www.youtube.com/watch?v=P-Yq_6Da1b8) SSH can have a validity period but you have to be using SSH certificates not keys.  https://smallstep.com/blog/use-ssh-certificates/
+
+## Windows
+
+Goto [WINDOWS.md](./WINDOWS.md)  
 
 ## Install
 

@@ -99,6 +99,8 @@ ssh-add /home/${USER}/.ssh/id_ed25519
 
 ### Collecting Logs
 
+Collecting logs for troubleshooting.  
+
 ```ps1
 Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/WSL/master/diagnostics/collect-wsl-logs.ps1" -OutFile collect-wsl-logs.ps1
 Set-ExecutionPolicy Bypass -Scope Process -Force

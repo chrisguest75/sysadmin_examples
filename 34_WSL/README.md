@@ -27,6 +27,9 @@ TODO:
 ```sh
 Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux 
 
+# wsl versions (including kernel)
+wsl --version
+
 # list available 
 wsl --list --online
 
@@ -41,7 +44,7 @@ dir "%LocalAppData%\packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\localsta
 wslconfig /list
 ```
 
-## Starting 
+## Starting
 
 ```sh
 # step into wsl (use windows cmd prompt)
@@ -99,7 +102,7 @@ ssh-add /home/${USER}/.ssh/id_ed25519
 
 ### Collecting Logs
 
-Collecting logs for troubleshooting.  
+Collecting logs for troubleshooting. It will open a process and wait for you to attempt an action. Once complete press a key and open the ETL file in Event Viewer.  
 
 ```ps1
 Invoke-WebRequest -UseBasicParsing "https://raw.githubusercontent.com/microsoft/WSL/master/diagnostics/collect-wsl-logs.ps1" -OutFile collect-wsl-logs.ps1
@@ -109,7 +112,7 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 
 ### Mounts
 
-drvfs 
+drvfs
 
 ```cmd
 # it's possible to list directory contents from windows through \\wsl.localhost

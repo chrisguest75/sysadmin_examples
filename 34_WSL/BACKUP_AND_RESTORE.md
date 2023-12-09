@@ -9,7 +9,8 @@ TODO:
 It will only backup distros that have been closed down.  
 
 ```powershell
-wsl --list
+# look a running status
+wsl --list --verbose
 
 # backup (this seems to signal the distro to shutdown then fails.)
 wsl --export Ubuntu-22.04 ubuntu22_04__2023_11_28.vhdx --vhd

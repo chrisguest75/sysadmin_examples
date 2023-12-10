@@ -56,9 +56,24 @@ wsl --list --verbose
 
 # backup (this seems to signal the distro to shutdown then fails.)
 # NOTE: This seems to be run inside a cmd prompt and then run pwsh - otherwise you get Error code: Wsl/Service/ERROR_SHARING_VIOLATION. 
+# NOTE: I also got this working by performing `wsl --shutdown`
 wsl --export ${DISTRO_NAME} "${HOME}\Documents\WSLDistros\backups\${DISTRO_NAME}__2023_12_10.vhdx" --vhd
 
 ls "${HOME}\Documents\WSLDistros\backups\"
+
+wsl -d ${DISTRO_NAME}
+```
+
+## Restore VHDX
+
+Restore a distro from a backed up VHDX.  
+
+```powershell
+$BACKUP_SOURCE="my_22_distro"
+$DISTRO_NAME="new_22_distro"
+wsl --import ${DISTRO_NAME} "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}" "${HOME}\Documents\WSLDistros\backups\${BACKUP_SOURCE}__2023_12_10.vhdx" --vhd 
+
+wsl --list --verbose
 
 wsl -d ${DISTRO_NAME}
 ```

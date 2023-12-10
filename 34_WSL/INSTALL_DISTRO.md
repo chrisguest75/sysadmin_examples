@@ -52,6 +52,7 @@ wsl --terminate ${DISTRO_NAME}
 wsl --list --verbose
 
 # backup (this seems to signal the distro to shutdown then fails.)
+# NOTE: This seems to be run inside a cmd prompt and then run pwsh - otherwise you get Error code: Wsl/Service/ERROR_SHARING_VIOLATION. 
 wsl --export ${DISTRO_NAME} "${HOME}\Documents\WSLDistros\backups\${DISTRO_NAME}__2023_12_10.vhdx" --vhd
 
 ls "${HOME}\Documents\WSLDistros\backups\"

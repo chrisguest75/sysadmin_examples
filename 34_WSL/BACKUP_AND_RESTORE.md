@@ -13,6 +13,7 @@ It will only backup distros that have been closed down.
 wsl --list --verbose
 
 # backup (this seems to signal the distro to shutdown then fails.)
+# NOTE: This seems to be run inside a cmd prompt and then run pwsh - otherwise you get Error code: Wsl/Service/ERROR_SHARING_VIOLATION. 
 wsl --export Ubuntu-22.04 ubuntu22_04__2023_11_28.vhdx --vhd
 ```
 

@@ -7,30 +7,33 @@ Demonstrate how to install a new distro.
 Goto [https://cloud-images.ubuntu.com/wsl](https://cloud-images.ubuntu.com/wsl)
 
 ```powershell
-ls '~\Documents\'
+ls "${HOME}\Documents\"
 
-mkdir '~\Documents\WSLDistros'
-mkdir '~\Documents\WSLDistros\backups'
-mkdir '~\Documents\WSLDistros\rootfs'
-mkdir '~\Documents\WSLDistros\imported'
+mkdir "${HOME}\Documents\WSLDistros"
+mkdir "${HOME}\Documents\WSLDistros\backups"
+mkdir "${HOME}\Documents\WSLDistros\rootfs"
+mkdir "${HOME}\Documents\WSLDistros\imported"
 
 # THIS IS NOT WORKING
 #curl ("https://cloud-images.ubuntu.com/wsl/mantic/20231209/ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz") --output '~\Documents\WSLDistros\rootfs\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz.test'
 
-cp '~\Downloads\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz' '~\Documents\WSLDistros\rootfs\'
+cp "${HOME}\Downloads\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz" "${HOME}\Documents\WSLDistros\rootfs\"
 ```
 
 ## Import
 
 ```powershell
-wsl --import my_distro_test 'C:\Users\Chris Guest\Documents\WSLDistros\imported\my_distro_test' 'C:\Users\Chris Guest\Documents\WSLDistros\rootfs\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz'
+$DISTRO_NAME = "my_distro_test2"
+wsl --import $DISTRO_NAME "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}" "${HOME}\Documents\WSLDistros\rootfs\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz"
 ```
 
 ## Configure
 
 ```powershell
-wsl -d my_distro_test
+# enter
+wsl -d ${DISTRO_NAME}
 
+# configure user
 NEW_USER=chrisguest
 useradd -m -G sudo -s /bin/bash "$NEW_USER"
 passwd "$NEW_USER"
@@ -42,11 +45,26 @@ _EOF
 
 logout
 
-wsl --terminate my_distro_test
+# terminate
+wsl --terminate ${DISTRO_NAME}
 
-wsl -d my_distro_test
+# look a running status
+wsl --list --verbose
+
+# backup (this seems to signal the distro to shutdown then fails.)
+wsl --export ${DISTRO_NAME} "${HOME}\Documents\WSLDistros\backups\${DISTRO_NAME}__2023_12_10.vhdx" --vhd
+
+ls "${HOME}\Documents\WSLDistros\backups\"
+
+wsl -d ${DISTRO_NAME}
 ```
 
+## Delete Distro
+
+```powershell
+# NOTE: this deletes the vhdx file as well
+wsl --unregister ${DISTRO_NAME}
+```
 
 ## Resources
 

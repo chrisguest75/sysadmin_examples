@@ -19,3 +19,4 @@ wsl --export Ubuntu-22.04 ubuntu22_04__2023_11_28.vhdx --vhd
 ## Resource
 
 * Duplicate a Linux distro under WSL2 [here](https://fourco.nl/blogs/duplicate-a-linux-distro-under-wsl2/)
+* "Error code: Wsl/Service/ERROR_SHARING_VIOLATION" [here](https://github.com/microsoft/WSL/issues/10737)

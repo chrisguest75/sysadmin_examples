@@ -14,17 +14,20 @@ mkdir "${HOME}\Documents\WSLDistros\backups"
 mkdir "${HOME}\Documents\WSLDistros\rootfs"
 mkdir "${HOME}\Documents\WSLDistros\imported"
 
-# THIS IS NOT WORKING
-#curl ("https://cloud-images.ubuntu.com/wsl/mantic/20231209/ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz") --output '~\Documents\WSLDistros\rootfs\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz.test'
+curl "https://cloud-images.ubuntu.com/wsl/kinetic/20230719/ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar.gz" --output "${HOME}\Documents\WSLDistros\rootfs\ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar.gz"
 
 cp "${HOME}\Downloads\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz" "${HOME}\Documents\WSLDistros\rootfs\"
+
+ls "${HOME}\Documents\WSLDistros\rootfs"
 ```
 
 ## Import
 
 ```powershell
-$DISTRO_NAME = "my_distro_test2"
-wsl --import $DISTRO_NAME "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}" "${HOME}\Documents\WSLDistros\rootfs\ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz"
+$DISTRO_NAME = "my_22_distro"
+$ROOT_FS_ZIP = "ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz"
+$ROOT_FS_ZIP = "ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar.gz"
+wsl --import $DISTRO_NAME "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}" "${HOME}\Documents\WSLDistros\rootfs\${ROOT_FS_ZIP}"
 ```
 
 ## Configure

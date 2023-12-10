@@ -4,6 +4,7 @@ Demonstrate how to install a new distro.
 
 ## Download
 
+Ubuntu Releases [here](https://wiki.ubuntu.com/Releases)  
 Goto [https://cloud-images.ubuntu.com/wsl](https://cloud-images.ubuntu.com/wsl)
 
 ```powershell

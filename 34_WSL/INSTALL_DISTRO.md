@@ -60,6 +60,18 @@ ls "${HOME}\Documents\WSLDistros\backups\"
 wsl -d ${DISTRO_NAME}
 ```
 
+## Chezmoi
+
+REF: [chrisguest75/chezmoi_dotfiles/README.md](https://github.com/chrisguest75/chezmoi_dotfiles/blob/master/README.md)  
+
+```sh
+# look a running status
+wsl --list --verbose
+
+$DISTRO_NAME = "my_distro_test2"
+wsl -d ${DISTRO_NAME}
+```
+
 ## Delete Distro
 
 ```powershell

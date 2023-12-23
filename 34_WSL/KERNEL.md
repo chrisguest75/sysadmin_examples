@@ -64,8 +64,7 @@ wsl
 
 ## Resources
 
-* https://wsl.dev/wslcilium/
-* https://learn.microsoft.com/en-us/community/content/wsl-user-msft-kernel-v6
-* https://harthoover.com/compiling-your-own-wsl2-kernel/
-* https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconf
-* https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig
+* WSL2+Cilium: The rise of eBPF [here](https://wsl.dev/wslcilium/)
+* How-to use the Microsoft Linux kernel v6 on Windows Subsystem for Linux version 2 (WSL2) [here](https://learn.microsoft.com/en-us/community/content/wsl-user-msft-kernel-v6)
+* Compiling your own WSL2 Kernel for Cilium [here](https://harthoover.com/compiling-your-own-wsl2-kernel/)
+* .wslconfig [here](https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig)

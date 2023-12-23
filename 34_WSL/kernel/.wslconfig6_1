@@ -1,0 +1,3 @@
+# Set the Kernel path
+[wsl2]
+kernel = C:\\kernels\\bzImage6_1

@@ -29,7 +29,7 @@ cat /etc/wsl.conf
 zmore /proc/config.gz
 ```
 
-## Building
+## Building 6.1
 
 ```sh
 cd ~
@@ -48,8 +48,18 @@ sudo make -j$(nproc) KCONFIG_CONFIG=Microsoft/config-wsl
 
 sudo make modules_install headers_install
 
+# copy build 
 mkdir -p /mnt/c/kernels
-cp arch/x86/boot/bzImage /mnt/c/kernels
+cp arch/x86/boot/bzImage /mnt/c/kernels/bzImage6_1
+
+# shutdown existing wsl
+wsl --shutdown
+
+# copy my example wslconfig
+cp kernel/.wslconfig6_1 $env:USERPROFILE/.wslconfig
+
+# start with new kernel
+wsl
 ```
 
 ## Resources
@@ -57,4 +67,5 @@ cp arch/x86/boot/bzImage /mnt/c/kernels
 * https://wsl.dev/wslcilium/
 * https://learn.microsoft.com/en-us/community/content/wsl-user-msft-kernel-v6
 * https://harthoover.com/compiling-your-own-wsl2-kernel/
+* https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconf
 * https://learn.microsoft.com/en-us/windows/wsl/wsl-config#wslconfig

@@ -1,26 +1,26 @@
 # Checking Resources
 
-Demonstrate how to use various commands to verify resource usage in the OS.
+Demonstrate how to use various commands to verify resource usage in the OS.  
 
-More examples [here](https://github.com/chrisguest75/ebpf-examples)
+More examples [here](https://github.com/chrisguest75/ebpf-examples)  
 
 TODO:
 
-* How to use /proc to get key information
 * cgroups
 * File handles
 * Look at the brenden gregg resources http://www.brendangregg.com/linuxperf.html
 * Filesystem
-* Procfs
 * debugfs
 
 ## Areas
 
-[Disk](./DISK.md)  
-[Memory](./MEMORY.md)  
-[Network](./NETWORK.md)  
-[Processes](./PROCESSES.md)  
-[Hardware](./HARDWARE.md)  
+* [Disk](./DISK.md)  
+* [Memory](./MEMORY.md)  
+* [Network](./NETWORK.md)  
+* [Processes](./PROCESSES.md)  
+* [Hardware](./HARDWARE.md)  
+* [Kernel](./KERNEL.md)  
+* [procfs](./PROCFS.md)  
 
 ## Simple test container
 
@@ -50,6 +50,8 @@ cat /proc/cmdline
 
 # Find options the BOOT_IMAGE was built with
 cat /boot/config-5.8.0-49-generic | grep CGROUP
+# this works on most versions including WSL where /boot does not exist.
+zcat /proc/config.gz
 
 # global limits
 systemctl show     

@@ -1,5 +1,7 @@
 # KERNEL
 
+Building kernels for WSL.  
+
 TOOO:
 
 * What options is my kernel currently built with?
@@ -7,20 +9,25 @@ TOOO:
 * wsl windows app
 * Add systemd to wsl using wsl.conf
 
+NOTES:
+
+* Any issues with the kernel build will be logged in https://github.com/microsoft/WSL/issues
+
+## Existing
+
 ```powershell
 # MS kernel location
 ls C:\windows\System32\lxss\tools\
 ```
 
 ```sh
-# in powershell
+# in powershell (do not exit this shell just close the tab)
 wsl --debug-shell
 
 # in wsl root
 cat /etc/wsl.conf
 zmore /proc/config.gz
 ```
-
 
 ## Building
 
@@ -33,15 +40,17 @@ git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
 
 git switch linux-msft-wsl-6.1.y
 
-sudo apt update && sudo apt install build-essential flex bison libssl-dev libelf-dev bc
+# need dwarves as well
+sudo apt update && sudo apt install dwarves build-essential flex bison libssl-dev libelf-dev bc
 
+# build kernel
 sudo make -j$(nproc) KCONFIG_CONFIG=Microsoft/config-wsl
 
 sudo make modules_install headers_install
 
-cp arch/x86/boot/bzImage /mnt/c/
+mkdir -p /mnt/c/kernels
+cp arch/x86/boot/bzImage /mnt/c/kernels
 ```
-
 
 ## Resources
 

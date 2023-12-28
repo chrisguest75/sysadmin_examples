@@ -2,6 +2,8 @@
 
 Capture DNS requests in tcpdump from pods to pods.
 
+* DNS examples [github.com/chrisguest75/shell_examples/78_dns/README.md](https://github.com/chrisguest75/shell_examples/blob/master/78_dns/README.md)  
+
 TODO:
 
 * Add different rfc1035 records https://www.netmeister.org/blog/dns-rrs.html
@@ -120,4 +122,3 @@ docker compose --profile dns down
 ## Network namespace
 
 * sharing-network-namespaces-in-docker [here](https://blog.mikesir87.io/2019/03/sharing-network-namespaces-in-docker/)  
-

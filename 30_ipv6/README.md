@@ -37,14 +37,17 @@ Common Prefixes:
 ## Documentation
 
 ```sh
+# manpages with ipv6
 apropos ipv6
 ```
 
 ## Config
 
+### Linux
+
 ```sh
 # hosts file has ipv4 and ipv6
-cat /etc/hosts              
+cat /etc/hosts
 
 # show the interfaces
 ip link show 

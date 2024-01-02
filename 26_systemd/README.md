@@ -5,6 +5,23 @@ Demonstrates some examples with `systemd`
 Creating a `systemd service` example [22_systemd_service](https://github.com/chrisguest75/shell_examples/tree/master/22_systemd_service/README.md).  
 Some `journalctl` examples [here](https://github.com/chrisguest75/shell_examples/blob/master/27_journalctl/README.md).  
 
+REF: [github.com/chrisguest75/shell_examples/27_journalctl/README.md](https://github.com/chrisguest75/shell_examples/blob/master/27_journalctl/README.md)  
+
+## Centents
+
+- [README](#readme)
+  - [Centents](#centents)
+  - [Examples](#examples)
+  - [Help](#help)
+  - [Targets](#targets)
+  - [Services](#services)
+  - [Sockets](#sockets)
+  - [Timers](#timers)
+  - [Run](#run)
+  - [Troubleshooting](#troubleshooting)
+  - [Controlling Server](#controlling-server)
+  - [Resources](#resources)
+
 TODO: 
 
 * Add a timer and a socket example.  
@@ -57,7 +74,6 @@ systemctl status zfs-zed.service
 # list the unit files
 systemctl cat zfs-import-cache.service 
 ```
-
 
 ## Sockets
 
@@ -119,7 +135,7 @@ systemctl reboot -i
 loginctl   
 ```
 
-# Resources
+## Resources
 
 * `cheatsheet systemd` 
 * `cheatsheet systemctl` 

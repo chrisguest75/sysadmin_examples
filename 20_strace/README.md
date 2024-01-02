@@ -1,8 +1,10 @@
 # README
 
-Demonstrate some `strace` basics  
+Demonstrate some `strace` and `ltrace` basics  
 
 ## System Trace
+
+strace - trace system calls and signals
 
 ```sh
 # count syscalls whilst running in bash
@@ -28,10 +30,28 @@ strace -f -e trace=file aws
 
 # in another window
 ./programs/waiting.sh > /dev/null &
-sudo strace -c -p [PID]
+# this traces child processes (follow forks)
+sudo strace -c -f -p [PID]
+sudo strace -f -p [PID]
+sudo strace -e trace=file -f -p [PID]
+```
+
+### LNAV
+
+REF: [35_processing_logs/README.md](../35_processing_logs/README.md)  
+
+```sh
+sudo strace -e trace=file -f -p [PID] | lnav
+sudo strace -e trace=file -f -p [PID] 2>&1 ./out/strace1.log
+lnav ./out/strace1.log
+
+# pipe directly to lnav
+sudo strace -e trace=file -f -p [PID] 2>&1 | lnav
 ```
 
 ## Library Trace
+
+ltrace - A library call tracer
 
 ```sh
 # install ltrace

@@ -66,7 +66,11 @@ lnav -t -w ./lnav-captures/my-service-logs.log
 
 ## NGINX Example
 
+NOTE: The `/var/log/nginx/access.log` is piped to the docker logs output.  
+
 ```sh
+cd 35_processing_logs
+
 # build exaple nginx container
 docker build -t nginxlogs -f ./nginx/Dockerfile .    
 docker run -it -p 8080:80 --rm -d --name nginxlogs nginxlogs
@@ -75,8 +79,13 @@ docker run -it -p 8080:80 --rm -d --name nginxlogs nginxlogs
 curl 0.0.0.0:8080
 
 # capture logs and follow - save a debug log for tracking format issues.
+mkdir -p ./out
+# this writes the lnav log to debug.log
 rm ./out/debug.log
 docker logs nginxlogs --follow | lnav -W -d ./out/debug.log
+docker logs nginxlogs > ./out/nginx.logs
+# remove the non nginx log from the file manually
+lnav ./out/nginx.logs
 
 # select parsed logs 
 ;SELECT * from all_logs

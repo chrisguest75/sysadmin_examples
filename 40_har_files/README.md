@@ -17,9 +17,9 @@ cd ./40_har_files
 mkdir -p ./hars/web
 ```
 
-## Headless
+## Headless capture
 
-Headless chrome
+Use headless chrome to capture a pageload.  
 
 ```sh
 mkdir -p ./hars/docker
@@ -33,7 +33,7 @@ docker run --rm -it -v ./hars/docker:/data --name chrome chrome --output /data/w
 
 ## Compare
 
-Use sitespeed to compare.  
+Use sitespeed to compare two captures.  
 
 ```sh
 # build sitespeed

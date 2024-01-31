@@ -47,6 +47,8 @@ lnav ./out/strace1.log
 
 # pipe directly to lnav
 sudo strace -e trace=file -f -p [PID] 2>&1 | lnav
+
+strace -ttt -ff -e trace=open,read,write ls /tmp 2>&1 | lnav
 ```
 
 ## Library Trace

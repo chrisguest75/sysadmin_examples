@@ -1,0 +1,27 @@
+# syntax=docker/dockerfile:1.4
+FROM node:latest
+
+# Install Chromium
+RUN apt-get update && apt-get install chromium -y
+
+# Install chrome-har-capturer
+RUN npm install chrome-har-capturer -g
+
+EXPOSE 9222
+
+VOLUME ["/data"]
+# NOTE: Escape the \$ otherwise they are rendered at buildtime
+COPY --chmod=755 <<EOF /scratch/exporthar.sh
+#!/usr/bin/env bash
+
+# Run Chromium headless in the background with remote debugging enabled so chrome-har-capture can connect to it 
+/usr/bin/chromium --no-sandbox --remote-debugging-address=0.0.0.0 --remote-debugging-port=9222 --headless --disable-gpu &
+
+# Seeing if the connection refused issue is due to hitting Chromium too quickly
+sleep 5
+
+# Now run chrome-har-capture
+exec /usr/local/bin/chrome-har-capturer "\$@"
+EOF
+
+ENTRYPOINT ["/scratch/exporthar.sh"]

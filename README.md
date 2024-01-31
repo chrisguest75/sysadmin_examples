@@ -1,6 +1,64 @@
 # Sysadmin Examples and Demos
 
+[![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-%23FE5196?logo=conventionalcommits&logoColor=white)](https://conventionalcommits.org) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)  
+
 A repository for showing examples of sysadmin types tasks.
+
+## Conventional Commits
+
+NOTE: This repo has switched to [conventional commits](https://www.conventionalcommits.org/en/v1.0.0). It requires `pre-commit` and `commitizen` to help with controlling this.  
+
+```sh
+# install pre-commmit (prerequisite for commitizen)
+brew install pre-commit
+brew install commitizen
+# conventional commits extension
+code --install-extension vivaxy.vscode-conventional-commits
+
+# install hooks
+pre-commit install --hook-type commit-msg --hook-type pre-push
+```
+
+## Contents
+
+- [Sysadmin Examples and Demos](#sysadmin-examples-and-demos)
+  - [Conventional Commits](#conventional-commits)
+  - [Contents](#contents)
+  - [Prequisites](#prequisites)
+  - [01 - Configure a simple sambashare](#01---configure-a-simple-sambashare)
+  - [02 - Configure a simple NFS share](#02---configure-a-simple-nfs-share)
+  - [03 - User management](#03---user-management)
+  - [04 - Apt Management](#04---apt-management)
+  - [05 - Filesystems](#05---filesystems)
+  - [06 - Mounts](#06---mounts)
+  - [07 - Tcpdumping coredns](#07---tcpdumping-coredns)
+  - [08 - SSH](#08---ssh)
+  - [09 - CVE Processing](#09---cve-processing)
+  - [10 - File permissions](#10---file-permissions)
+  - [11 - NMap Network Scanning](#11---nmap-network-scanning)
+  - [12 - Endpoint Vulnerability Scanning](#12---endpoint-vulnerability-scanning)
+  - [13 - Code Server](#13---code-server)
+  - [14 - Interrogate Resources](#14---interrogate-resources)
+  - [15 - GPG Signing](#15---gpg-signing)
+  - [16 - QEMU](#16---qemu)
+  - [17 - Juypter](#17---juypter)
+  - [18 - SOPS](#18---sops)
+  - [19 - LetsEncrypt](#19---letsencrypt)
+  - [20 - strace](#20---strace)
+  - [22 - websockets reverse proxy](#22---websockets-reverse-proxy)
+  - [23 - mitmproxy](#23---mitmproxy)
+  - [24 - ngrok](#24---ngrok)
+  - [25 - zfs](#25---zfs)
+  - [26 - systemd](#26---systemd)
+  - [27 - opsgenie](#27---opsgenie)
+  - [28 - shodan](#28---shodan)
+  - [29 - ipv6](#29---ipv6)
+  - [31 - packet capture](#31---packet-capture)
+  - [32 - firewalls](#32---firewalls)
+  - [33 - fuse](#33---fuse)
+  - [34 - WSL](#34---wsl)
+  - [35 - processing logs](#35---processing-logs)
+  - [37 - wifi](#37---wifi)
 
 ## Prequisites
 

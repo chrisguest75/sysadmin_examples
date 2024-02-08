@@ -58,6 +58,7 @@ pre-commit install --hook-type commit-msg --hook-type pre-push
   - [33 - fuse](#33---fuse)
   - [34 - WSL](#34---wsl)
   - [35 - processing logs](#35---processing-logs)
+  - [36 - caddy](#36---caddy)
   - [37 - wifi](#37---wifi)
 
 ## Prequisites
@@ -231,6 +232,11 @@ Steps [README.md](./34_WSL/README.md)
 
 Demonstrate how to use tooling to better work with logs.  
 Steps [README.md](./35_processing_logs/README.md)  
+
+## 36 - caddy
+
+Demonstrate some simple examples using `caddy`  
+Steps [README.md](./36_caddy/README.md)  
 
 ## 37 - wifi
 

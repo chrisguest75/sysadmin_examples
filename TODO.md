@@ -14,4 +14,4 @@
 * quotas /etc/security/limis.conf
 * lynis hardening
 * x11
-
+* wsl webcam https://askubuntu.com/questions/1405903/capturing-webcam-video-with-opencv-in-wsl2

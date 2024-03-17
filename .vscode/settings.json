@@ -1,3 +1,4 @@
 {
-    "git.enableCommitSigning": true
+    "git.enableCommitSigning": false,
+    "conventionalCommits.autoCommit": false
 }

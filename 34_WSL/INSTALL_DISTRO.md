@@ -49,7 +49,7 @@ ls "${HOME}\Documents\WSLDistros\imported"
 
 ```powershell
 # enter
-wsl -d ${DISTRO_NAME}
+wsl -d ${DISTRO_NAME} --cd ~
 
 # configure user
 NEW_USER=chrisguest
@@ -59,6 +59,9 @@ passwd "$NEW_USER"
 tee /etc/wsl.conf <<_EOF
 [user]
 default=${NEW_USER}
+
+[boot]
+systemd=true
 _EOF
 
 logout

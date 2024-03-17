@@ -17,6 +17,9 @@ REF: [chrisguest75/shell_examples72_line_endings/README.md](https://github.com/c
 file /etc/wsl.conf 
 
 # look at conf - systemd=true
+#
+# [boot]
+# systemd=true
 cat /etc/wsl.conf
 
 # look at control codes 0xd 0xa

@@ -18,7 +18,7 @@ mkdir "${HOME}\Documents\WSLDistros\imported"
 curl "https://cloud-images.ubuntu.com/wsl/kinetic/20230719/ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar.gz" --output "${HOME}\Documents\WSLDistros\rootfs\ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar.gz"
 
 # 22.04
-curl "https://cloud-images.ubuntu.com/wsl/jammy/20231209/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz" --output "${HOME}\Documents\WSLDistros\rootfs\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
+curl "https://cloud-images.ubuntu.com/wsl/jammy/20240314/ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz" --output "${HOME}\Documents\WSLDistros\rootfs\ubuntu-jammy-wsl-amd64-wsl.rootfs.tar.gz"
 
 # 24.04
 curl "https://cloud-images.ubuntu.com/wsl/noble/current/ubuntu-noble-wsl-amd64-wsl.rootfs.tar.gz" --output "${HOME}\Documents\WSLDistros\rootfs\ubuntu-noble-wsl-amd64-wsl.rootfs.tar.gz"

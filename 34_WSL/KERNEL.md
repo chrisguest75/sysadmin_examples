@@ -31,9 +31,19 @@ zmore /proc/config.gz
 
 ## Building 6.1
 
+### Create a WSL machine
+
+For building kernels.  Goto [INSTALL_DISTRO.md](./INSTALL_DISTRO.md)
+
+```powershell
+wsl -d ${DISTRO_NAME} --cd ~
+```
+
+### Build
+
 ```sh
 cd ~
-mkdir Code/oss
+mkdir -p Code/oss
 
 cd Code/oss
 git clone https://github.com/microsoft/WSL2-Linux-Kernel.git
@@ -60,6 +70,8 @@ cp kernel/.wslconfig6_1 $env:USERPROFILE/.wslconfig
 
 # start with new kernel
 wsl
+# print out kernel build
+uname -a
 ```
 
 ## Resources

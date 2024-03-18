@@ -31,6 +31,8 @@ ls "${HOME}\Documents\WSLDistros\rootfs"
 ```powershell
 $DISTRO_NAME = "work_22_04_distro"
 $DISTRO_NAME = "work_24_04_distro"
+$DISTRO_NAME = "kernel_build_distro"
+
 # 23.10
 $ROOT_FS_ZIP = "ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz"
 $ROOT_FS_ZIP = "ubuntu-kinetic-wsl-amd64-wsl.rootfs.tar.gz"

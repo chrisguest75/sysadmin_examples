@@ -5,7 +5,7 @@ TODO:
 - signing versus encryption versus authentication
 - create a master key on yubikey
 
-
+https://github.com/drduh/YubiKey-Guide#sub-keys
 
 ## Taxonomy
 

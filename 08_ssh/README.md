@@ -2,6 +2,8 @@
 
 Demonstrates how to configure and use ssh with keys.  
 
+Ref: [39_ssh/README.md](https://github.com/chrisguest75/docker_examples/tree/master/39_ssh/README.md)  
+
 ## Table of contents
 
 - [README](#readme)
@@ -24,8 +26,6 @@ TODO:
 ## Windows
 
 Goto [WINDOWS.md](./WINDOWS.md)  
-
-Ref: [39_ssh/README.md](https://github.com/chrisguest75/docker_examples/tree/master/39_ssh/README.md)  
 
 ## Install
 

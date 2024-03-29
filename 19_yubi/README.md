@@ -10,9 +10,9 @@ TERMINOLOGY:
 
 - FIDO2 - Fast Identity Online (FIDO) [fidoalliance.org](https://fidoalliance.org/fido2/)
 - OTP - [One-time password](https://en.wikipedia.org/wiki/One-time_password)
-- PIV - Personal Identity Verification
+- PIV - Personal Identity Verification - [What is PIV?](https://developers.yubico.com/PIV/)
 - WebAuthn - [WebAuthn Introduction](https://developers.yubico.com/WebAuthn)
-- PKCS - Public Key Cryptography Standards
+- PKCS - Public Key Cryptography Standards [PKCS#11](https://en.wikipedia.org/wiki/PKCS_11)
 
 TODO:
 
@@ -22,26 +22,34 @@ TODO:
 - titan keys?
 https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
 - https://github.com/ixydo/gpg-smartcard-automation
-https://github.com/ixydo/gpg-smartcard-automation
 Yubikey provisioning
 https://github.com/santiago-mooser/yubikey-provisioning-scripts
-
 
 ## Tools
 
 Details about the tools [here](https://developers.yubico.com/PIV/Tools.html)  
 
+* ykman - Configure your YubiKey via the command line.
+* yubico-piv-tool - Tool for managing Personal Identity Verification credentials on Yubikeys
+* gpg - OpenPGP encryption and signing tool
+
 ```sh
 brew info ykman 
+brew info yubico-piv-tool
 
 # install them
 brew install ykman
 brew install yubico-piv-tool
 
 # time of writing - YubiKey Manager (ykman) version: 5.0.0
+# time of writing - YubiKey Manager (ykman) version: 5.4.0
 ykman --version
 # time of writing - yubico-piv-tool 2.3.0
+# time of writing - yubico-piv-tool 2.4.2
 yubico-piv-tool --version
+
+# time of writing - gpg (GnuPG) 2.4.5
+gpg --version
 
 # list devices
 ykman list   
@@ -55,7 +63,10 @@ gpg --card-status
 
 Go get the GUI manager from [website](https://www.yubico.com/support/download/yubikey-manager/)  
 
-## Resetting PIN
+## Resetting PIN & PUK
+
+* PIN (Personal Identification Number)
+* PUK (PIN Unblocking Key)
 
 The default PIN code is `123456`. The default PUK code is `12345678`.
 
@@ -69,35 +80,32 @@ Change the pins PIN and PUK
 
 NOTE: An occupied slot on the Yubikey PIV interface usually contains a private key, a public key and an X509 certificate. The key pair generate, the certificate generation and the certificate import are done using different actions in the right order. REF: [Key Generation](https://developers.yubico.com/yubico-piv-tool/Actions/key_generation.html)
 
+Slots [here](https://developers.yubico.com/PIV/Introduction/Certificate_slots.html)  
+
 ```sh
 ykman piv --help
 
 yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o public.pem
 ```
 
-Getting Started: SSH Authentication with a YubiKey as a Smart Card
- [here](https://developers.yubico.com/PIV/Guides/PIV_Walk-Through.html)
-
-https://eta.st/2021/03/06/yubikey-5-piv.html
-
-yubikey agent https://github.com/FiloSottile/yubikey-agent
-
-RSA 4096 bit keys on yubikey
-https://dev.to/paulmicheli/using-your-yubikey-to-store-your-ssh-key-rsa-4096-3pfl
-
-https://github.com/OpenSC/OpenSC/wiki
-https://developers.yubico.com/yubico-piv-tool/
+* Getting Started: SSH Authentication with a YubiKey as a Smart Card [here](https://developers.yubico.com/PIV/Guides/PIV_Walk-Through.html)
+* Getting PIV-based SSH working on a YubiKey [here](https://eta.st/2021/03/06/yubikey-5-piv.html)
+* yubikey-agent is a seamless ssh-agent for YubiKeys [here](https://github.com/FiloSottile/yubikey-agent)
+* Using your Yubikey to store your SSH Key (RSA 4096) [here](https://dev.to/paulmicheli/using-your-yubikey-to-store-your-ssh-key-rsa-4096-3pfl)
+* OpenSC [repo](https://github.com/OpenSC/OpenSC/wiki)
 
 
-https://www.securew2.com/blog/yubikey-piv-certificate-slot-configuration
 
-https://www.securew2.com/blog/yubikey-certificate-attestation/
+
+* Yubikey PIV Certificate Slot Configuration [here](https://www.securew2.com/blog/yubikey-piv-certificate-slot-configuration)
+* Yubikey Certificate Attestation Improved [here](https://www.securew2.com/blog/yubikey-certificate-attestation/)
 
 https://smallstep.com/blog/use-ssh-certificates/
 
 https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
 
-
+https://github.com/santiago-mooser/yubikey-provisioning-scripts
+https://developers.yubico.com/yubico-piv-tool/
 
 ## SSH
 
@@ -189,3 +197,6 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 - https://developers.yubico.com/
 - https://fidoalliance.org/fido2/
 - https://zach.codes/ultimate-yubikey-setup-guide/
+
+
+- Yubico OTPs Explained [here](https://developers.yubico.com/OTP/OTPs_Explained.html)

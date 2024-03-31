@@ -48,15 +48,13 @@ echo "Start sleep infinity"
 sleep infinity
 EOF
 
-#COPY keys/id_ed25519.pub /scratch/id_ed25519.pub 
-#COPY keys/id_rsa.pub /scratch/id_rsa.pub 
-COPY keys/authorized_keys /scratch/authorized_keys 
+COPY ca-keys/ca.pub /scratch/ca.pub 
+COPY keys/yubi_authorized_keys /scratch/yubi_authorized_keys 
 
 COPY --chmod=755 <<EOF /bin/preparekeys.sh
 mkdir -p /root/.ssh
-cp /scratch/authorized_keys /root/.ssh/authorized_keys
-#cat /scratch/id_ed25519.pub > /root/.ssh/authorized_keys
-#cat /scratch/id_rsa.pub >> /root/.ssh/authorized_keys
+#sed 's/^/cert-authority /' /scratch/ca.pub  > /root/.ssh/authorized_keys
+cat /scratch/yubi_authorized_keys > /root/.ssh/authorized_keys
 EOF
 
 RUN /bin/preparekeys.sh

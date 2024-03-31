@@ -19,11 +19,9 @@ TODO:
 - Create an SSH server in docker and use ssh key on yubikey
 - Check out the attestation.
 - Using kms as a root key
-- titan keys?
-https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
+- titan keys? https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
 - https://github.com/ixydo/gpg-smartcard-automation
-Yubikey provisioning
-https://github.com/santiago-mooser/yubikey-provisioning-scripts
+- Yubikey provisioning https://github.com/santiago-mooser/yubikey-provisioning-scripts
 
 ## Tools
 
@@ -115,10 +113,10 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 
 ## Resources
 
+- https://zach.codes/ultimate-yubikey-setup-guide/
 - YubiKey Manager - Cross-platform application for configuring any YubiKey over all USB interfaces. [here](https://www.yubico.com/support/download)
 - https://developers.yubico.com/
 - https://fidoalliance.org/fido2/
-- https://zach.codes/ultimate-yubikey-setup-guide/
 - Yubico OTPs Explained [here](https://developers.yubico.com/OTP/OTPs_Explained.html)
 * Yubikey Certificate Attestation Improved [here](https://www.securew2.com/blog/yubikey-certificate-attestation/)
 * https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
@@ -126,4 +124,3 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 * Do I need a master key to get SSH PIV working? https://developers.yubico.com/PGP/
 * https://ruimarinho.gitbooks.io/yubikey-handbook/content/
 * https://github.com/jamesog/yubikey-ssh
-

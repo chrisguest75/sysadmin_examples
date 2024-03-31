@@ -113,14 +113,15 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 
 ## Resources
 
-- https://zach.codes/ultimate-yubikey-setup-guide/
+- Ultimate Yubikey Setup Guide with ed25519! [here](https://zach.codes/ultimate-yubikey-setup-guide/)
 - YubiKey Manager - Cross-platform application for configuring any YubiKey over all USB interfaces. [here](https://www.yubico.com/support/download)
-- https://developers.yubico.com/
-- https://fidoalliance.org/fido2/
+- Developer Program [here](https://developers.yubico.com/)
+- FIDO Alliance [here](https://fidoalliance.org/fido2/)
 - Yubico OTPs Explained [here](https://developers.yubico.com/OTP/OTPs_Explained.html)
 * Yubikey Certificate Attestation Improved [here](https://www.securew2.com/blog/yubikey-certificate-attestation/)
-* https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
-* https://github.com/santiago-mooser/yubikey-provisioning-scripts
+* YubiKey SSH on MacOS [here](https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html)
+* Yubikey provisioning scripts [here](https://github.com/santiago-mooser/yubikey-provisioning-scripts)
 * Do I need a master key to get SSH PIV working? https://developers.yubico.com/PGP/
-* https://ruimarinho.gitbooks.io/yubikey-handbook/content/
-* https://github.com/jamesog/yubikey-ssh
+* Yubikey Handbook [here](https://ruimarinho.gitbooks.io/yubikey-handbook/content/)
+* Yubikey as an SSH key [here](https://github.com/jamesog/yubikey-ssh)  
+

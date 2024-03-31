@@ -50,11 +50,13 @@ EOF
 
 COPY ca-keys/ca.pub /scratch/ca.pub 
 COPY keys/yubi_authorized_keys /scratch/yubi_authorized_keys 
+COPY keys/nonyubi_authorized_keys /scratch/nonyubi_authorized_keys 
 
 COPY --chmod=755 <<EOF /bin/preparekeys.sh
 mkdir -p /root/.ssh
 #sed 's/^/cert-authority /' /scratch/ca.pub  > /root/.ssh/authorized_keys
 cat /scratch/yubi_authorized_keys > /root/.ssh/authorized_keys
+cat /scratch/nonyubi_authorized_keys >> /root/.ssh/authorized_keys
 EOF
 
 RUN /bin/preparekeys.sh

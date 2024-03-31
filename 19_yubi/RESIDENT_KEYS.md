@@ -4,24 +4,29 @@ NOTES:
 
 * Requires brews OpenSSL as Apple compile with --disable-security-key
 
+TODO:
+
+* THIS IS NOT WORKING
+
 ```sh
 # OpenSSH_8.6p1, LibreSSL 3.3.6
 ssh -V 
 
-export PATH=$(brew --prefix openssh)/bin:$PATH
-
 # openssh needs to be installed from brew
 ssh-keygen --help  
-$(brew --prefix openssh)/bin/ssh-keygen --help  
 
-mkdir -p ./ssh_server/residentkeys
-$(brew --prefix openssh)/bin/ssh-keygen -f ./ssh_server/residentkeys/id_ed25519-sk -t ed25519-sk -O application=ssh:personal -O no-touch-required -O resident
+export PATH=$(brew --prefix openssh)/bin:$PATH
+ssh-keygen --help  
+
+mkdir -p ./ssh_server/resident-keys
+ssh-keygen -f ./ssh_server/resident-keys/id_ed25519-sk -t ed25519-sk -O application=ssh:personal -O no-touch-required -O resident
 
 
+ssh-keygen -K
 
-$(brew --prefix openssh)/bin/ssh-add -K
+ssh-keygen -D $(realpath /usr/local/lib/libykcs11.dylib) -e 
 
-$(brew --prefix openssh)/bin/ssh -f ./ssh_server/residentkeys/id_ed25519-sk -vvvv -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -p 2822 root@0.0.0.0
+ssh -f ./ssh_server/residentkeys/id_ed25519-sk -vvvv -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -p 2822 root@0.0.0.0
 ```
 
 ## Resources

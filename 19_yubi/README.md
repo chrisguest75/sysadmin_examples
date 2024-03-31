@@ -16,7 +16,13 @@ TERMINOLOGY:
 
 TODO:
 
-- Create an SSH server in docker and use ssh key on yubikey
+- working on wsl
+- git commit
+- git signing
+- associate to github
+- signing a text file
+- subkeys
+- docker build attestation
 - Check out the attestation.
 - Using kms as a root key
 - titan keys? https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
@@ -27,7 +33,7 @@ TODO:
 
 Details about the tools [here](https://developers.yubico.com/PIV/Tools.html)  
 
-* ykman - Configure your YubiKey via the command line.
+* ykman - Configure your YubiKey via the command line (this is replacement for yubico-piv-tool).
 * yubico-piv-tool - Tool for managing Personal Identity Verification credentials on Yubikeys
 * gpg - OpenPGP encryption and signing tool
 * yubikey manager ui - [here](https://www.yubico.com/support/download/yubikey-manager/)  

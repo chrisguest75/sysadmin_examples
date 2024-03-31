@@ -32,14 +32,22 @@ Details about the tools [here](https://developers.yubico.com/PIV/Tools.html)
 * ykman - Configure your YubiKey via the command line.
 * yubico-piv-tool - Tool for managing Personal Identity Verification credentials on Yubikeys
 * gpg - OpenPGP encryption and signing tool
+* yubikey manager ui - [here](https://www.yubico.com/support/download/yubikey-manager/)  
 
 ```sh
 brew info ykman 
 brew info yubico-piv-tool
+brew info yubico-yubikey-manager 
+brew info openssh  
 
 # install them
 brew install ykman
 brew install yubico-piv-tool
+brew install yubico-yubikey-manager       
+brew install openssh       
+
+# NOTE: Apparently this is not required anymore
+brew install opensc       
 
 # time of writing - YubiKey Manager (ykman) version: 5.0.0
 # time of writing - YubiKey Manager (ykman) version: 5.4.0
@@ -51,6 +59,9 @@ yubico-piv-tool --version
 # time of writing - gpg (GnuPG) 2.4.5
 gpg --version
 
+# OpenSSH_9.7p1, OpenSSL 3.2.1 30 Jan 2024
+$(brew --prefix openssh)/bin/ssh -V 
+
 # list devices
 ykman list   
 
@@ -59,126 +70,37 @@ ykman info
 
 # gpg can show details on the card
 gpg --card-status
+
+# show slots
+yubico-piv-tool -a status
 ```
 
 Go get the GUI manager from [website](https://www.yubico.com/support/download/yubikey-manager/)  
 
 ## Resetting PIN & PUK
 
+Accessing administrative functions. Containing list of operations [here](https://developers.yubico.com/PIV/Introduction/Admin_access.html)  
+
 * PIN (Personal Identification Number)
 * PUK (PIN Unblocking Key)
 
-The default PIN code is `123456`. The default PUK code is `12345678`.
+The default PIN code is `123456`. The default PUK code is `12345678`.  
 
-The default 3DES management key (9B) is `010203040506070801020304050607080102030405060708`.
+The default 3DES management key (9B) is `010203040506070801020304050607080102030405060708`.  
 
 Technical details about the YubiKey PIV implementation can be found [here](https://developers.yubico.com/PIV/Introduction/YubiKey_and_PIV.html)  
 
-Change the pins PIN and PUK
-
-## Generate keys
-
-NOTE: An occupied slot on the Yubikey PIV interface usually contains a private key, a public key and an X509 certificate. The key pair generate, the certificate generation and the certificate import are done using different actions in the right order. REF: [Key Generation](https://developers.yubico.com/yubico-piv-tool/Actions/key_generation.html)
-
-Slots [here](https://developers.yubico.com/PIV/Introduction/Certificate_slots.html)  
+Change the pins PIN and PUK  
 
 ```sh
-ykman piv --help
+# generate random key
+key=`dd if=/dev/random bs=1 count=24 2>/dev/null | hexdump -v -e '/1 "%02X"'`
+echo $key
+yubico-piv-tool -a set-mgm-key -n $key --key 010203040506070801020304050607080102030405060708
 
-yubico-piv-tool -s 9a -a generate -k --pin-policy=once --touch-policy=always --algorithm=RSA2048 -o public.pem
-```
-
-* Getting Started: SSH Authentication with a YubiKey as a Smart Card [here](https://developers.yubico.com/PIV/Guides/PIV_Walk-Through.html)
-* Getting PIV-based SSH working on a YubiKey [here](https://eta.st/2021/03/06/yubikey-5-piv.html)
-* yubikey-agent is a seamless ssh-agent for YubiKeys [here](https://github.com/FiloSottile/yubikey-agent)
-* Using your Yubikey to store your SSH Key (RSA 4096) [here](https://dev.to/paulmicheli/using-your-yubikey-to-store-your-ssh-key-rsa-4096-3pfl)
-* OpenSC [repo](https://github.com/OpenSC/OpenSC/wiki)
-
-
-
-
-* Yubikey PIV Certificate Slot Configuration [here](https://www.securew2.com/blog/yubikey-piv-certificate-slot-configuration)
-* Yubikey Certificate Attestation Improved [here](https://www.securew2.com/blog/yubikey-certificate-attestation/)
-
-https://smallstep.com/blog/use-ssh-certificates/
-
-https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
-
-https://github.com/santiago-mooser/yubikey-provisioning-scripts
-https://developers.yubico.com/yubico-piv-tool/
-
-## SSH
-
-Do I need a master key to get SSH PIV working?
-
-https://developers.yubico.com/PGP/
-
-
-
-
-Ref: [08_SSH/README.md](../08_SSH/README.md)  
-Ref: [39_ssh/README.md](https://github.com/chrisguest75/docker_examples/tree/master/39_ssh/README.md)  
-
-### Run example
-
-The `nginx` container is not available on the network. We use the `ssh` server to allow access.  
-
-```sh
-# create keys
-mkdir -p ./ssh_server/keys
-ssh-keygen -o -a 100 -t ed25519 -f ./ssh_server/keys/id_ed25519 
-ssh-keygen -o -a 100 -t rsa -f ./ssh_server/keys/id_rsa 
-```
-
-Start the containers.
-
-```sh
-# start server
-docker compose up -d --build --force-recreate
-
-# quick test
-docker compose logs internalnginx  
-docker compose logs sshserver        
-```
-
-SSH to get access to `nginx`.  
-
-```sh
-# ssh onto server 
-ssh -vvvv -o StrictHostKeyChecking=no -i ./ssh_server/keys/id_rsa -p 2822 root@0.0.0.0
-# curl against the nginx container
-curl 172.16.238.64:80
-```
-
-### 🧼 Cleanup
-
-```sh
-# bring it down and delete the volume
-docker compose down 
-```
-
-### Debugging and troubleshooting
-
-```sh
-docker compose exec -it sshserver /bin/bash
-
-# start ssh
-rsyslogd
-service ssh start
-nano /etc/ssh/sshd_config  
-service ssh restart
-
-passwd
-cat /root/.ssh/authorized_keys
-cat /var/log/auth.log
-
-#PasswordAuthentication yes
-#PermitEmptyPasswords yes
-#PermitRootLogin without-password
-
-# open connections (only rsa seems to work)
-ssh -vvvv -o StrictHostKeyChecking=no -i ./ssh_server/keys/id_ed25519 -p 2822 root@0.0.0.0
-ssh -vvvv -o StrictHostKeyChecking=no -i ./ssh_server/keys/id_rsa -p 2822 root@0.0.0.0
+# pins
+yubico-piv-tool -a change-pin -P 123456 -N 123456   
+yubico-piv-tool -a change-puk -P 12345678 -N 12345678
 ```
 
 ## Prereqs
@@ -197,6 +119,11 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 - https://developers.yubico.com/
 - https://fidoalliance.org/fido2/
 - https://zach.codes/ultimate-yubikey-setup-guide/
-
-
 - Yubico OTPs Explained [here](https://developers.yubico.com/OTP/OTPs_Explained.html)
+* Yubikey Certificate Attestation Improved [here](https://www.securew2.com/blog/yubikey-certificate-attestation/)
+* https://chewing-the-code.blogspot.com/2019/05/yubikey-ssh-onmacos.html
+* https://github.com/santiago-mooser/yubikey-provisioning-scripts
+* Do I need a master key to get SSH PIV working? https://developers.yubico.com/PGP/
+* https://ruimarinho.gitbooks.io/yubikey-handbook/content/
+* https://github.com/jamesog/yubikey-ssh
+

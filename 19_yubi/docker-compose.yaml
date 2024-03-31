@@ -14,7 +14,16 @@ services:
         networks:
             app_private_network:
                 ipv4_address: 172.16.238.3
-                
+
+    yubissh:
+        build: 
+            context: ./ssh_server
+            dockerfile: ./Dockerfile.yubissh
+        ports:
+            - 2823:22
+        networks:
+            app_private_network:
+                ipv4_address: 172.16.238.4
 networks:
     app_private_network:
         ipam:

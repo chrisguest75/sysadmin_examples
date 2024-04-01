@@ -73,10 +73,14 @@ pkcs11-tool --login --test
 YubiKey thumbprint  
 
 ```sh
+mkdir -p ./ssh_server/keys
 export PATH=$(brew --prefix openssh)/bin:$PATH
 
 # copy thumbprint
-ssh-keygen -D $(realpath /usr/local/lib/libykcs11.dylib) -e | grep Signature > ./ssh_server/keys/yubi_authorized_keys
+LIBYKCS11_PATH=$(realpath /usr/local/lib/libykcs11.dylib)
+LIBYKCS11_PATH=/home/linuxbrew/.linuxbrew/lib/libykcs11.so
+
+ssh-keygen -D ${LIBYKCS11_PATH} -e | grep Signature > ./ssh_server/keys/yubi_authorized_keys
 ```
 
 Start the SSH server.  
@@ -88,13 +92,13 @@ docker compose -f ./docker-compose.ca.yubi.ssh.yaml up -d --build --force-recrea
 Login with YubiKey  
 
 ```sh
-ssh -vvvv -o StrictHostKeyChecking=no -I $(realpath /usr/local/lib/libykcs11.dylib) -p 2822 root@0.0.0.0
+ssh -vvvv -o StrictHostKeyChecking=no -I ${LIBYKCS11_PATH} -p 2822 root@0.0.0.0
 
 # once in ssh shell curl against the nginx container
 curl 172.16.238.64:80
 
 # THIS DOES NOT WORK
-ssh-add -s $(realpath /usr/local/lib/libykcs11.dylib) 
+ssh-add -s ${LIBYKCS11_PATH} 
 ssh-add -L 
 ```
 

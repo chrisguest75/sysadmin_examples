@@ -29,6 +29,10 @@ TODO:
 - https://github.com/ixydo/gpg-smartcard-automation
 - Yubikey provisioning https://github.com/santiago-mooser/yubikey-provisioning-scripts
 
+## Check genuine Yubikey
+
+Verify your Yubikey [here](https://www.yubico.com/genuine/)  
+
 ## Tools
 
 Details about the tools [here](https://developers.yubico.com/PIV/Tools.html)  
@@ -131,3 +135,7 @@ lsusb -v 2> /dev/null | grep -A4 -B 5 -i yubi
 * Yubikey Handbook [here](https://ruimarinho.gitbooks.io/yubikey-handbook/content/)
 * Yubikey as an SSH key [here](https://github.com/jamesog/yubikey-ssh)  
 
+### Guides
+
+* https://github.com/drduh/YubiKey-Guide
+* https://github.com/santiago-mooser/yubikey-provisioning-scripts

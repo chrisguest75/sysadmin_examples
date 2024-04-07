@@ -57,6 +57,9 @@ sed 's/^/cert-authority /' ./ssh_server/ca-keys/ca.pub > ./ssh_server/ca-keys/au
 # generate a key
 yubico-piv-tool -a generate -s 9c -A RSA2048 --pin-policy=never --touch-policy=always -o ./ssh_server/keys/public.pem
 
+# ERROR: ED25519 requires YubiKey 5.7 or later
+ykman piv keys generate --management-key 010203040506070801020304050607080102030405060708 --pin 123456 --algorithm ED25519 --touch-policy ALWAYS --format PEM 9c - 
+
 # when doing this you have to touch the key
 yubico-piv-tool -a selfsign-certificate -s 9c -S "/CN=SSH key/" -i ./ssh_server/keys/public.pem -o ./ssh_server/keys/cert.pem
 
@@ -73,6 +76,11 @@ pkcs11-tool --login --test
 YubiKey thumbprint  
 
 ```sh
+ykman piv keys info 9c
+ykman piv keys export --pin 123456 9c -
+
+
+
 mkdir -p ./ssh_server/keys
 export PATH=$(brew --prefix openssh)/bin:$PATH
 
@@ -143,3 +151,4 @@ nano /root/.ssh/authorized_keys
 * Yubikey PIV Certificate Slot Configuration [here](https://www.securew2.com/blog/yubikey-piv-certificate-slot-configuration)
 * Yubico PIV Tool [here](https://developers.yubico.com/yubico-piv-tool/)
 * If you’re not using SSH certificates you’re doing SSH wrong [here](https://smallstep.com/blog/use-ssh-certificates/)
+* https://debugging.works/blog/yubikey-cheatsheet/

@@ -12,22 +12,7 @@ TERMINOLOGY:
 - OTP - [One-time password](https://en.wikipedia.org/wiki/One-time_password)
 - PIV - Personal Identity Verification - [What is PIV?](https://developers.yubico.com/PIV/)
 - WebAuthn - [WebAuthn Introduction](https://developers.yubico.com/WebAuthn)
-- PKCS - Public Key Cryptography Standards [PKCS#11](https://en.wikipedia.org/wiki/PKCS_11)
-
-TODO:
-
-- working on wsl
-- git commit
-- git signing
-- associate to github
-- signing a text file
-- subkeys
-- docker build attestation
-- Check out the attestation.
-- Using kms as a root key
-- titan keys? https://support.google.com/titansecuritykey/answer/9148044?hl=en-GB
-- https://github.com/ixydo/gpg-smartcard-automation
-- Yubikey provisioning https://github.com/santiago-mooser/yubikey-provisioning-scripts
+- PKCS - Public Key Cryptography Standards [PKCS](https://en.wikipedia.org/wiki/PKCS)
 
 ## Check genuine Yubikey
 
@@ -101,6 +86,10 @@ Technical details about the YubiKey PIV implementation can be found [here](https
 Change the pins PIN and PUK  
 
 ```sh
+# reset key
+ykman piv reset
+ykman fido reset
+
 # generate random key
 key=`dd if=/dev/random bs=1 count=24 2>/dev/null | hexdump -v -e '/1 "%02X"'`
 echo $key
@@ -109,6 +98,11 @@ yubico-piv-tool -a set-mgm-key -n $key --key 01020304050607080102030405060708010
 # pins
 yubico-piv-tool -a change-pin -P 123456 -N 123456   
 yubico-piv-tool -a change-puk -P 12345678 -N 12345678
+
+# or new tool
+ykman piv access change-pin --pin 123456 --new-pin 654321
+ykman piv access change-puk --pin 12345678 --new-pin 87654321
+ykman fido access change-pin --new-pin 654321
 ```
 
 ## Prereqs

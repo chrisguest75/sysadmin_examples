@@ -51,6 +51,14 @@ Goto Gitea [git-server/README.md](./git-server/README.md)
 ssh -i ./id_ed25519_sk_rk_no-touch-personal -p 222 git@localhost
 ```
 
+## Github
+
+```sh
+# override the ssh command to use the yubi resident key
+export GIT_SSH_COMMAND="ssh -i $(pwd)/ssh_server/resident-keys/id_ed25519_sk_rk_no-touch-personal" 
+git remote show origin 
+```
+
 ## Troubleshooting
 
 It seems that if you're having trouble logging in then kill `ssh-agent` and try again.  

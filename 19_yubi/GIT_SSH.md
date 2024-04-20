@@ -1,6 +1,6 @@
 # GIT SSH
 
-Goto [](./git-server/README.md) and install a local server.  
+Goto [git-server/README.md](./git-server/README.md) and install a local server.  
 
 TODO:
 

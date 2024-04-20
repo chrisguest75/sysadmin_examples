@@ -1,5 +1,11 @@
 # RESIDENT KEYS
 
+Resident keys always stay on the security key.  The keys that are generated and stored locally are proxies to the private key. 
+
+TODO:
+
+* YubiKey resident SSH keys on Windows+WSL [here](https://zakaria.org/posts/resident-ssh-keys-on-windows.html)
+
 NOTES:
 
 * Requires brews OpenSSL as Apple compile with --disable-security-key

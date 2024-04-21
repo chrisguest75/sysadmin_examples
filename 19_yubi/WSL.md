@@ -4,6 +4,7 @@ Follow the attach and bind instructions for [34_WSL/WSL_USB.md](../34_WSL/WSL_US
 
 NOTES:
 
+* RESIDENT KEYS ARE NOT WORKING CORRECTLY YET!! 
 * You can use the windows cli tool (but you have to have entered the WSL from a powershell admin prompt)
 
 ## Tools
@@ -61,7 +62,6 @@ ykman fido info
 # use windows cli app (you have to have detached the usb device though and enter wsl from powershell admin prompt)
 /mnt/c/Program\ Files/Yubico/YubiKey\ Manager\ CLI/ykman.exe fido credentials list
 ```
-
 
 ## Resources
 

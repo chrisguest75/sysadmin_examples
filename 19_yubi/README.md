@@ -2,6 +2,14 @@
 
 Demonstrate how to use `yubikey`.
 
+TODO: 
+
+* wsl test - WSL is broken when sharing key.
+* cleanup the PR
+* Do I need to change the mgm key to increase entropy of private keys? 
+* Change the pin with keys on there?
+
+
 ## Reason
 
 Yubikey offers a lot of support for different auth protocols and certificates.  

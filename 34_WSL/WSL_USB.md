@@ -43,6 +43,17 @@ sudo apt install v4l-utils
 sudo v4l2-ctl --list-devices
 ```
 
+## Detach
+
+```sh
+# detach and unbind
+usbipd detach -b 1-12
+usbipd unbind -b 1-12
+
+# should be not-shared
+usbipd list
+```
+
 ## Resources
 
 * Connect USB devices [here](https://learn.microsoft.com/en-us/windows/wsl/connect-usb)  

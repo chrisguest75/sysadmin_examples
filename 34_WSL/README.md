@@ -7,7 +7,10 @@ NOTES:
 * It doesn't need HyperV, just Virtual machine platform required for WSL.  
 * It runs one kernel for all WSL distros.  
 * For speed your code should be copied into the vhdx.  
+  * File IO is really impaired pulling data across the share
+  * This really matters with directories like node-modules.  
 * WSLG is for graphics - it's possible to run GFX apps from linux in windows.  
+* When performing updates it seems to replace the kernel.  
 
 TODO:
 
@@ -40,6 +43,16 @@ set
 dir "%LocalAppData%\packages\CanonicalGroupLimited.Ubuntu_79rhkp1fndgsc\localstate"
 
 wslconfig /list
+```
+
+## Upgrading
+
+Check releases [here](https://github.com/microsoft/WSL/releases)  
+
+WARNING: This seems to replace the kernel. So if you're on a custom build it will replace it.  
+
+```powershell
+wsl --update
 ```
 
 ## Starting

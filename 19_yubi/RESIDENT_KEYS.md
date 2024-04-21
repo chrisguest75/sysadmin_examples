@@ -45,6 +45,10 @@ ssh-keygen -K
 ## SSH
 
 ```sh
+# start the SSH server.  
+docker compose -f ./docker-compose.ca.yubi.ssh.yaml up -d --build --force-recreate
+
+# login
 ssh -i ./id_ed25519_sk_rk_no-touch-personal -vvvv -o StrictHostKeyChecking=no -o IdentitiesOnly=yes -p 2822 root@0.0.0.0
 ```
 

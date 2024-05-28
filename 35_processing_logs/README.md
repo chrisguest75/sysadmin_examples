@@ -2,6 +2,10 @@
 
 Demonstrate how to use tooling to better work with logs.  
 
+NOTES:
+
+* Use `lnav --help` to tell you tmp folder.  
+
 TODO:
 
 * Get nginx errors logs in json as well.  
@@ -18,11 +22,11 @@ brew install lnav
 
 # get version
 lnav --version
-lnav 0.11.2
+lnav 0.12.2
 
 # install locations
 ls -la $(brew --prefix lnav)
-ls -l /usr/local/Cellar/lnav/0.11.2
+ls -l /usr/local/Cellar/lnav/0.12.2
 ls ~/.config/lnav/formats/default
 
 code@default /Users/$(whoami)/.config/lnav
@@ -40,6 +44,7 @@ Hotkeys list [here](https://docs.lnav.org/en/latest/hotkeys.html)
 * `:` enter config
 * `;` query logs (sqlite)
 * `Shift+P` to pretty print or not
+* `CTRL+w` toggle word-wrap
 
 ## Theme
 
@@ -82,8 +87,8 @@ curl 0.0.0.0:8080
 mkdir -p ./out
 # this writes the lnav log to debug.log
 rm ./out/debug.log
-docker logs nginxlogs --follow | lnav -W -d ./out/debug.log
-docker logs nginxlogs > ./out/nginx.logs
+lnav docker://nginxlogs -W -d ./out/debug.log
+
 # remove the non nginx log from the file manually
 lnav ./out/nginx.logs
 

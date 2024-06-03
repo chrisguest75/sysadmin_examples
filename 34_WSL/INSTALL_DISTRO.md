@@ -30,7 +30,6 @@ ls "${HOME}\Documents\WSLDistros\rootfs"
 
 ```powershell
 $DISTRO_NAME = "work_22_04_distro"
-$DISTRO_NAME = "work_24_04_distro"
 $DISTRO_NAME = "kernel_build_distro"
 
 # 23.10

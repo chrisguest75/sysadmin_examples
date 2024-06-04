@@ -11,12 +11,19 @@ Troubleshoot Docker Desktop [here](https://docs.docker.com/desktop/troubleshoot/
 NOTE: It will be written into `C:\Users\$env:USERNAME\AppData\Local\Temp\<guid>`  
 
 ```powershell
+# will write out zip path at the end
 & "C:\Program Files\Docker\Docker\resources\com.docker.diagnose.exe" gather
+
+# Writes to C:\Users\$env:USERNAME\AppData\Roaming\Docker
+& "C:\Program Files\Docker\Docker\resources\com.docker.diagnose.exe" gather ./docker-crash.zip
+
+# expand the archive
+expand-Archive .\20240604164400.zip -DestinationPath .\20240604164400
 ```
 
 ```sh
 # unzip contents
-unzip 20240603163018.zip -d 20240603163018                     
+unzip 20240603163018.zip -d 20240603163018
 ```
 
 ### Collecting WSL Logs

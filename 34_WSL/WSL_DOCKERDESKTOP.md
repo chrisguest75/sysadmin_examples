@@ -4,6 +4,19 @@ TODO:
 
 * I'm having reliability issues with docker in WSL.  Containers SEGFAULTING and then on a running again they work.
 
+## Check
+
+```powershell
+# go run checks 
+& "C:\Program Files\Docker\Docker\resources\com.docker.diagnose.exe" check
+```
+
+## Try
+
+```powershell
+wsl.exe --update --web-download
+```
+
 ## Troubleshooting
 
 Troubleshoot Docker Desktop [here](https://docs.docker.com/desktop/troubleshoot/overview/)  

@@ -23,6 +23,25 @@ TODO:
 * Podman desktop?
 * Multipass?
 
+## Contents
+
+- [WSL (Windows Subsystem Linux)](#wsl-windows-subsystem-linux)
+  - [Contents](#contents)
+  - [Installing](#installing)
+  - [Upgrading](#upgrading)
+  - [Starting](#starting)
+  - [HyperV](#hyperv)
+  - [Second distro](#second-distro)
+  - [Remove distro](#remove-distro)
+  - [Shutting down](#shutting-down)
+  - [Tips and Tricks](#tips-and-tricks)
+    - [SSH Agent](#ssh-agent)
+    - [Collecting Logs](#collecting-logs)
+    - [Mounts](#mounts)
+    - [Git](#git)
+    - [Time sync](#time-sync)
+  - [Resources](#resources)
+
 ## Installing
 
 ```sh

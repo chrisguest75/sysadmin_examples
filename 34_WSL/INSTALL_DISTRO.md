@@ -2,6 +2,45 @@
 
 Demonstrate how to install a new distro.  
 
+## Contents
+
+- [INSTALL DISTRO](#install-distro)
+  - [Contents](#contents)
+  - [Online](#online)
+  - [Download](#download)
+  - [Import](#import)
+  - [Configure](#configure)
+  - [Restore VHDX](#restore-vhdx)
+  - [Chezmoi](#chezmoi)
+  - [Delete Distro](#delete-distro)
+  - [Resources](#resources)
+
+## Online
+
+```powershell
+wsl --list --online
+
+$DISTRO_NAME="ubuntu-24.04"
+
+wsl --install  ${DISTRO_NAME}
+
+tee /etc/wsl.conf <<_EOF
+[user]
+default=${NEW_USER}
+
+[boot]
+systemd=true
+_EOF
+
+logout
+
+wsl --terminate ${DISTRO_NAME}
+
+wsl -d ${DISTRO_NAME}
+```
+
+Now jump to [chezmoi](#chezmoi)  
+
 ## Download
 
 Ubuntu Releases [here](https://wiki.ubuntu.com/Releases)  

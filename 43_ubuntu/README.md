@@ -18,10 +18,15 @@ Met this problem whilst trying to run some unittests for [MongoInMemoryStore](ht
 ```sh
 dpkg --print-architecture
 
+mkdir -p ./out
+
+# download
 curl -o ./out/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb  http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb     
 
+# look at contents
 dpkg -c ./out/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 
+# install
 sudo dpkg -i ./out/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 ```
 

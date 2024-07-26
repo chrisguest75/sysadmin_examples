@@ -3,6 +3,8 @@
 TODO:
 
 * How do we clean them?
+  * https://blog.cloudflare.com/introducing-har-sanitizer-secure-har-sharing
+  * https://har-sanitizer.pages.dev/
 
 NOTES:
 

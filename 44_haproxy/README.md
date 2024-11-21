@@ -5,6 +5,7 @@ HAProxy - The Reliable, High Performance TCP/HTTP Load Balancer.
 TODO:
 
 * NOT WORKING: Adding a server doesn't add to rotation
+* Deleting servers does not seem to work either 
 * Add another pod to backend and check hashing is consistent.
 * logging websockets in podinfo
 * stats?

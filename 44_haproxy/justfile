@@ -20,7 +20,7 @@ stop: build
   set -eufo pipefail  
   docker compose down
 
-test:
+test type="default":
   #!/usr/bin/env bash
   set -eufo pipefail  
-  hurl --very-verbose --test hurl/test.hurl 
+  hurl --very-verbose --test hurl/test-{{ type }}.hurl 

@@ -11,7 +11,8 @@ just build
 ## Test
 
 ```sh
-just test
+# test sticky sessions
+just test sticky 
 ```
 
 ## Stop
@@ -29,3 +30,4 @@ just stop
 * haproxy/haproxy repo [here](https://github.com/haproxy/haproxy)
 * An Introduction to HAProxy and Load Balancing Concepts [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts)
 * stefanprodan/podinfo [here](https://github.com/stefanprodan/podinfo)
+* https://www.haproxy.com/blog/enable-sticky-sessions-in-haproxy

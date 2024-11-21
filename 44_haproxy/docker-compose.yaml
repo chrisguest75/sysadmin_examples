@@ -1,0 +1,56 @@
+services:
+    haproxy:
+        image: "haproxy:3.0.6-bookworm"
+        environment:
+            - VERSION=haproxy:3.0.6-bookworm
+            - EXAMPLE=${EXAMPLE}
+        ports:
+            - "8080:8080"
+            - "8484:8404"
+        volumes:
+            - type: bind
+              source: ./haproxy.cfg
+              target: /usr/local/etc/haproxy/haproxy.cfg
+        networks:
+            - service_bridge
+
+    podinfo1:
+        image: "stefanprodan/podinfo:6.7.1"
+        environment:
+            - VERSION=0.0.1   
+            - PODNAME=info
+            - SERVICE=podinfo1
+        # ports:
+        #     - "9898:9898"
+        command: [ "./podinfo", "--level=debug" ]            
+        networks:
+            - service_bridge
+
+    podinfo2:
+        image: "stefanprodan/podinfo:6.7.1"
+        environment:
+            - VERSION=0.0.1   
+            - PODNAME=info                    
+            - SERVICE=podinfo2
+        # ports:
+        #     - "9898:9898"
+        command: [ "./podinfo", "--level=debug" ]            
+        networks:
+            - service_bridge
+
+    podinfo3:
+        image: "stefanprodan/podinfo:6.7.1"
+        environment:
+            - VERSION=0.0.1   
+            - PODNAME=info
+            - SERVICE=podinfo3
+        # ports:
+        #     - "9898:9898"
+        command: [ "./podinfo", "--level=debug" ]            
+        networks:
+            - service_bridge
+
+networks:
+    service_bridge:
+        driver: bridge
+

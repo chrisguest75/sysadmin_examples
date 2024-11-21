@@ -2,17 +2,64 @@
 
 HAProxy - The Reliable, High Performance TCP/HTTP Load Balancer.  
 
+TODO:
+
+* Adding a server doesn't add to rotation
+* Add another pod to backend and check hashing is consistent.
+* logging websockets in podinfo
+* stats?
+* Multiple haproxies in federation - peers https://www.haproxy.com/documentation/haproxy-runtime-api/reference/show-peers/
+
 ## Start
 
 ```sh
-just build
+just start
 ```
 
 ## Test
 
 ```sh
+# open in different terminal
+just logs 
+
 # test sticky sessions
 just test sticky 
+
+# this will rotate servers
+websocat --text ws://0.0.0.0:8080/ws/echo -n 
+
+# using sessionid to stick to a pod
+websocat --header "X-Session-ID: abc123" --text ws://0.0.0.0:8080/ws/echo -n 
+```
+
+## Scale
+
+```sh
+# add a node
+just scale
+
+# register
+echo "show servers state" | nc 0.0.0.0 9999
+echo "add server webservers/s4 podinfo4:9898 check cookie s4" | nc 0.0.0.0 9999
+echo "show servers state" | nc 0.0.0.0 9999
+just test sticky 
+
+# switching over sessions
+curl -vvv -X GET http://0.0.0.0:8080/env -H "X-Session-ID: abc128"
+```
+
+## Management
+
+```sh
+echo "show info" | nc 0.0.0.0 9999
+echo "show stat" | nc 0.0.0.0 9999
+echo "show libs" | nc 0.0.0.0 9999
+echo "show errors" | nc 0.0.0.0 9999
+echo "show version" | nc 0.0.0.0 9999
+echo "show activity" | nc 0.0.0.0 9999
+echo "show servers state" | nc 0.0.0.0 9999
+echo "add server webservers/s4 podinfo4:9898 check cookie s4" | nc 0.0.0.0 9999
+echo "disable server webservers/s4" 
 ```
 
 ## Stop
@@ -31,3 +78,4 @@ just stop
 * An Introduction to HAProxy and Load Balancing Concepts [here](https://www.digitalocean.com/community/tutorials/an-introduction-to-haproxy-and-load-balancing-concepts)
 * stefanprodan/podinfo [here](https://github.com/stefanprodan/podinfo)
 * https://www.haproxy.com/blog/enable-sticky-sessions-in-haproxy
+* https://www.haproxy.com/documentation/haproxy-runtime-api/

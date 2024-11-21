@@ -4,23 +4,35 @@
 
 set dotenv-load := true
 
+export SCALE:="3"
+
 # default lists actions
 default:
   @just -f justfile --list
 
 
-build:
+start:
   #!/usr/bin/env bash
   set -eufo pipefail
-  docker compose up -d --build --force-recreate
+  docker compose up -d --scale podinfo1=1 --build --force-recreate
+
+scale:
+  #!/usr/bin/env bash
+  set -eufo pipefail
+  docker compose -f docker-compose.yaml -f docker-compose.more.yaml up -d 
 
 
-stop: build
+stop: 
   #!/usr/bin/env bash
   set -eufo pipefail  
-  docker compose down
+  docker compose -f docker-compose.yaml -f docker-compose.more.yaml down
 
 test type="default":
   #!/usr/bin/env bash
   set -eufo pipefail  
   hurl --very-verbose --test hurl/test-{{ type }}.hurl 
+
+logs:
+  #!/usr/bin/env bash
+  set -eufo pipefail
+  docker compose logs -f

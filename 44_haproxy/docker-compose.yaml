@@ -7,10 +7,17 @@ services:
         ports:
             - "8080:8080"
             - "8484:8404"
+            - "9999:9999"
         volumes:
             - type: bind
               source: ./haproxy.cfg
               target: /usr/local/etc/haproxy/haproxy.cfg
+        networks:
+            - service_bridge
+
+    ubuntu:
+        image: "ubuntu:22.04"
+        command: [ "/bin/sh", "-c", "sleep infinity" ]  
         networks:
             - service_bridge
 

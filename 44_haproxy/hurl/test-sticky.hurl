@@ -2,7 +2,7 @@
 ## Endpoint test
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc123
+X-Session-ID: {{ SESSIONID_1 }}
 
 HTTP 200
 [Captures]
@@ -15,7 +15,7 @@ header "Content-Type" == "application/json; charset=utf-8"
 ## Request with the same session ID
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc123
+X-Session-ID: {{ SESSIONID_1 }}
 
 HTTP 200
 [Asserts]
@@ -26,7 +26,7 @@ jsonpath "$.hostname" == "{{ hostname1 }}"
 ## Request with the same session ID
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc123
+X-Session-ID: {{ SESSIONID_1 }}
 
 HTTP 200
 [Asserts]
@@ -37,7 +37,7 @@ jsonpath "$.hostname" == "{{ hostname1 }}"
 ## Request with the same session ID
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc123
+X-Session-ID: {{ SESSIONID_1 }}
 
 HTTP 200
 [Asserts]
@@ -48,7 +48,7 @@ jsonpath "$.hostname" == "{{ hostname1 }}"
 ## Request with the different session ID
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc129
+X-Session-ID: {{ SESSIONID_2 }}
 
 HTTP 200
 [Captures]
@@ -61,7 +61,7 @@ jsonpath "$.hostname" != "{{ hostname1 }}"
 ## Request with the same session ID
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc129
+X-Session-ID: {{ SESSIONID_2 }}
 
 HTTP 200
 [Asserts]
@@ -72,7 +72,7 @@ jsonpath "$.hostname" == "{{ hostname2 }}"
 ## Request with the same session ID
 ##############################################################
 GET http://0.0.0.0:8080
-X-Session-ID: abc123
+X-Session-ID: {{ SESSIONID_1 }}
 
 HTTP 200
 [Asserts]

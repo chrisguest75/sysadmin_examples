@@ -4,11 +4,15 @@ HAProxy - The Reliable, High Performance TCP/HTTP Load Balancer.
 
 TODO:
 
-* Adding a server doesn't add to rotation
+* NOT WORKING: Adding a server doesn't add to rotation
 * Add another pod to backend and check hashing is consistent.
 * logging websockets in podinfo
 * stats?
 * Multiple haproxies in federation - peers https://www.haproxy.com/documentation/haproxy-runtime-api/reference/show-peers/
+
+NOTES:
+
+* Consistent hashing vs Sticy Sessions
 
 ## Start
 
@@ -40,7 +44,11 @@ just scale
 
 # register
 echo "show servers state" | nc 0.0.0.0 9999
+# sticky sessions
 echo "add server webservers/s4 podinfo4:9898 check cookie s4" | nc 0.0.0.0 9999
+# consistent hashing
+echo "add server webservers/s4 podinfo4:9898 check" | nc 0.0.0.0 9999
+
 echo "show servers state" | nc 0.0.0.0 9999
 just test sticky 
 
@@ -60,6 +68,7 @@ echo "show activity" | nc 0.0.0.0 9999
 echo "show servers state" | nc 0.0.0.0 9999
 echo "add server webservers/s4 podinfo4:9898 check cookie s4" | nc 0.0.0.0 9999
 echo "disable server webservers/s4" 
+echo "del server webservers/s4" 
 ```
 
 ## Stop

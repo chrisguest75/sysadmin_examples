@@ -30,7 +30,8 @@ stop:
 test type="default":
   #!/usr/bin/env bash
   set -eufo pipefail  
-  hurl --very-verbose --test hurl/test-{{ type }}.hurl 
+  export HURL_VARS_FILE=./hurl/sessions.vars
+  hurl --very-verbose --test hurl/test-{{ type }}.hurl --variables-file $HURL_VARS_FILE 
 
 logs:
   #!/usr/bin/env bash

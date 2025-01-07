@@ -2,6 +2,10 @@
 
 Demonstrate how to install a new distro.  
 
+NOTES:
+
+* It seems like you cannot name a distro on creation using the named distros.  Only way is to use import.  
+
 ## Contents
 
 - [INSTALL DISTRO](#install-distro)

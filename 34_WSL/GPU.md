@@ -4,7 +4,7 @@ Working with GPU in WSL.
 
 TODO:
 
-* `nvidia-smi` is segfaulting.  
+* `nvidia-smi` is segfaulting.  Upgrade driver to latest.  
 
 NOTES:
 

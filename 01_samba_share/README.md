@@ -118,6 +118,17 @@ smbclient -L //[ip address] -U vagrant
 smbclient //[ip address]/sambashare -U vagrant 
 ```
 
+Mounting samba share
+
+```sh
+# location to host mount
+sudo mkdir -p /run/media/chrisguest/samba/multimedia 
+
+# samba share
+export PASSWORD=xxxx
+sudo mount -t cifs -o username=user1,password=${PASSWORD} //192.168.1.101/folder1 /run/media/chrisguest/samba/folder1 
+```
+
 ## Connect using MacOSX Finder
 
 Use `⌘+k` in finder to open the share dialog - use ```smb://[ip addr]/[name of share]``` to connect and enter your username and password.  
@@ -147,3 +158,4 @@ smbpasswd --help
 ## Resources
 
 * Ubuntu Sambashare [install-and-configure-samba](https://ubuntu.com/tutorials/install-and-configure-samba#1-overview)
+* https://www.samba.org/samba/

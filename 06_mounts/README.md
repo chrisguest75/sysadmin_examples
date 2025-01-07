@@ -2,6 +2,13 @@
 
 Demonstrates how to mount filesystems
 
+## Find disks
+
+```sh
+# get which id's map to which devices
+ls -lha /dev/disk/by-uuid
+```
+
 ## Create a virtual hard drive
 
 ```sh

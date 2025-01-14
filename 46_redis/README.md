@@ -16,9 +16,18 @@ just compose-shell
 
 # open cli
 redis-cli -h redisdb -p 6379
+# from aws console
+redis-cli -h mycluster.xxxxx.clustercfg.use1.cache.amazonaws.com -p 6379
 
 # clear the screen inside the cli
 clear
+
+# number of keys
+info
+info keyspace
+
+# 
+dbsize
 
 # help?
 

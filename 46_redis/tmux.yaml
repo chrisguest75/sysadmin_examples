@@ -1,0 +1,11 @@
+name: Test Redis 
+root: .
+
+windows:
+  - main:
+      layout: even-vertical
+      panes:
+        - command3: echo "** REDIS **" && just compose-up 
+        - command2: echo "** CLIENT **" && sleep 2 && just compose-shell
+        - command1: echo "** CLIENT **" && sleep 2 && just compose-shell
+        - command4: echo "** CLIENT **" && sleep 2 && just compose-shell

@@ -9,7 +9,8 @@ Use powershell to go through the disks.
 ```powershell
 wsl --list --verbose
 
-$location=(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq '2025_22_04_distro' }).GetValue("BasePath") + "\ext4.vhdx"
+$DISTRO_NAME="Ubuntu-24.04"  
+$location=(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq "$DISTRO_NAME" }).GetValue("BasePath") + "\ext4.vhdx"
 
 echo $location
 ```
@@ -29,10 +30,36 @@ GET-CimInstance -query "SELECT * from Win32_DiskDrive"
 wsl --mount \\.\PhysicalDrive1 --bare
 ```
 
+## WSL
+
+```sh
+# enter wsl
+wsl 
+
+# look for drive matching size. 
+lsblk 
+# you should be able to see the drive being mounted
+dmesg 
+```
+
 ## Fix
 
 ```sh
-sudo e2fsck -f /dev/sdf1
+sudo e2fsck -f /dev/sdd
+```
+
+## Host Powershell
+
+```powershell
+wsl --unmount \\.\PhysicalDrive1
+
+# list drives
+diskmgmt
+# or
+GET-CimInstance -query "SELECT * from Win32_DiskDrive"
+
+#To detach it completely (eg. if you want to (re)move the file)
+Dismount-VHD "${location}"
 ```
 
 ## Resources

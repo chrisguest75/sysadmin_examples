@@ -68,18 +68,24 @@ mount -o rw /dev/sdf1 ./code
 sudo chown -R ${USER}:chrisguest ./code
 ```
 
-## Umount
+## Umount (inside WSL)
 
 ```sh
 umount ./code
 ```
 
+## Host Powershell
 
 ```powershell
-wsl --unmount \\.\PhysicalDriveX
+wsl --unmount \\.\PhysicalDrive1
+
+# list drives
+diskmgmt
+# or
+GET-CimInstance -query "SELECT * from Win32_DiskDrive"
 
 #To detach it completely (eg. if you want to (re)move the file)
-Dismount-VHD support.vhdx
+Dismount-VHD "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}\code.vhdx"
 ```
 
 

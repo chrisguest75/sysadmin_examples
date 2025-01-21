@@ -63,7 +63,7 @@ mkdir ./code
 ## Mount
 
 ```sh
-mount -o rw /dev/sdf1 ./code
+mount -o rw /dev/sdd1 ./code
 # change ownership of folder to prevent read-only
 sudo chown -R ${USER}:chrisguest ./code
 ```

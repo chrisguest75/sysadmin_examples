@@ -2,14 +2,23 @@
 
 Information on checking and fixing vhd disks for distros.  
 
-## Locate Disks
+## Windows VHD Tools
+
+```sh
+chkdsk
+
+# checks if windows components are corrupted.
+dism /Online /Cleanup-Image /ScanHealth
+```
+
+## Locate VHDX Disks
 
 Use powershell to go through the disks.  
 
 ```powershell
 wsl --list --verbose
 
-$DISTRO_NAME="Ubuntu-24.04"  
+$DISTRO_NAME="2025_22_04_distro"  
 $location=(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq "$DISTRO_NAME" }).GetValue("BasePath") + "\ext4.vhdx"
 
 echo $location
@@ -68,4 +77,4 @@ Dismount-VHD "${location}"
 * https://learn.microsoft.com/en-us/windows/wsl/wsl2-mount-disk
 * https://unix.stackexchange.com/questions/766981/ubuntu-file-system-read-only-after-windows-system-restore-at-previous-point
 * https://anthony-f-tannous.medium.com/wsl2-how-to-prepare-and-attach-virtual-drives-vhd-ac17b1fc7a61
-
+* https://www.linkedin.com/pulse/how-repair-unreadable-corrupt-vhd-vhdx-file-cigati-solutions-qfhuf/

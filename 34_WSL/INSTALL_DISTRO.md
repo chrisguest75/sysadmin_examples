@@ -74,6 +74,7 @@ ls "${HOME}\Documents\WSLDistros\rootfs"
 ```powershell
 $DISTRO_NAME = "work_22_04_distro"
 $DISTRO_NAME = "kernel_build_distro"
+$DISTRO_NAME = "2025work_22_04_distro"
 
 # 23.10
 $ROOT_FS_ZIP = "ubuntu-mantic-wsl-amd64-wsl.rootfs.tar.gz"
@@ -115,6 +116,9 @@ wsl --terminate ${DISTRO_NAME}
 
 # look a running status
 wsl --list --verbose
+
+# set default distro in wsl
+wsl --set-default ${DISTRO_NAME}
 
 # backup (this seems to signal the distro to shutdown then fails.)
 # NOTE: This seems to be run inside a cmd prompt and then run pwsh - otherwise you get Error code: Wsl/Service/ERROR_SHARING_VIOLATION. 

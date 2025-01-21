@@ -16,7 +16,10 @@ New-VHD "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}\code.vhdx" -SizeBy
 # in admin powershell
 Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path "${HOME}\Documents\WSLDistros\imported\${DISTRO_NAME}\code.vhdx" -PassThru | Get-Disk).Number)"
 
+# list drives
 diskmgmt
+# or
+GET-CimInstance -query "SELECT * from Win32_DiskDrive"
 
 # physical drive number comes from command before
 wsl --mount \\.\PhysicalDrive1 --bare
@@ -60,10 +63,12 @@ mkdir ./code
 ## Mount
 
 ```sh
-mount -o remount,rw /dev/sdf1 ./code
+mount -o rw /dev/sdf1 ./code
+# change ownership of folder to prevent read-only
+sudo chown -R ${USER}:chrisguest ./code
 ```
 
-## UNMOUNT
+## Umount
 
 ```sh
 umount ./code
@@ -81,3 +86,5 @@ Dismount-VHD support.vhdx
 ## Resources
 
 * https://gist.github.com/lseongjoo/d38b29fdbd5c082880576d0c34f7593e
+* https://learn.microsoft.com/en-us/windows/wsl/wsl2-mount-disk
+* https://learn.microsoft.com/en-us/windows/wsl/disk-space

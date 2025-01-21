@@ -6,15 +6,34 @@ Information on checking and fixing vhd disks for distros.
 
 Use powershell to go through the disks.  
 
-```ps
+```powershell
 wsl --list --verbose
 
-(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq '2025_22_04_distro' }).GetValue("BasePath") + "\ext4.vhdx"
+$location=(Get-ChildItem -Path HKCU:\Software\Microsoft\Windows\CurrentVersion\Lxss | Where-Object { $_.GetValue("DistributionName") -eq '2025_22_04_distro' }).GetValue("BasePath") + "\ext4.vhdx"
 
-ls C:\Users\chris\Documents\WSLDistros\imported\2025_22_04_distro\ext4.vhdx
+echo $location
 ```
 
-## 
+## Mount on Host
+
+```powershell
+# in admin powershell
+Write-Output "\\.\PhysicalDrive$((Mount-VHD -Path "$location" -PassThru | Get-Disk).Number)"
+
+# list drives
+diskmgmt
+# or
+GET-CimInstance -query "SELECT * from Win32_DiskDrive"
+
+# physical drive number comes from command before
+wsl --mount \\.\PhysicalDrive1 --bare
+```
+
+## Fix
+
+```sh
+sudo e2fsck -f /dev/sdf1
+```
 
 ## Resources
 

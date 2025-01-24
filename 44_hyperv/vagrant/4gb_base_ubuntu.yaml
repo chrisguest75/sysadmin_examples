@@ -1,0 +1,9 @@
+vagrantid: "4gb_base_ubuntu"
+name: "ubuntu"
+box: "generic/ubuntu2204"
+#box: "ubuntu/noble64"
+#box: "hashicorp/focal64"
+# box: "hashicorp/bionic64"
+
+memory: 4096
+

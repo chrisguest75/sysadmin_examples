@@ -1,5 +1,13 @@
 # DISK
 
+## IO
+
+iostat - Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
+
+```sh
+iostat -x 1
+```
+
 ## lsblk
 
 lsblk lists information about all or the specified block devices. The lsblk command reads the sysfs filesystem to gather information.
@@ -28,3 +36,4 @@ Display disk usage statistics
 # disk usage (depth 1)q
 du -h -d1 ./
 ```
+

@@ -8,6 +8,23 @@ iostat - Report Central Processing Unit (CPU) statistics and input/output statis
 iostat -x 1
 ```
 
+sar - Collect, report, or save system activity information.
+
+```sh
+sar
+```
+
+iotop - simple top-like I/O monitor
+
+```sh
+apt install iotop
+
+iotop
+
+# accumulated
+iotop -aoP
+```
+
 ## lsblk
 
 lsblk lists information about all or the specified block devices. The lsblk command reads the sysfs filesystem to gather information.

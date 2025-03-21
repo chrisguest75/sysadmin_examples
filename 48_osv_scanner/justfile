@@ -1,0 +1,16 @@
+set dotenv-load := true
+
+# default lists actions
+default:
+  @just -f justfile --list
+
+nix:
+  #!/usr/bin/env bash
+  set -xeufo pipefail
+  nix develop --command zsh
+
+
+scan-repo path *args:
+  #!/usr/bin/env bash
+  set -xeufo pipefail
+  osv-scanner scan --recursive {{ args }} {{ path }}

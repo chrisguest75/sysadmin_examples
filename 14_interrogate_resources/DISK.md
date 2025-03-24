@@ -1,5 +1,18 @@
 # DISK
 
+Reporting on disks.  
+
+## Contents
+
+- [DISK](#disk)
+  - [Contents](#contents)
+  - [IO](#io)
+  - [lsblk](#lsblk)
+  - [df](#df)
+  - [du](#du)
+  - [smartctl](#smartctl)
+  - [Resources](#resources)
+
 ## IO
 
 iostat - Report Central Processing Unit (CPU) statistics and input/output statistics for devices and partitions.
@@ -54,3 +67,17 @@ Display disk usage statistics
 du -h -d1 ./
 ```
 
+## smartctl
+
+Use `smartctl` to scan drives.  
+
+```sh
+nix-shell -p smartmontools --command zsh
+
+# get details on nvme device
+sudo smartctl -a /dev/nvme0
+```
+
+## Resources
+
+* https://www.smartmontools.org/

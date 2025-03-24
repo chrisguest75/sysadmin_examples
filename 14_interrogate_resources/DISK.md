@@ -11,6 +11,7 @@ Reporting on disks.
   - [df](#df)
   - [du](#du)
   - [smartctl](#smartctl)
+  - [nvme-cli](#nvme-cli)
   - [Resources](#resources)
 
 ## IO
@@ -78,6 +79,18 @@ nix-shell -p smartmontools --command zsh
 sudo smartctl -a /dev/nvme0
 ```
 
+## nvme-cli
+
+Use nvme-cli to get detailed information on NVMe drive
+
+```sh
+nix-shell -p nvme-cli --command zsh
+
+sudo nvme list
+sudo nvme smart-log /dev/nvme0n1
+```
+
 ## Resources
 
 * https://www.smartmontools.org/
+* NVM-Express user space tooling for Linux. [here](https://github.com/linux-nvme/nvme-cli)

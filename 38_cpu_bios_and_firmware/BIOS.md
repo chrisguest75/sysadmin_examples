@@ -9,9 +9,14 @@ sudo dmidecode
 sudo dmidecode -s bios-version
 ```
 
-## Update
+## Firmware Updates
 
 ```sh
+nix-shell -p fwupd --command zsh
+
+fwupdtool --verbose --help
+sudo fwupdtool get-updates 
+
 fwupdmgr --help
 ```
 

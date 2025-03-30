@@ -2,6 +2,10 @@
 
 Demonstrate how to get aarch64 machine running on qemu (ubuntu)
 
+NOTES:
+
+* `armv6l-linux` & `armv7l-linux` are 32-bit, whereas `aarch64` is 64-bit
+
 ## Prereqs
 
 ```sh
@@ -24,6 +28,7 @@ qemu-system-arm -M  help
 qemu-system-aarch64 -version  
 qemu-system-aarch64 -M  help
 
+# on debian
 apt-file list qemu-kvm
 apt-file list qemu-system   
 ```

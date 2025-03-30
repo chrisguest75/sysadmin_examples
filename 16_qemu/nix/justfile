@@ -1,0 +1,14 @@
+#!/usr/bin/env just --justfile
+# ^ A shebang isn't required, but allows a justfile to be executed
+#   like a script, with `./justfile test`, for example.
+
+set dotenv-load := true
+
+# default lists actions
+default:
+  @just -f justfile --list
+
+nix:
+  #!/usr/bin/env bash
+  set -eufo pipefail
+  nix run

@@ -30,6 +30,16 @@ dpkg -c ./out/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 sudo dpkg -i ./out/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 ```
 
+## VLC failing to run
+
+Not sure how VLC can't work this out. But it will segfault if the fontcache is broken.  
+
+```sh
+sudo rm /var/cache/fontconfig/*
+rm ~/.cache/fontconfig/*
+fc-cache -r
+```
+
 ## Resources
 
 * LibSSL debian packages [here](http://security.ubuntu.com/ubuntu/pool/main/o/openssl/)

@@ -1,6 +1,6 @@
 # GNOME
 
-## VErsion
+## Version
 
 Goto the Settings->System->About  
 

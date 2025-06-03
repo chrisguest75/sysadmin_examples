@@ -1,0 +1,40 @@
+FROM ubuntu:24.04
+
+ENV LANG=en_US.UTF-8  
+ENV LANGUAGE=en_US:en  
+ENV LC_ALL=en_US.UTF-8  
+ARG DEBIAN_FRONTEND=noninteractive
+
+#ARG REPOSITORY_URL=
+#RUN echo "deb [trusted=yes] ${REPOSITORY_URL} ./" | tee -a /etc/apt/sources.list > /dev/null 
+
+RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
+    --mount=type=cache,target=/var/lib/apt,sharing=locked \
+    <<EOF bash
+    set -euxo pipefail
+
+    # switch to https (does not install curl)
+    # sed --in-place "s/http/https/g" /etc/apt/sources.list.d/ubuntu.sources
+
+    # configure kent mirror
+    sed --in-place --regexp-extended 's http://(us\.archive\.ubuntu\.com|security\.ubuntu\.com) http://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ g' /etc/apt/sources.list.d/ubuntu.sources
+    
+    apt-get update 
+    apt-get install -fy -qq --no-install-recommends apt-transport-https bash ca-certificates curl software-properties-common python3-pip
+    # Do not clean out package caches so I can play with the image.
+    # apt-get clean 
+
+    cat /etc/apt/sources.list.d/ubuntu.sources
+
+    add-apt-repository --list
+    
+    # apt-select does not work
+    #pip3 install apt-select --break-system-packages
+    #apt-select --list
+EOF
+
+#RUN apt search hello-world
+#RUN apt-cache show hello-world
+
+ENTRYPOINT ["/bin/bash"]
+

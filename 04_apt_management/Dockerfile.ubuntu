@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/var/cache/apt,sharing=locked \
     # sed --in-place "s/http/https/g" /etc/apt/sources.list.d/ubuntu.sources
 
     # configure kent mirror
-    sed --in-place --regexp-extended 's http://(us\.archive\.ubuntu\.com|security\.ubuntu\.com) http://www.mirrorservice.org/sites/archive.ubuntu.com/ubuntu/ g' /etc/apt/sources.list.d/ubuntu.sources
+    sed --in-place --regexp-extended 's http://(us\.archive\.ubuntu\.com|security\.ubuntu\.com) http://www.mirrorservice.org/sites/archive.ubuntu.com g' /etc/apt/sources.list.d/ubuntu.sources
     
     apt-get update 
     apt-get install -fy -qq --no-install-recommends apt-transport-https bash ca-certificates curl software-properties-common python3-pip

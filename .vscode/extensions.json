@@ -1,0 +1,12 @@
+{
+    "recommendations": [
+        "davidanson.vscode-markdownlint",
+        "vivaxy.vscode-conventional-commits",
+        "docsmsft.docs-markdown",
+        "yzhang.markdown-all-in-one",
+        "bierner.github-markdown-preview",
+        "bierner.markdown-preview-github-styles",
+        "bierner.markdown-mermaid",
+        "qcz.text-power-tools"
+    ]
+}

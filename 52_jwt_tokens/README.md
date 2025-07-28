@@ -1,5 +1,8 @@
 # JWT
 
+TODO:
+
+* Play around with some vulnerable auth packages.  
 
 ## JWT Algorithm Switching Vulnerability
 

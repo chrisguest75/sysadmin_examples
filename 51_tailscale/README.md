@@ -1,5 +1,7 @@
 # TAILSCALE
 
+REF: Hosting a docker container on tailnet [here](https://github.com/chrisguest75/docker_examples/tree/master/AA_tailscale)  
+
 TODO:
 
 * `tailscale set --stateful-filtering=false`?

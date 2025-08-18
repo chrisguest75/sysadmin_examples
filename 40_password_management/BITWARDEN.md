@@ -47,7 +47,42 @@ REF: [08_ssh/README.md](../08_ssh/README.md)
 You can add credentials as `notes`.  
 
 ```sh
-bw list items --search testEnvironment | jq -r '.[0].notes' | cat
+mkdir -p ./out
+
+cat <<EOF > ./out/.env
+MY_API_KEY=123456789
+MY_USER=me@email.me
+EOF
+
+bw list folders | jq .
+
+bw list collections | jq .
+
+bw get template item | jq '.type = 2 | .secureNote.type = 0 | .notes = "Contents of my Secure Note." | .name = "My Secure Note"'
+
+
+export COLLECTION_ID=00000000-0000-0000-0000-000000000000
+export FOLDER_ID=00000000-0000-0000-0000-000000000000
+export NOTES=$(awk '{printf "%s\\n", $0}' ./out/.env)
+
+cat <<EOF > ./out/note.json
+{
+  "type": 2,
+  "name": "My Secure Note",
+  "notes": "$(awk '{printf "%s\\n", $0}' ./out/.env)",
+  "folderId": "${FOLDER_ID}",
+  "collectionIds": ["${COLLECTION_ID}"]
+}
+EOF
+bw create item "$(bw encode < ./out/note.json)"
+
+bw get template item | jq ".type = 2 | .secureNote.type = 0 | .notes = \"${NOTES}\" | .name = \"My Secure Note\" | .folderId = \"${FOLDER_ID}\" | .collectionIds = [\"${COLLECTION_ID}\"]" | bw encode | bw create item
+```
+
+Search notes.  
+
+```sh
+bw list items --search "My Secure Note" | jq -r '.[0].notes' | cat
 ```
 
 ## Resources

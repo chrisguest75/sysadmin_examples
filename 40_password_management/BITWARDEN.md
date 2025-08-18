@@ -90,3 +90,4 @@ bw list items --search "My Secure Note" | jq -r '.[0].notes' | cat
 * https://bitwarden.com/
 * https://bitwarden.com/help/github-actions-integration/
 * https://bitwarden.com/help/ssh-agent/
+* Password Manager CLI [here](https://bitwarden.com/help/cli)

@@ -42,6 +42,14 @@ You can use the desktop appliction as an ssh agent. [Details](https://bitwarden.
 
 REF: [08_ssh/README.md](../08_ssh/README.md)  
 
+## Sharing .env files
+
+You can add credentials as `notes`.  
+
+```sh
+bw list items --search testEnvironment | jq -r '.[0].notes' | cat
+```
+
 ## Resources
 
 * https://bitwarden.com/

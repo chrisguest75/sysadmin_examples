@@ -3,6 +3,7 @@
 TODO:
 
 * I want to check the only secrets that make it into a build - go through env file and scan for particular secrets
+* It doesn't seem to scan at the moment
 
 ## Trufflehog
 
@@ -16,7 +17,7 @@ trufflehog filesystem ./
 
 ## Precommit
 
-Adding a hook.  aQ00gMZP7HMKFV5wYFaV
+Adding a hook.  
 
 ```sh
 # install pre-commmit (prerequisite for commitizen)

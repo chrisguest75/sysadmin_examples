@@ -16,6 +16,8 @@ trufflehog filesystem ./
 
 ## Precommit
 
+Adding a hook.  aQ00gMZP7HMKFV5wYFaV
+
 ```sh
 # install pre-commmit (prerequisite for commitizen)
 brew install pre-commit

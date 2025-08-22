@@ -79,6 +79,14 @@ Search notes.
 bw list items --search "$SECRET_NAME" | jq -r '.[0].notes' | cat | base64 -d
 ```
 
+## Update Secret
+
+```sh
+export SECRET_ID=$(bw list items --search "$SECRET_NAME" | jq -r '.[0].id')
+echo $SECRET_ID
+bw get template item | jq ".type = 2 | .secureNote.type = 0 | .notes = \"${NOTES}\" | .name = \"${SECRET_NAME}\" | .folderId = \"${FOLDER_ID}\" | .collectionIds = [\"${COLLECTION_ID}\"]" | bw encode | bw edit item $SECRET_ID
+```
+
 ## Resources
 
 * https://bitwarden.com/

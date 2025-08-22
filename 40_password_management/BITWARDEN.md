@@ -27,7 +27,8 @@ nix-shell -p bitwarden-cli
 ```sh
 # if configuring a tenant
 bw config server https://vault.bitwarden.eu
-# user and password
+# user and password 
+# (NOTE: You may need to logout first so you can reacquire a session key)
 bw login
 
 export BW_SESSION="xxxxxxxxxxxxxxxxxx"

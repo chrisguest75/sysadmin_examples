@@ -51,39 +51,32 @@ You can add credentials as `notes`.
 mkdir -p ./out
 
 cat <<EOF > ./out/.env
-MY_API_KEY=123456789
-MY_USER=me@email.me
+MY_API_KEY="123456789"
+MY_USER="me@email.me"
 EOF
 
 bw list folders | jq .
 
 bw list collections | jq .
 
-bw get template item | jq '.type = 2 | .secureNote.type = 0 | .notes = "Contents of my Secure Note." | .name = "My Secure Note"'
-
-
 export COLLECTION_ID=00000000-0000-0000-0000-000000000000
 export FOLDER_ID=00000000-0000-0000-0000-000000000000
-export NOTES=$(awk '{printf "%s\\n", $0}' ./out/.env)
 
-cat <<EOF > ./out/note.json
-{
-  "type": 2,
-  "name": "My Secure Note",
-  "notes": "$(awk '{printf "%s\\n", $0}' ./out/.env)",
-  "folderId": "${FOLDER_ID}",
-  "collectionIds": ["${COLLECTION_ID}"]
-}
-EOF
-bw create item "$(bw encode < ./out/note.json)"
+# Use base64 with cmd automation
+export SECRET_NAME=my_test_secret
+export ENVIRONMENT_FILE=./out/.env
+export NOTES=$(cat $ENVIRONMENT_FILE | base64)
+echo $NOTES
 
-bw get template item | jq ".type = 2 | .secureNote.type = 0 | .notes = \"${NOTES}\" | .name = \"My Secure Note\" | .folderId = \"${FOLDER_ID}\" | .collectionIds = [\"${COLLECTION_ID}\"]" | bw encode | bw create item
+#export NOTES="hello"
+bw get template item | jq ".type = 2 | .secureNote.type = 0 | .notes = \"${NOTES}\" | .name = \"${SECRET_NAME}\" | .folderId = \"${FOLDER_ID}\" | .collectionIds = [\"${COLLECTION_ID}\"]" | bw encode | bw create item
 ```
 
 Search notes.  
 
 ```sh
-bw list items --search "My Secure Note" | jq -r '.[0].notes' | cat
+# only find first secret with the name
+bw list items --search "$SECRET_NAME" | jq -r '.[0].notes' | cat | base64 -d
 ```
 
 ## Resources

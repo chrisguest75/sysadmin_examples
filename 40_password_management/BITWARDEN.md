@@ -5,6 +5,7 @@ NOTES:
 * Free accounts for 2 users.  
 * Has a secrets managet for automated processes.  
 * Can be located in US or EU (when logging in be careful to select correct location or it can be confusing when password is not accepted)
+* The BW_SESSION seems to have a view of time - if secrets are changed after the login it will be old version of secret. 
 
 ## Install
 

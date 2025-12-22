@@ -9,16 +9,17 @@ Refer to [terraform_examples/19_sops](https://github.com/chrisguest75/terraform_
 ```sh
 brew install sops
 
-# show version
+# show version (sops 3.11.0)
 sops -v  
 ```
 
 ## Install gpg
 
-Instal gpg tooling
+Install gpg tooling
 
 ```sh
 brew install gpg            
+# gpg (GnuPG) 2.4.8
 gpg --version       
 
 # compare to latest

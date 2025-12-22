@@ -42,7 +42,7 @@ pre-commit install --hook-type commit-msg --hook-type pre-push
   - [15 - GPG Signing](#15---gpg-signing)
   - [16 - QEMU](#16---qemu)
   - [17 - Juypter](#17---juypter)
-  - [18 - SOPS](#18---sops)
+  - [18 - SOPS GPG](#18---sops-gpg)
   - [19 - LetsEncrypt](#19---letsencrypt)
   - [20 - strace](#20---strace)
   - [22 - websockets reverse proxy](#22---websockets-reverse-proxy)
@@ -153,10 +153,10 @@ Steps [README.md](./16_qemu/README.md)
 Demonstrate how to get a juypter server running  
 Steps [README.md](./17_juypter/README.md)  
 
-## 18 - SOPS
+## 18 - SOPS GPG
 
 Demonstrate how to use Mozilla SOPS.  
-Steps [README.md](./18_sops/README.md)  
+Steps [README.md](./18_sops_gpg/README.md)  
 
 ## 19 - LetsEncrypt
 

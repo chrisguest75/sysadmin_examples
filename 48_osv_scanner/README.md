@@ -25,6 +25,10 @@ just scan-repo ../my_repo --json | jq .
 ```sh
 docker pull nginx:1.27.4
 osv-scanner scan --docker nginx:1.27.4
+
+# NOTE: It doesn't seem to be scanning the .venv or pipfile.lock in the container.
+mkdir -p ./out
+osv-scanner scan --experimental-all-packages --format=json --docker nginx:1.27.4 > ./out/nginx1.27.4.json
 ```
 
 ## Resources

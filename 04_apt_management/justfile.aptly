@@ -1,0 +1,33 @@
+set dotenv-load := true
+
+# default lists actions
+default:
+  @just -f justfile.aptly --list
+
+# create aptly volume 
+aptly-create-volume: 
+  docker volume create --name aptly-data
+  # create key 
+  docker run --rm --log-driver=none --volume aptly-data:/opt/aptly urpylka/aptly:latest /opt/keys_gen.sh "Test User" "your@email.com" "Password"
+
+aptly-delete-volume: 
+  docker volume rm aptly-data
+
+# start aptly 
+aptly-start: 
+  #!/usr/bin/env bash
+  set -xeufo pipefail  
+
+  # start nginx
+  docker run --rm --detach=true --log-driver=syslog --restart=always --name="aptly" --publish 8080:80 --volume aptly-data:/opt/aptly urpylka/aptly:latest
+
+aptly-stop: 
+  #!/usr/bin/env bash
+  set -xeufo pipefail  
+  docker stop aptly
+
+aptly-exec: 
+  #!/usr/bin/env bash
+  set -xeufo pipefail  
+
+  docker exec -it aptly bash
